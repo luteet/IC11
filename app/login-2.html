@@ -1,0 +1,128 @@
+@@include("html/_header-login-2.html")
+
+	<main class="main">
+		<section class="login">
+			<div class="login__wrapper">
+				<div class="login__col">
+					<div class="login__header">
+						<div class="login__logo">
+							<picture>
+								<source srcset="img/logo-2.avif" type="image/avif">
+								<source srcset="img/logo-2.webp" type="image/webp">
+								<img src="img/logo-2.png" alt="" width="100" height="100" loading="lazy">
+							</picture>
+						</div>
+						<div class="login__lang drop-down">
+							<button class="login__lang--target drop-down__target" type="button">
+								<span>
+									En
+								</span>
+								<svg width="10" height="7" viewBox="0 0 10 7" class="login__lang--target-arrow drop-down__target--arrow">
+									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+								</svg>
+							</button>
+							<div class="login__lang--block drop-down__block">
+								<ul class="login__lang--list drop-down__list">
+									<li>
+										<a href="#">
+											Укр
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="login__main">
+						<form class="login__form">
+							<h1 class="login__title title is-large">
+								Login
+							</h1>
+							<div class="login__drop-down drop-down select-drop-down">
+								<button class="drop-down__target select-drop-down__target" type="button" aria-label="CES clean energy solutions">
+									<span>CES clean energy solutions</span>
+									<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow select-drop-down__target--arrow">
+										<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+									</svg>
+								</button>
+								<div class="drop-down__block select-drop-down__block">
+									<ul class="drop-down__list">
+										<li>
+											<a href="login.html">
+												iC Ukraine
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<label class="login__label">
+								<input type="email" name="email" placeholder="E-mail" required class="login__input input">
+							</label>
+							<label class="login__label">
+								<input type="password" name="password" placeholder="Password" required class="login__input input password-input">
+								<button class="login__show-password password-input__visible-toggle" type="button" title="Show/Hide password">
+									<svg width="15" height="15" viewBox="0 0 15 15">
+										<use xlink:href="img/sprites.svg#password-hidden"></use>
+									</svg>
+									<svg width="15" height="15" viewBox="0 0 15 15">
+										<use xlink:href="img/sprites.svg#password-viewed"></use>
+									</svg>
+								</button>
+							</label>
+							<div class="login__checkbox">
+								<label class="checkbox">
+									<input type="checkbox" name="stay-logged-in" class="checkbox__input">
+									<span class="checkbox__element">
+										<svg width="11" height="8" viewBox="0 0 11 8">
+											<use xlink:href="img/sprites.svg#check"></use>
+										</svg>
+									</span>
+									<span class="checkbox__text">
+										Stay logged in
+									</span>
+								</label>
+							</div>
+							<div class="login__form-row">
+								<button class="login__submit btn" type="submit">
+									Log in
+									<svg width="15" height="15" viewBox="0 0 15 15">
+										<use xlink:href="img/sprites.svg#login"></use>
+									</svg>
+								</button>
+								<a href="#forgot-password-popup" class="login__button btn is-transparent is-grey open-popup">
+									Forgot password
+								</a>
+							</div>
+						</form>
+					</div>
+					<div class="login__footer">
+						<ul class="login__privacy">
+							<li>
+								<a href="#">
+									Legal notice
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									Compliance policy
+								</a>
+							</li>
+						</ul>
+						<div class="login__copyright">
+							Copyright © iC consulenten 2013 — 2023. All rights reserved.
+						</div>
+					</div>
+				</div>
+				<div class="login__col">
+					<div class="login__image">
+						<picture>
+							<source srcset="img/login/login-decor-2.avif" type="image/avif">
+							<source srcset="img/login/login-decor-2.webp" type="image/webp">
+							<img src="img/login/login-decor-2.png" alt="" width="0" height="0" loading="lazy">
+						</picture>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+
+@@include("html/_footer-login.html")

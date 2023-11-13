@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" style="--accent: #EF3129; --accent-light: #FF0A00; --accent-dark: #CB241D; --theme-text-color: #fff;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+	<div class="wrapper">
+		<aside class="aside">
+			<button class="aside__slide-toggle" type="button">
+				<svg width="10" height="7" viewBox="0 0 10 7">
+					<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+				</svg>
+			</button>
+			<div class="aside__body" data-simplebar>
+				<div class="aside__body--wrapper">
+					<div class="aside__header">
+						<div class="aside__logo">
+							<a href="#" class="aside__logo--link">
+								<picture>
+									<source srcset="img/logo.avif" type="image/avif">
+									<source srcset="img/logo.webp" type="image/webp">
+									<img src="img/logo.png" alt="" width="40" height="40" loading="lazy" class="aside">
+								</picture>
+							</a>
+						</div>
+						<button class="aside__burger" type="button" aria-label="Menu">
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+					</div>
+					<div class="aside__block">
+						<div class="aside__block--background"></div>
+						<div class="aside__block--body">
+							<nav class="aside__nav">
+								<ul>
+									<li>
+										<a href="#" class="is-current">
+											<svg width="25" height="25" viewBox="0 0 25 25">
+												<use xlink:href="img/sprites.svg#timesheet"></use>
+											</svg>
+											<span>Timesheet</span>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<svg width="25" height="25" viewBox="0 0 25 25">
+												<use xlink:href="img/sprites.svg#calendar-check"></use>
+											</svg>
+											<span>Costs</span>
+										</a>
+									</li>
+									<li>
+										<div class="drop-down is-dark">
+											<button type="button" class="drop-down__target">
+												<svg width="25" height="25" viewBox="0 0 25 25">
+													<use xlink:href="img/sprites.svg#calendar-selected"></use>
+												</svg>
+												<span>Summary</span>
+												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+												</svg>
+											</button>
+											<div class="drop-down__block">
+												<ul class="drop-down__list">
+													<li>
+														<a href="#">
+															<span>Param 1</span>
+															<span>
+																<svg width="15" height="15" viewBox="0 0 13 13">
+																	<use xlink:href="img/sprites.svg#user"></use>
+																</svg>
+															</span>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<span>Param 2</span>
+															<span>
+																<svg width="15" height="15" viewBox="0 0 13 13">
+																	<use xlink:href="img/sprites.svg#user"></use>
+																</svg>
+															</span>
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</nav>
+							<div class="aside__add">
+								<a href="#" class="aside__user" style="--avatar-theme: #EF3129;" aria-label="Olena Rybak">
+									<div class="aside__user--avatar">
+										OR
+									</div>
+									<strong class="aside__user--name">
+										Olena Rybak
+									</strong>
+								</a>
+								<div class="aside__user-nav">
+									<a href="#" class="aside__user-nav--button btn">
+										<span>Show my profile</span>
+										<span>
+											<svg width="16" height="16" viewBox="0 0 13 13">
+												<use xlink:href="img/sprites.svg#user"></use>
+											</svg>
+										</span>
+									</a>
+									<a href="#" class="aside__log-out">
+										<svg width="16" height="17" viewBox="0 0 16 17">
+											<use xlink:href="img/sprites.svg#logout"></use>
+										</svg>
+										Log out
+									</a>
+								</div>
+								<div class="aside__add--list">
+									<div class="aside__add--item">
+										<div class="aside__min-drop-down drop-down is-dark is-bottom">
+											<button class="aside__min-drop-down--target drop-down__target" type="button">
+												<i>
+													<svg width="15" height="15" viewBox="0 0 15 15">
+														<use xlink:href="img/sprites.svg#language"></use>
+													</svg>
+												</i>
+												<span>
+													En
+												</span>
+												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+												</svg>
+											</button>
+											<div class="aside__min-drop-down--block drop-down__block">
+												<ul class="drop-down__list">
+													<li>
+														<a href="#" aria-label="Українська">
+															Укр
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="aside__add--item">
+										<div class="aside__min-drop-down drop-down is-dark is-bottom">
+											<button class="aside__min-drop-down--target drop-down__target" type="button">
+												<i>
+													<svg width="15" height="15" viewBox="0 0 20 20">
+														<use xlink:href="img/sprites.svg#money"></use>
+													</svg>
+												</i>
+												<span>
+													UAH
+												</span>
+												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+												</svg>
+											</button>
+											<div class="aside__min-drop-down--block drop-down__block">
+												<ul class="drop-down__list">
+													<li>
+														<a href="#">
+															EUR
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- <div class="aside__language drop-down is-dark is-bottom">
+									<button class="aside__language--target drop-down__target" type="button">
+										<i>
+											<svg width="15" height="15" viewBox="0 0 15 15">
+												<use xlink:href="img/sprites.svg#language"></use>
+											</svg>
+										</i>
+										<span>
+											<span>English</span>
+											<span>En</span>
+										</span>
+										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+										</svg>
+									</button>
+									<div class="aside__language--block drop-down__block">
+										<ul class="drop-down__list">
+											<li>
+												<a href="#" aria-label="Українська">
+													<span>
+														<span>Українська</span>
+														<span>Укр</span>
+													</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+				if(localStorage.getItem('ic11-aside-min') == "true") {
+					document.querySelector('.aside').classList.add('is-min');
+					document.querySelector('.aside').classList.add('is-min-2');
+				}
+			</script>
+		</aside>

@@ -1,0 +1,80 @@
+<div class="down-sidebar">
+	<button class="down-sidebar__arrow-target" type="button">
+		<svg width="10" height="7" viewBox="0 0 10 7">
+			<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+		</svg>
+	</button>
+	<div class="down-sidebar__wrapper">
+		<div class="down-sidebar__target-place">
+			<div class="down-sidebar__target-place--row">
+				<button class="down-sidebar__comments-target btn is-grey" type="button">
+					<svg width="13" height="13" viewBox="0 0 13 13">
+						<use xlink:href="img/sprites.svg#comments"></use>
+					</svg>
+					Comments (3)
+				</button>
+				<div class="down-sidebar__total-target">
+					<span>Total for month:</span>
+					<div class="down-sidebar__total-target--value">
+						45 hours
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="down-sidebar__row">
+			<div>
+				<div class="down-sidebar__col">
+					<div class="down-sidebar__chat">
+						<div class="down-sidebar__chat-block" data-simplebar data-simplebar-auto-hide="false">
+							@@loop("_down-sidebar-chat-item.html", [
+								{},
+								{},
+								{},
+								{},
+								{},
+							])
+						</div>
+						<div class="down-sidebar__chat-user-panel">
+							<label>
+								<input type="text" name="comment" placeholder="Add new comment" required class="input">
+							</label>
+							<button type="submit" title="Send">
+								<svg width="17" height="17" viewBox="0 0 17 17">
+									<use xlink:href="img/sprites.svg#send"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="down-sidebar__col">
+					<div class="down-sidebar__total">
+						<div class="down-sidebar__total-block" data-simplebar data-simplebar-auto-hide="false">
+							@@loop("_down-sidebar-total-item.html", [
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+							])
+						</div>
+						<div class="down-sidebar__total-footer">
+							<div class="down-sidebar__total-value">
+								<span>Total for month:</span>
+								<b>45 hours</b>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,306 @@
+@@include("html/_header.html")
+
+	<main class="main">
+		<section class="section-table">
+			<h1 class="section-table__title title">
+				Employees
+			</h1>
+			<div class="section-table__header">
+				<div class="section-table__header--row">
+					<div class="section-table__header--col">
+						<a href="#add-new-employee-popup" class="section-table__add-member btn open-popup">
+							Add new member
+							<svg width="16" height="15" viewBox="0 0 16 15">
+								<use xlink:href="img/sprites.svg#plus"></use>
+							</svg>
+						</a>
+						<form class="section-table__search">
+							<label class="section-table__search--label">
+								<input type="search" required name="search" placeholder="Search a project" class="section-table__search--input">
+							</label>
+							<button class="section-table__search--submit btn is-grey is-min-on-mob" type="submit">
+								Search
+								<svg width="15" height="15" viewBox="0 0 15 15">
+									<use xlink:href="img/sprites.svg#search"></use>
+								</svg>
+							</button>
+						</form>
+					</div>
+					<div class="section-table__header--col">
+						<div class="section-table__change-date drop-down">
+							<button class="section-table__change-date--target drop-down__target" type="button">
+								2023
+								<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-date--target-arrow drop-down__target--arrow">
+									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+								</svg>
+							</button>
+							<div class="section-table__change-date--block drop-down__block">
+								<div class="section-table__change-date--slider splide">
+									<div class="splide__track">
+										<ul class="splide__list">
+											<li class="splide__slide">
+												<label>
+													<input type="radio" name="year" value="2021">
+													<span>2021</span>
+												</label>
+											</li>
+											<li class="splide__slide">
+												<label>
+													<input type="radio" name="year" value="2022">
+													<span>2022</span>
+												</label>
+											</li>
+											<li class="splide__slide">
+												<label>
+													<input type="radio" name="year" value="2023" checked>
+													<span>2023</span>
+												</label>
+											</li>
+											<li class="splide__slide is-disabled">
+												<label>
+													<input type="radio" name="year" value="2024" disabled>
+													<span>2024</span>
+												</label>
+											</li>
+										</ul>
+									</div>
+									<div class="splide__arrows">
+										<button class="splide__arrow splide__arrow--prev" type="button">
+											<svg width="7" height="10" viewBox="0 0 7 10">
+												<use xlink:href="img/sprites.svg#arrow-prev"></use>
+											</svg>
+										</button>
+										<button class="splide__arrow splide__arrow--next" type="button">
+											<svg width="7" height="10" viewBox="0 0 7 10">
+												<use xlink:href="img/sprites.svg#arrow-next"></use>
+											</svg>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="section-table__export drop-down">
+							<button class="section-table__export--target drop-down__target" type="button">
+								Export
+								<svg width="16" height="17" viewBox="0 0 16 17">
+									<use xlink:href="img/sprites.svg#download"></use>
+								</svg>
+							</button>
+							<div class="section-table__export--block drop-down__block">
+								<ul class="drop-down__list">
+									<li>
+										<a href="#">
+											Export as .xlsx
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											Export as .pdf
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="section-table__main table-employees">
+				<div class="section-table__main--container">
+					<div class="section-table__main--wrapper">
+						<div class="section-table__head">
+							<div class="section-table__head-row">
+								<div class="section-table__head-th visible-on-mob">
+									<span class="section-table__main--param">
+										<span>№</span>
+										<span>
+											<div class="section-table__main--sort drop-down">
+												<button class="section-table__main--sort-target drop-down__target" type="button">
+													<svg width="13" height="13" viewBox="0 0 13 13">
+														<use xlink:href="img/sprites.svg#user"></use>
+													</svg>
+													Name
+													<svg width="10" height="15" viewBox="0 0 11 15">
+														<use xlink:href="img/sprites.svg#sort-up-down"></use>
+													</svg>
+												</button>
+												<div class="section-table__main--sort-block drop-down__block">
+													<ul class="drop-down__list">
+														<li>
+															<a href="#">
+																<svg width="15" height="16" viewBox="0 0 15 16">
+																	<use xlink:href="img/sprites.svg#sort-asc"></use>
+																</svg> 
+																A-Z
+															</a>
+														</li>
+														<li>
+															<a href="#">
+																<svg width="15" height="16" viewBox="0 0 15 16">
+																	<use xlink:href="img/sprites.svg#sort-asc"></use>
+																</svg> 
+																Z-A
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</span>
+									</span>
+								</div>
+								<div class="section-table__head-th visible-on-desktop">
+									<span class="section-table__main--param">
+										№
+									</span>
+								</div>
+								<div class="section-table__head-th visible-on-desktop">
+									<div class="section-table__main--sort drop-down">
+										<button class="section-table__main--sort-target drop-down__target" type="button">
+											<svg width="13" height="13" viewBox="0 0 13 13">
+												<use xlink:href="img/sprites.svg#user"></use>
+											</svg>
+											Name
+											<svg width="10" height="15" viewBox="0 0 11 15">
+												<use xlink:href="img/sprites.svg#sort-up-down"></use>
+											</svg>
+										</button>
+										<div class="section-table__main--sort-block drop-down__block">
+											<ul class="drop-down__list">
+												<li>
+													<a href="#">
+														<svg width="15" height="16" viewBox="0 0 15 16">
+															<use xlink:href="img/sprites.svg#sort-asc"></use>
+														</svg> 
+														A-Z
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														<svg width="15" height="16" viewBox="0 0 15 16">
+															<use xlink:href="img/sprites.svg#sort-asc"></use>
+														</svg> 
+														Z-A
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="section-table__head-th">
+									<span class="section-table__main--param">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#position"></use>
+										</svg>
+										Position in company
+									</span>
+								</div>
+								<div class="section-table__head-th">
+									<div class="section-table__main--sort drop-down">
+										<button class="section-table__main--sort-target drop-down__target" type="button">
+											<svg width="13" height="13" viewBox="0 0 13 13">
+												<use xlink:href="img/sprites.svg#flag"></use>
+											</svg>
+											Status
+											<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+												<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+											</svg>
+										</button>
+										<div class="section-table__main--sort-block drop-down__block">
+											<ul class="drop-down__list">
+												<li>
+													<a href="#">
+														Admin
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														Team mananager
+													</a>
+												</li>
+												<li>
+													<a href="#">
+														Employee
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="section-table__head-th">
+									<span class="section-table__main--param">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#email"></use>
+										</svg>
+										Email
+									</span>
+								</div>
+								<div class="section-table__head-th">
+									<span class="section-table__main--param">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#settings"></use>
+										</svg>
+										Projects
+									</span>
+								</div>
+								<div class="section-table__head-th">
+									<span class="section-table__main--param">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#tel"></use>
+										</svg>
+										Phone number
+									</span>
+								</div>
+								<div class="section-table__head-th">
+									<span class="section-table__main--param">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#calendar-selected"></use>
+										</svg>
+										Vacations
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="section-table__body">
+							@@loop("html/_table-employees-item-1.html", [
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+							])
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section-table__footer">
+				<div class="section-table__row-per-page visible-on-mob">
+					<span>Rows per page:</span>
+					<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+						<option value="10">10</option>
+						<option value="20">20</option>
+						<option value="40">40</option>
+						<option value="all">All</option>
+					</select>
+				</div>
+				<button class="section-table__see-more btn" type="button">
+					Show more
+					<svg width="15" height="15" viewBox="0 0 15 15">
+						<use xlink:href="img/sprites.svg#arrow-down"></use>
+					</svg>
+				</button>
+				<div class="section-table__row-per-page visible-on-desktop">
+					<span>Rows per page:</span>
+					<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+						<option value="20">20</option>
+						<option value="40">40</option>
+						<option value="60">60</option>
+						<option value="all">All</option>
+					</select>
+				</div>
+			</div>
+		</section>
+	</main>
+
+@@include("html/_footer.html")

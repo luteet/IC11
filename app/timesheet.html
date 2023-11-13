@@ -1,0 +1,516 @@
+@@include("html/_header-2.html")
+
+<main class="main">
+	<section class="section-table">
+		<div class="section-table__header">
+			<div class="section-table__header--row is-always-row">
+				<div class="section-table__header--col">
+					<h1 class="section-table__title title">
+						Vacations
+					</h1>			
+				</div>
+				<div class="section-table__header--col">
+					<div class="section-table__notification notification drop-down is-right-default">
+						<button class="notification__target drop-down__target is-has-notice" type="button">
+							<svg width="17" height="20" viewBox="0 0 17 20">
+								<use xlink:href="img/sprites.svg#notification"></use>
+							</svg>
+						</button>
+						<div class="notification__block drop-down__block">
+							<h2 class="notification__block--title">
+								Your notifications
+							</h2>
+							<div class="notification__block--wrapper custom-scrollbar" data-simplebar data-simplebar-auto-hide="false">
+								<ul class="notification__list">
+									@@loop("html/_notification-items.html", [
+										{},
+										{},
+										{},
+									])
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="section-table__header--row">
+				<div class="section-table__header--col">
+					<form class="section-table__search is-alternative">
+						<label class="section-table__search--label">
+							<input type="search" required name="search" placeholder="Search a project" class="section-table__search--input">
+						</label>
+						<button class="section-table__search--submit btn is-grey is-min-on-mob" type="submit">
+							Search
+							<svg width="15" height="15" viewBox="0 0 15 15">
+								<use xlink:href="img/sprites.svg#search"></use>
+							</svg>
+						</button>
+					</form>
+				</div>
+				<div class="section-table__header--col">
+					<div class="section-table__change-full-date drop-down">
+						<button class="section-table__change-full-date--target drop-down__target" type="button">
+							<span>April, 2023</span>
+							<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-full-date--target-arrow drop-down__target--arrow">
+								<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+							</svg>
+						</button>
+						<div class="section-table__change-full-date--block drop-down__block">
+							<div class="section-table__change-full-date--months">
+								<ul>
+									<li>
+										<label>
+											<input type="radio" name="month" value="1" checked>
+											<span>January</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="7">
+											<span>July</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="2">
+											<span>February</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="8">
+											<span>August</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="3">
+											<span>March</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="9">
+											<span>September</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="4">
+											<span>April</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="10">
+											<span>October</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="5">
+											<span>May</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="11">
+											<span>November</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="6">
+											<span>June</span>
+										</label>
+									</li>
+									<li>
+										<label>
+											<input type="radio" name="month" value="12">
+											<span>December</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="section-table__change-full-date--slider splide">
+								<div class="splide__track">
+									<ul class="splide__list">
+										<li class="splide__slide">
+											<label>
+												<input type="radio" name="year" value="2021">
+												<span>2021</span>
+											</label>
+										</li>
+										<li class="splide__slide">
+											<label>
+												<input type="radio" name="year" value="2022">
+												<span>2022</span>
+											</label>
+										</li>
+										<li class="splide__slide">
+											<label>
+												<input type="radio" name="year" value="2023" checked>
+												<span>2023</span>
+											</label>
+										</li>
+										<li class="splide__slide is-disabled">
+											<label>
+												<input type="radio" name="year" value="2024" disabled>
+												<span>2024</span>
+											</label>
+										</li>
+									</ul>
+								</div>
+								<div class="splide__arrows">
+									<button class="splide__arrow splide__arrow--prev" type="button">
+										<svg width="7" height="10" viewBox="0 0 7 10">
+											<use xlink:href="img/sprites.svg#arrow-prev"></use>
+										</svg>
+									</button>
+									<button class="splide__arrow splide__arrow--next" type="button">
+										<svg width="7" height="10" viewBox="0 0 7 10">
+											<use xlink:href="img/sprites.svg#arrow-next"></use>
+										</svg>
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-table__export drop-down">
+						<button class="section-table__export--target drop-down__target" type="button">
+							Export
+							<svg width="16" height="17" viewBox="0 0 16 17">
+								<use xlink:href="img/sprites.svg#download"></use>
+							</svg>
+						</button>
+						<div class="section-table__export--block drop-down__block">
+							<ul class="drop-down__list">
+								<li>
+									<a href="#">
+										Export as .xlsx
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										Export as .pdf
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section-table__main table-timesheet">
+			<div class="section-table__main--container">
+				<div class="section-table__main--wrapper">
+					<div class="section-table__head">
+						<div class="section-table__head-row">
+							<div class="section-table__head-th visible-on-mob">
+								<span class="section-table__main--param">
+									<span>№</span>
+									<span>
+										<div class="section-table__main--sort drop-down is-mode-1">
+											<button class="section-table__main--sort-target drop-down__target" type="button">
+												<svg width="13" height="13" viewBox="0 0 13 13">
+													<use xlink:href="img/sprites.svg#calendar-selected"></use>
+												</svg>
+												Date
+												<svg width="10" height="15" viewBox="0 0 11 15">
+													<use xlink:href="img/sprites.svg#sort-up-down"></use>
+												</svg>
+											</button>
+											<div class="section-table__main--sort-block drop-down__block" style="min-width: 150px;">
+												<ul class="drop-down__list">
+													<li>
+														<a href="#">
+															<svg width="15" height="16" viewBox="0 0 15 16">
+																<use xlink:href="img/sprites.svg#sort-asc"></use>
+															</svg> 
+															A-Z
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<svg width="15" height="16" viewBox="0 0 15 16">
+																<use xlink:href="img/sprites.svg#sort-asc"></use>
+															</svg> 
+															Z-A
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</span>
+								</span>
+							</div>
+							<div class="section-table__head-th visible-on-desktop">
+								<span class="section-table__main--param">
+									№
+								</span>
+							</div>
+							<div class="section-table__head-th visible-on-desktop">
+								<div class="section-table__main--sort drop-down is-mode-1">
+									<button class="section-table__main--sort-target drop-down__target" type="button">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#calendar-selected"></use>
+										</svg>
+										Date
+										<svg width="10" height="15" viewBox="0 0 11 15">
+											<use xlink:href="img/sprites.svg#sort-up-down"></use>
+										</svg>
+									</button>
+									<div class="section-table__main--sort-block drop-down__block" style="min-width: 150px;">
+										<ul class="drop-down__list">
+											<li>
+												<a href="#">
+													<svg width="15" height="16" viewBox="0 0 15 16">
+														<use xlink:href="img/sprites.svg#sort-asc"></use>
+													</svg> 
+													A-Z
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<svg width="15" height="16" viewBox="0 0 15 16">
+														<use xlink:href="img/sprites.svg#sort-asc"></use>
+													</svg> 
+													Z-A
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="section-table__head-th">
+								<div class="section-table__main--project-name drop-down">
+									<button class="section-table__main--project-name-target drop-down__target" type="button">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#project"></use>
+										</svg>
+										Project ne
+										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+										</svg>
+									</button>
+									<div class="section-table__main--project-name-block drop-down__block">
+										<div class="project-popup">
+											<div class="project-popup__body custom-scrollbar" data-simplebar data-simplebar-auto-hide="false">
+												<div class="project-popup__block">
+													<h2>Сommonly used</h2>
+													<ul class="project-popup__list">
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+													</ul>
+												</div>
+												<div class="project-popup__block">
+													<h2>All projects</h2>
+													<ul class="project-popup__list">
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<form class="project-popup__search">
+												<label>
+													<input type="search" name="search" class="input" placeholder="Search a project" required>
+												</label>
+												<button class="btn is-grey" type="submit">
+													Search
+													<svg width="15" height="15" viewBox="0 0 15 15">
+														<use xlink:href="img/sprites.svg#search"></use>
+													</svg>
+												</button>
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="section-table__head-th">
+								<div class="section-table__main--project-descr drop-down is-mode-1">
+									<button class="section-table__main--project-desrc-target drop-down__target" type="button">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#comments"></use>
+										</svg>
+										Project description
+										<svg width="10" height="7" viewBox="0 0 10 7">
+											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+										</svg>
+									</button>
+									<div class="section-table__main--project-descr-block drop-down__block">
+										<ul class="drop-down__list">
+											<li>
+												<a href="#">
+													<svg width="15" height="16" viewBox="0 0 15 16">
+														<use xlink:href="img/sprites.svg#sort-asc"></use>
+													</svg> 
+													A-Z
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<svg width="15" height="16" viewBox="0 0 15 16">
+														<use xlink:href="img/sprites.svg#sort-asc"></use>
+													</svg> 
+													Z-A
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="section-table__head-th">
+								<span class="section-table__main--param is-center">
+									<svg width="13" height="13" viewBox="0 0 13 13">
+										<use xlink:href="img/sprites.svg#pin"></use>
+									</svg>
+									Task
+								</span>
+							</div>
+							<div class="section-table__head-th">
+								<span class="section-table__main--param is-center">
+									<svg width="13" height="13" viewBox="0 0 13 13">
+										<use xlink:href="img/sprites.svg#time"></use>
+									</svg>
+									Time
+								</span>
+							</div>
+							<div class="section-table__head-th">
+								<span class="section-table__main--param is-center">
+									<svg width="13" height="13" viewBox="0 0 13 13">
+										<use xlink:href="img/sprites.svg#hours"></use>
+									</svg>
+									Hours
+								</span>
+							</div>
+							<div class="section-table__head-th">
+								<div class="section-table__main--func drop-down is-mode-1 is-right-default">
+									<button class="section-table__main--func-target drop-down__target" type="button">
+										<svg width="13" height="13" viewBox="0 0 13 13">
+											<use xlink:href="img/sprites.svg#total"></use>
+										</svg>
+										Total
+										<svg width="10" height="15" viewBox="0 0 11 15">
+											<use xlink:href="img/sprites.svg#sort-up-down"></use>
+										</svg>
+									</button>
+									<div class="section-table__main--func-block drop-down__block" style="min-width: 150px;">
+										<ul class="drop-down__list">
+											<li>
+												<a href="#">
+													<svg width="15" height="16" viewBox="0 0 15 16">
+														<use xlink:href="img/sprites.svg#sort-asc"></use>
+													</svg> 
+													A-Z
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<svg width="15" height="16" viewBox="0 0 15 16">
+														<use xlink:href="img/sprites.svg#sort-asc"></use>
+													</svg> 
+													Z-A
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section-table__body">
+						@@loop("html/_table-timesheet-item.html", [
+							{},
+							{},
+							{},
+							{},
+							{},
+							{},
+							{},
+						])
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="section-table__footer">
+			<div class="section-table__row-per-page visible-on-mob">
+				<span>Rows per page:</span>
+				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+			<button class="section-table__see-more btn" type="button">
+				Show more
+				<svg width="15" height="15" viewBox="0 0 15 15">
+					<use xlink:href="img/sprites.svg#arrow-down"></use>
+				</svg>
+			</button>
+			<div class="section-table__row-per-page visible-on-desktop">
+				<span>Rows per page:</span>
+				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+		</div>
+	</section>
+	@@include("html/_down-sidebar.html")
+</main>
+
+@@include("html/_footer.html")
