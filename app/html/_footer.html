@@ -277,8 +277,65 @@
 		</div>
 	</div>
 
+	<div class="profile popup side-popup" id="profile-popup" style="display: none;">
+		<div class="profile__wrapper popup-wrapper">
+			<div class="profile__bg popup-bg popup-close"></div>
+			<div class="profile__body popup-body">
+				<button type="button" class="profile__close-btn popup-close-btn popup-close" title="Close">
+					<svg width="15" height="15" viewBox="0 0 15 15">
+						<use xlink:href="img/sprites.svg#close"></use>
+					</svg>
+				</button>
+				<form class="profile__container popup-container">
+					<div class="profile__user">
+						<div class="profile__user--avatar" style="--theme: var(--accent);">
+							OG
+						</div>
+						<h2 class="profile__user--name title">
+							Olena Rybak
+						</h2>
+					</div>
+					<div class="profile__info">
+						<label>
+							<span>Position</span>
+							<input type="text" name="position" value="Managing director" readonly class="input copy-input">
+							<button class="copy-btn" type="button">
+								<svg width="15" height="16" viewBox="0 0 15 16">
+									<use xlink:href="img/sprites.svg#copy"></use>
+								</svg>
+							</button>
+						</label>
+						<label>
+							<span>E-mail</span>
+							<input type="email" name="email" value="o.rybak@ic-group.org" readonly class="input copy-input">
+							<button class="copy-btn" type="button">
+								<svg width="15" height="16" viewBox="0 0 15 16">
+									<use xlink:href="img/sprites.svg#copy"></use>
+								</svg>
+							</button>
+						</label>
+						<label>
+							<span>Phone number</span>
+							<input type="tel" name="tel" value="(012)345-67-89" readonly class="input copy-input">
+							<button class="copy-btn" type="button">
+								<svg width="15" height="16" viewBox="0 0 15 16">
+									<use xlink:href="img/sprites.svg#copy"></use>
+								</svg>
+							</button>
+						</label>
+					</div>
+					<div class="profile__footer">
+						<a href="#edit-profile-popup" class="profile__edit btn open-popup">
+							Edit  my profile
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
 	<script src="js/libs.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/main.min.js"></script>
 
 </body>
 </html>

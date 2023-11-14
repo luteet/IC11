@@ -350,9 +350,6 @@ body {
 	}
 }
 
-.popup-checkbox-list {
-}
-
 .popup-checkbox {
 
 	display: flex;
@@ -493,3 +490,68 @@ body {
 	}
 }
 
+.side-popup {
+	
+	.popup-body {
+		margin-left: auto; margin-right: 0;
+	}
+
+}
+
+.profile {
+
+	// .profile__wrapper
+
+	&__wrapper {
+	}
+
+	// .profile__bg
+
+	&__bg {
+	}
+
+	// .profile__body
+
+	&__body {
+	}
+
+	// .profile__close-btn
+
+	&__close-btn {
+	}
+
+	// .profile__container
+
+	&__container {
+	}
+
+	// .profile__user
+
+	&__user {
+
+		// .profile__user--avatar
+
+		&--avatar {
+		}
+
+		// .profile__user--name
+
+		&--name {
+		}
+	}
+
+	// .profile__info
+
+	&__info {
+	}
+
+	// .profile__footer
+
+	&__footer {
+	}
+
+	// .profile__edit
+
+	&__edit {
+	}
+}

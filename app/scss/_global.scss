@@ -64,6 +64,16 @@ body {
 	}
 }
 
+@keyframes fadeIn2 {
+	to {
+		opacity: 1; visibility: visible;
+	}
+}
+
+.fade-in {
+	animation: fadeIn2 0.3s ease 0s 1 normal forwards;
+}
+
 .fade-out {
 	animation: fadeOut2 0.3s ease 0s 1 normal forwards;
 }
@@ -387,6 +397,9 @@ section {
 		opacity: 0; visibility: hidden;
 		z-index: 2;
 
+		max-height: 240px;
+		overflow-y: auto;
+
 		.splide.is-initialized, .splide.is-rendered {
 			visibility: unset;
 		}
@@ -554,6 +567,33 @@ section {
 			border-radius: 0;
 			background: #5F6472;
 			
+		}
+	}
+}
+
+.change-title {
+	display: grid;
+	> * {
+		grid-area: 1/1;
+
+		transition: opacity .3s ease, visibility .3s ease;
+
+		&:nth-child(1) {
+			opacity: 1; visibility: visible;
+		}
+
+		&:nth-child(2) {
+			opacity: 0; visibility: hidden;
+		}
+	}
+
+	&.is-active > * {
+		&:nth-child(1) {
+			opacity: 0; visibility: hidden;
+		}
+
+		&:nth-child(2) {
+			opacity: 1; visibility: visible;
 		}
 	}
 }

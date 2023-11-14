@@ -45,6 +45,8 @@
 		}
 
 		min-width: min(440px, calc(100vw - 30px));
+		max-height: none;
+		overflow-y: visible;
 		transform: translate(10px,0);
 
 		z-index: 5;

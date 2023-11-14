@@ -11,12 +11,12 @@
 					<svg width="13" height="13" viewBox="0 0 13 13">
 						<use xlink:href="img/sprites.svg#comments"></use>
 					</svg>
-					Comments (3)
+					Comments
 				</button>
 				<div class="down-sidebar__total-target">
 					<span>Total for month:</span>
 					<div class="down-sidebar__total-target--value">
-						45 hours
+						0 hours
 					</div>
 				</div>
 			</div>
@@ -25,13 +25,9 @@
 			<div class="down-sidebar__col">
 				<div class="down-sidebar__chat">
 					<div class="down-sidebar__chat-block" data-simplebar data-simplebar-auto-hide="false">
-						@@loop("_down-sidebar-chat-item.html", [
-							{},
-							{},
-							{},
-							{},
-							{},
-						])
+						<div class="down-sidebar__chat-block--none">
+							Your comments will be here
+						</div>
 					</div>
 					<div class="down-sidebar__chat-user-panel">
 						<label>
@@ -48,27 +44,14 @@
 			<div class="down-sidebar__col">
 				<div class="down-sidebar__total">
 					<div class="down-sidebar__total-block" data-simplebar data-simplebar-auto-hide="false">
-						@@loop("_down-sidebar-total-item.html", [
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-						])
+						<div class="down-sidebar__total-block--none">
+							There is no date to create report yet
+						</div>
 					</div>
 					<div class="down-sidebar__total-footer">
 						<div class="down-sidebar__total-value">
 							<span>Total for month:</span>
-							<b>45 hours</b>
+							<b>0 hours</b>
 						</div>
 					</div>
 				</div>

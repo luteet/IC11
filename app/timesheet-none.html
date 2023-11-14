@@ -625,7 +625,7 @@
 						</div>
 					</div>
 					<div class="section-table__body">
-						@@loop("html/_table-timesheet-item.html", [
+						@@loop("html/_table-timesheet-item-none.html", [
 							{},
 							{},
 							{},
@@ -638,34 +638,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="section-table__footer">
-			<div class="section-table__row-per-page visible-on-mob">
-				<span>Rows per page:</span>
-				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
-					<option value="10">10</option>
-					<option value="20">20</option>
-					<option value="40">40</option>
-					<option value="all">All</option>
-				</select>
-			</div>
-			<button class="section-table__see-more btn" type="button">
-				Show more
-				<svg width="15" height="15" viewBox="0 0 15 15">
-					<use xlink:href="img/sprites.svg#arrow-down"></use>
-				</svg>
-			</button>
-			<div class="section-table__row-per-page visible-on-desktop">
-				<span>Rows per page:</span>
-				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
-					<option value="20">20</option>
-					<option value="40">40</option>
-					<option value="60">60</option>
-					<option value="all">All</option>
-				</select>
-			</div>
-		</div>
+		<div class="section-table__footer"></div>
 	</section>
-	@@include("html/_down-sidebar.html")
+	@@include("html/_down-sidebar-none.html")
 </main>
 
 @@include("html/_footer.html")

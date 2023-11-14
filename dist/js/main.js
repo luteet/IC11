@@ -248,8 +248,34 @@ body.addEventListener('click', function (event) {
 	const downSidebarArrowTarget = $(".down-sidebar__arrow-target, .down-sidebar__comments-target, .down-sidebar__total-target")
 	if(downSidebarArrowTarget) {
 	
-		const sideBar = downSidebarArrowTarget.closest('.down-sidebar');
-		sideBar.classList.toggle('is-active');
+		const sideBar = downSidebarArrowTarget.closest('.down-sidebar'),
+		targetPlace = sideBar.querySelector('.down-sidebar__target-place'),
+		row = sideBar.querySelector('.down-sidebar__row'),
+		wrapper = sideBar.querySelector('.down-sidebar__wrapper');
+		
+		sideBar.classList.toggle('is-active-2');
+		if(sideBar.classList.contains('is-active-2')) {
+			row.classList.remove('fade-out');
+			targetPlace.style.removeProperty('--opacity');
+			targetPlace.classList.add('fade-out');
+			setTimeout(() => {
+				sideBar.classList.toggle('is-active');
+				row.style.setProperty('--opacity', 0);
+				row.classList.add('fade-in');
+			},300)
+		} else if(!sideBar.classList.contains('is-active-2')) {
+			targetPlace.classList.remove('fade-out');
+			row.style.removeProperty('--opacity');
+			row.classList.add('fade-out');
+			setTimeout(() => {
+				row.classList.add('fade-in');
+			},0)
+			setTimeout(() => {
+				sideBar.classList.toggle('is-active');
+				targetPlace.style.setProperty('--opacity', 0);
+				targetPlace.classList.add('fade-in');
+			},400)
+		}
 	
 	}
 	
@@ -272,6 +298,71 @@ body.addEventListener('click', function (event) {
 	}
 	
 	// =-=-=-=-=-=-=-=-=-=-=-=- </down-sidebar-chat> -=-=-=-=-=-=-=-=-=-=-=-=
+
+	
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <block-is-active> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const addIsActive = $(".add-is-active")
+	if(addIsActive) {
+	
+		const block = addIsActive.closest('.block-for-is-active');
+		
+		block.children[0].style.removeProperty('--opacity');
+		block.children[0].style.removeProperty('--visibility');
+
+		block.children[0].classList.add('fade-out');
+		setTimeout(() => {
+			block.children[0].classList.remove('fade-in');
+			block.children[1].classList.remove('fade-out');
+		},0)
+
+		setTimeout(() => {
+			block.classList.add('is-active');
+			block.children[0].classList.remove('fade-out');
+			block.children[0].style.removeProperty('--opacity');
+			block.children[0].style.removeProperty('--visibility');
+			block.children[1].style.setProperty('--opacity', 0);
+			block.children[1].style.setProperty('--visibility', "hidden");
+			block.children[1].classList.add('fade-in');
+		},300)
+	
+	}
+
+	const removeIsActive = $(".remove-is-active")
+	if(removeIsActive) {
+	
+		const block = removeIsActive.closest('.block-for-is-active');
+		
+		block.children[1].style.removeProperty('--opacity');
+		block.children[1].style.removeProperty('--visibility');
+		block.children[1].classList.add('fade-out');
+
+		setTimeout(() => {
+			block.classList.remove('is-active');
+			block.children[1].classList.remove('fade-out');
+			block.children[1].style.removeProperty('--opacity');
+			block.children[1].style.removeProperty('--visibility');
+			block.children[0].style.setProperty('--opacity', 0);
+			block.children[0].style.setProperty('--visibility', "hidden");
+			block.children[0].classList.add('fade-in');
+		},300)
+	
+	}
+
+	const addActiveChangeTitle = $('[data-add-active-change-title]');
+	if(addActiveChangeTitle) {
+		const title = document.querySelector(`#${addActiveChangeTitle.dataset.addActiveChangeTitle}`);
+		if(title) title.classList.add('is-active');
+	}
+
+	const removeActiveChangeTitle = $('[data-remove-active-change-title]');
+	if(removeActiveChangeTitle) {
+		const title = document.querySelector(`#${removeActiveChangeTitle.dataset.removeActiveChangeTitle}`);
+		if(title) title.classList.remove('is-active');
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </block-is-active> -=-=-=-=-=-=-=-=-=-=-=-=
 
 })
 
@@ -515,8 +606,6 @@ document.querySelectorAll('.custom-select').forEach(select => {
 	})
 })
 
-
-
 document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 	const inputs = list.querySelectorAll('input'),
 	checkedList = document.querySelector('#' + list.dataset.checkedListId);
@@ -582,7 +671,6 @@ document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 	
 })
 
-
 document.querySelectorAll('.section-table__change-full-date').forEach(changeFullDate => {
 	const targetText = changeFullDate.querySelector('.section-table__change-full-date--target span'),
 	months = changeFullDate.querySelector('.section-table__change-full-date--months'),
@@ -611,10 +699,53 @@ document.querySelectorAll('.section-table__change-full-date').forEach(changeFull
 
 })
 
-//var sticky = new Sticky('.sticky');
-/* document.querySelectorAll('.simplebar-on-desktop').forEach(simplebarElement => {
-	new SimpleBar(simplebarElement)
-}) */
+const dateInputs = document.querySelectorAll('.date-input');
+dateInputs.forEach(input => {
+	const datepicker = new Datepicker(input, {
+		todayButton: true,	
+	}); 
+})
+
+document.querySelectorAll('.section-table__time--block').forEach(block => {
+
+	const fromHours = block.querySelector('.from-hours'),
+	fromMinutes = block.querySelector('.from-minutes'),
+	toHours = block.querySelector('.to-hours'),
+	toMinutes = block.querySelector('.to-minutes');
+
+	let nowDate = new Date();
+
+	const selects = block.querySelectorAll('.custom-select');
+	selects.forEach(select => {
+		select.addEventListener('change', function (event) {
+
+			let startDate = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), Number(fromHours.value), Number(fromMinutes.value), 0, 0),
+				endDate = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate(), Number(toHours.value), Number(toMinutes.value), 0, 0);
+
+			let diff = endDate - startDate;
+			if(diff <= 0) {
+				endDate = new Date(nowDate.getFullYear(), nowDate.getMonth(), nowDate.getDate()+1, Number(toHours.value), Number(toMinutes.value), 0, 0);
+			}
+
+			diff = endDate - startDate;
+			
+			const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
+			
+			document.querySelectorAll('.hours-input').forEach(input => {
+				input.value = hours + ' ' + input.dataset.addText;
+			})
+		})
+	})
+
+	/* fromHours.addEventListener('change', function (event) {
+		let startDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), Number(fromHours.value), Number(fromMinutes.value), 0, 0),
+		endDate = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), Number(toHours.value), Number(toMinutes.value), 0, 0);
+
+		console.log(new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), Number(fromHours.value), Number(fromMinutes.value), 0, 0));
+		
+	}) */
+})
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <popup> -=-=-=-=-=-=-=-=-=-=-=-=
 

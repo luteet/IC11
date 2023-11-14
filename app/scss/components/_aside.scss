@@ -28,7 +28,7 @@
 	@include _992 {
 
 		z-index: 1;
-		overflow: hidden;
+		//overflow: hidden;
 
 		.simplebar-wrapper {
 			overflow: hidden;
@@ -627,7 +627,9 @@
 
 			flex-wrap: wrap;
 			flex-direction: row;
-			justify-content: center;
+			justify-content: stretch;
+
+			
 
 			gap: 0;
 		}
@@ -648,6 +650,10 @@
 			justify-content: space-between;
 
 			gap: 10px;
+
+			@include _992 {
+				width: 100%;
+			}
 		}
 		
 	}
@@ -666,8 +672,6 @@
 
 			color: var(--white);
 
-			
-
 			> svg:last-child {
 				flex: 0 0 15px; margin-left: 5px;
 			}
@@ -685,14 +689,21 @@
 
 		&-nav {
 			display: grid;
-			grid-auto-rows: 1fr;
+			grid-auto-rows: min-content;
 			gap: 10px;
 			@include _992 {
 				margin-top: 30px;
+				width: 100%;
+			}
+
+			.aside__log-out {
+				margin-top: 0;
 			}
 
 			&--button {
+				align-self: center;
 				display: grid;
+				
 				> * {
 					grid-area: 1/1;
 					&:nth-child(1) {
@@ -741,6 +752,8 @@
 	&__log-out {
 		@include _992 {
 			flex: 0 1 auto;
+			width: 100%;
+			margin-top: 24px;
 		}
 
 		flex: 1 1 auto;
@@ -786,7 +799,7 @@
 		flex: 1 1 100%;
 
 		@include _992 {
-			flex: 0 1 auto;
+			flex: 1 1 auto;
 			padding-top: 30px; margin-top: 30px;
 		}
 

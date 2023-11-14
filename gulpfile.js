@@ -187,6 +187,7 @@ function stylesLib() {
 		//'node_modules/@splidejs/splide/dist/css/splide-core.min.css', // Слайдер
 		//'node_modules/swiper/swiper-bundle.min.css', // Слайдер
 		'node_modules/slim-select/dist/slimselect.css', // Select
+		'node_modules/vanillajs-datepicker/dist/css/datepicker.min.css', // Выбор даты | npm install --save-dev vanillajs-datepicker | https://mymth.github.io/vanillajs-datepicker/#/
 		//'node_modules/aos/dist/aos.css', // Анимация
 		//'node_modules/nouislider/dist/nouislider.css', // Кастомный input[range]
 		'node_modules/simplebar/dist/simplebar.min.css', // Кастомный скролбар
