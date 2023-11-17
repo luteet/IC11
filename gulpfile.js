@@ -32,10 +32,6 @@ const scss			= require('gulp-sass')(require('sass')),
 	  ttf2woff2		= require('gulp-ttf2woff2'),
 	  zipArchive	= require('gulp-zip');
 
-
-
-
-
 function cleanDist() {
 	return del('dist')
 }
@@ -178,6 +174,7 @@ function stylesOriginal() {
 		.pipe(concat('style.css'))
 		.pipe(cssbeautify())
 		.pipe(dest('dist/css'))
+		.pipe(browserSync.stream())
 }
 
 function stylesLib() {

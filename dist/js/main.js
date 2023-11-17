@@ -27,17 +27,13 @@ imageAspectRatio.forEach(imageAspectRatio => {
 
 let dropDownArray = [];
 
-document.querySelectorAll('.drop-down-2').forEach((dropDown, index) => {
+/* document.querySelectorAll('.drop-down-2').forEach((dropDown, index) => {
 	const block = dropDown.querySelector('.drop-down-2__block');
-	//block.style.display = 'none';
 	block.setAttribute('id', "drop-down-block-" + (index+1));
 	dropDown.setAttribute('data-drop-down-target', "drop-down-block-" + (index+1));
 	dropDownArray.push(block);
 	body.append(block);
-	setTimeout(() => {
-		block.style.removeProperty('--duration');
-	},1000)
-})
+}) */
 
 let asideTimeout;
 body.addEventListener('click', function (event) {
@@ -97,7 +93,10 @@ body.addEventListener('click', function (event) {
 
 		clearTimeout(asideTimeout);
 	
-		aside.querySelector('.aside__body--wrapper').classList.add('fade-out');
+		aside.querySelector('.aside__body--wrapper').classList.add('fade-out-2');
+		setTimeout(() => {
+			aside.querySelector('.aside__body--wrapper').classList.remove('fade-in-2');
+		},0)
 
 		setTimeout(() => {
 
@@ -111,12 +110,18 @@ body.addEventListener('click', function (event) {
 			if(aside.classList.contains('is-min')) {
 				aside.classList.add('is-min-2');
 				setTimeout(() => {
-					aside.querySelector('.aside__body--wrapper').classList.remove('fade-out');
+					aside.querySelector('.aside__body--wrapper').classList.add('fade-in-2');
+					setTimeout(() => {
+						aside.querySelector('.aside__body--wrapper').classList.remove('fade-out-2');
+					},0)
 				},500)
 			} else {
 				asideTimeout = setTimeout(() => {
 					aside.classList.toggle('is-min-2');
-					aside.querySelector('.aside__body--wrapper').classList.remove('fade-out');
+					aside.querySelector('.aside__body--wrapper').classList.add('fade-in-2');
+					setTimeout(() => {
+						aside.querySelector('.aside__body--wrapper').classList.remove('fade-out-2');
+					},0)
 				},500)
 			}
 
@@ -126,6 +131,21 @@ body.addEventListener('click', function (event) {
 	
 	// =-=-=-=-=-=-=-=-=-=-=-=- </aside-slide-toggle> -=-=-=-=-=-=-=-=-=-=-=-=
 
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <aside-nav> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const asideNavButton = $(".aside__nav button")
+	if(asideNavButton) {
+	
+		asideNavButton.classList.toggle('is-active')
+		if(asideNavButton.classList.contains('is-active')) {
+			const div = asideNavButton.nextElementSibling.querySelector('div');
+
+		}
+	
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </aside-nav> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
 	// =-=-=-=-=-=-=-=-=-=-=-=- <section-table> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -152,52 +172,81 @@ body.addEventListener('click', function (event) {
 	const dataDropDownTarget = $(".drop-down-2")
 	if(dataDropDownTarget) {
 
-		document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
-			dropDownActive.classList.remove('is-active-drop-down')
-			if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
-		})
-
-		dataDropDownTarget.classList.add('is-active-drop-down')
-		if(dataDropDownTarget.closest('.section-table__row-block')) dataDropDownTarget.closest('.section-table__row-block').classList.add('on-active');
-
-		document.querySelectorAll('.drop-down-2__block.is-active').forEach(block => {
-			setTimeout(() => {
-				block.classList.add('is-hidden')	
-			},0)
-
-			block.classList.remove('is-active')
-			
-		})
-
-		if(dataDropDownTarget.querySelector('.drop-down-2__block')) {
-			const block = dataDropDownTarget.querySelector('.drop-down-2__block');
-			block.setAttribute('id', "drop-down-block-" + dropDownArray.length);
-			dropDownArray.push(block);
-		}
-
-		const block = document.querySelector(`#${dataDropDownTarget.dataset.dropDownTarget}`);
-		
-		block.style.setProperty('--x', Math.max(100, Math.min(window.innerWidth - 70 - 20, event.pageX)) + 'px');
-		if(event.pageY + block.offsetHeight > window.innerHeight) {
-			block.style.setProperty('--y', event.pageY - block.offsetHeight + 'px');
+		if(dataDropDownTarget.classList.contains('is-active-drop-down')) {
+			/* document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
+				dropDownActive.classList.remove('is-active-drop-down')
+				if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
+			}) */
+			document.querySelectorAll('.drop-down-2__block.is-active').forEach(block => {
+				setTimeout(() => {
+					block.classList.remove('is-active');
+				},0)
+				block.classList.add('is-hidden')
+			})
+	
+			document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
+				dropDownActive.classList.remove('is-active-drop-down')
+				if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
+			})
 		} else {
-			block.style.setProperty('--y', event.pageY + 'px');
-		}
+			document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
+				dropDownActive.classList.remove('is-active-drop-down')
+				if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
+			})
 
-		setTimeout(() => {
-			block.classList.remove('is-hidden')
+			dataDropDownTarget.classList.add('is-active-drop-down')
+			if(dataDropDownTarget.closest('.section-table__row-block')) dataDropDownTarget.closest('.section-table__row-block').classList.add('on-active');
+
+			document.querySelectorAll('.drop-down-2__block.is-active').forEach(block => {
+				setTimeout(() => {
+					block.classList.add('is-hidden')
+				},0)
+
+				block.classList.remove('is-active')
+				
+			})
+
+			if(dataDropDownTarget.querySelector('.drop-down-2__block')) {
+				const block = dataDropDownTarget.querySelector('.drop-down-2__block');
+				block.setAttribute('id', "drop-down-block-" + dropDownArray.length);
+				dataDropDownTarget.setAttribute('data-drop-down-target', "drop-down-block-" + dropDownArray.length);
+				dropDownArray.push(block);
+				body.append(block);
+			}
+
+			const block = document.querySelector(`#${dataDropDownTarget.dataset.dropDownTarget}`);
+			
+			
+			if(event.pageY + block.offsetHeight > window.innerHeight) {
+				block.style.setProperty('--y', event.pageY - block.offsetHeight + 'px');
+			} else {
+				block.style.setProperty('--y', event.pageY + 'px');
+			}
+
+			if(event.pageX + block.offsetWidth > windowSize) {
+				if(windowSize > 992) {
+					block.style.setProperty('--x', window.innerWidth - block.offsetWidth - 20 + 'px');
+				} else {
+					block.style.setProperty('--x', window.innerWidth - block.offsetWidth + 40 + 'px');
+				}
+			} else {
+				block.style.setProperty('--x', Math.max(100, Math.min(window.innerWidth - 70 - 20, event.pageX)) + 'px');
+			}
+
 			setTimeout(() => {
-				block.classList.add('is-active')
+				block.classList.remove('is-hidden')
+				setTimeout(() => {
+					block.classList.add('is-active')
+				},0)
 			},0)
-		},0)
-		
+		}
 	
 	} else if(document.querySelector('.drop-down-2__block.is-active')) {
 		document.querySelectorAll('.drop-down-2__block.is-active').forEach(block => {
 			setTimeout(() => {
-				block.classList.add('is-hidden')
+				block.classList.remove('is-active');
 			},0)
-			block.classList.remove('is-active')
+			block.classList.add('is-hidden')
 		})
 
 		document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
@@ -250,31 +299,38 @@ body.addEventListener('click', function (event) {
 	
 		const sideBar = downSidebarArrowTarget.closest('.down-sidebar'),
 		targetPlace = sideBar.querySelector('.down-sidebar__target-place'),
-		row = sideBar.querySelector('.down-sidebar__row'),
-		wrapper = sideBar.querySelector('.down-sidebar__wrapper');
+		row = sideBar.querySelector('.down-sidebar__row');
 		
 		sideBar.classList.toggle('is-active-2');
 		if(sideBar.classList.contains('is-active-2')) {
+
 			row.classList.remove('fade-out');
 			targetPlace.style.removeProperty('--opacity');
 			targetPlace.classList.add('fade-out');
+			targetPlace.classList.remove('fade-in');
+			
 			setTimeout(() => {
 				sideBar.classList.toggle('is-active');
+
 				row.style.setProperty('--opacity', 0);
 				row.classList.add('fade-in');
+				row.classList.remove('fade-out');
 			},300)
+
 		} else if(!sideBar.classList.contains('is-active-2')) {
+
 			targetPlace.classList.remove('fade-out');
 			row.style.removeProperty('--opacity');
 			row.classList.add('fade-out');
+
 			setTimeout(() => {
-				row.classList.add('fade-in');
-			},0)
-			setTimeout(() => {
-				sideBar.classList.toggle('is-active');
 				targetPlace.style.setProperty('--opacity', 0);
+				sideBar.classList.toggle('is-active');
+
 				targetPlace.classList.add('fade-in');
-			},400)
+				targetPlace.classList.remove('fade-out');
+			},300)
+
 		}
 	
 	}
@@ -363,6 +419,58 @@ body.addEventListener('click', function (event) {
 	}
 	
 	// =-=-=-=-=-=-=-=-=-=-=-=- </block-is-active> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <message> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const messageClose = $(".message__close")
+	if(messageClose) {
+	
+		const message = messageClose.closest('.message');
+		message.classList.add('fade-out');
+		setTimeout(() => {
+			message.remove();
+		},300)
+	
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </message> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <summary-item> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const summaryItemTarget = $(".summary-item__target--toggle")
+	if(summaryItemTarget) {
+	
+		const summaryItem = summaryItemTarget.closest('.summary-item');
+		if(summaryItem.classList.contains('is-active')) {
+			document.querySelectorAll('.summary-item.is-active').forEach(item => {
+				item.classList.remove('is-active');
+			})
+		} else {
+			document.querySelectorAll('.summary-item.is-active').forEach(item => {
+				item.classList.remove('is-active');
+			})
+
+			summaryItem.classList.add('is-active');
+		}
+	
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </summary-item> -=-=-=-=-=-=-=-=-=-=-=-=
+
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- <summary-favorite> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const summaryItemUserFavorite = $(".summary-item__user--favorite")
+	if(summaryItemUserFavorite) {
+	
+		summaryItemUserFavorite.classList.toggle('is-active')
+	
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </summary-favorite> -=-=-=-=-=-=-=-=-=-=-=-=
 
 })
 
@@ -482,6 +590,24 @@ document.querySelectorAll('.section-table__main').forEach((main, index) => {
 		}
 	})
 
+})
+
+document.querySelectorAll('.input-number').forEach(inputNumber => {
+	inputNumber.addEventListener('input', function (event) {
+		
+		let result = inputNumber.value.replace(/[\D]+/g, '');
+		
+		if(event.inputType == "deleteContentBackward") {
+			result = result.slice(0, -1);
+		}
+
+		inputNumber.value = result;
+
+		if(result) {
+			inputNumber.value = result + ' ' + inputNumber.dataset.addText;
+		}
+		
+	})
 })
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <get-coords> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -746,6 +872,17 @@ document.querySelectorAll('.section-table__time--block').forEach(block => {
 	}) */
 })
 
+window.addEventListener('load', function (event) {
+	body.classList.add('is-init')
+})
+
+document.querySelectorAll('.copy-btn').forEach(copyBtn => {
+	const clipboard = new ClipboardJS(copyBtn);
+	clipboard.on('success', function (event) {
+		const input = copyBtn.parentElement.querySelector('.copy-input');
+		input.select();
+	})
+})
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <popup> -=-=-=-=-=-=-=-=-=-=-=-=
 

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" style="--accent: #EF3129; --accent-light: #FF0A00; --accent-dark: #CB241D; --theme-text-color: #fff;">
+<html lang="en" style="--accent: #EF3129; --accent-light: #FF0A00; --accent-dark: #CB241D; --theme-text-color: #fff; --theme-text-color-2: #EF3129;">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1"">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=1">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.min.css">
+	<meta name="theme-color" content="#212529">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 				<div class="aside__body--wrapper">
 					<div class="aside__header">
 						<div class="aside__logo">
-							<a href="#" class="aside__logo--link">
+							<a href="index.html" class="aside__logo--link">
 								<picture>
 									<source srcset="img/logo.avif" type="image/avif">
 									<source srcset="img/logo.webp" type="image/webp">
@@ -39,7 +40,7 @@
 							<nav class="aside__nav">
 								<ul>
 									<li>
-										<a href="#" class="is-current">
+										<a href="timesheet.html" title="Timesheet">
 											<svg width="25" height="25" viewBox="0 0 25 25">
 												<use xlink:href="img/sprites.svg#timesheet"></use>
 											</svg>
@@ -47,7 +48,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="#">
+										<a href="costs.html" title="Costs">
 											<svg width="25" height="25" viewBox="0 0 25 25">
 												<use xlink:href="img/sprites.svg#calendar-check"></use>
 											</svg>
@@ -55,46 +56,44 @@
 										</a>
 									</li>
 									<li>
-										<div class="drop-down is-dark">
-											<button type="button" class="drop-down__target">
-												<svg width="25" height="25" viewBox="0 0 25 25">
-													<use xlink:href="img/sprites.svg#calendar-selected"></use>
-												</svg>
-												<span>Summary</span>
-												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
-													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
-												</svg>
-											</button>
-											<div class="drop-down__block">
-												<ul class="drop-down__list">
-													<li>
-														<a href="#">
-															<span>Param 1</span>
-															<span>
-																<svg width="15" height="15" viewBox="0 0 13 13">
-																	<use xlink:href="img/sprites.svg#user"></use>
-																</svg>
-															</span>
-														</a>
-													</li>
-													<li>
-														<a href="#">
-															<span>Param 2</span>
-															<span>
-																<svg width="15" height="15" viewBox="0 0 13 13">
-																	<use xlink:href="img/sprites.svg#user"></use>
-																</svg>
-															</span>
-														</a>
-													</li>
-												</ul>
-											</div>
+										<button type="button" class="is-active" title="Summary">
+											<svg width="25" height="25" viewBox="0 0 25 25">
+												<use xlink:href="img/sprites.svg#calendar-selected"></use>
+											</svg>
+											<span>Summary</span>
+											<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+												<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+											</svg>
+										</button>
+										<div>
+											<ul>
+												<li>
+													<a href="summary.html" title="My summaries">
+														<span>My summaries</span>
+														<span>
+															<svg width="20" height="20" viewBox="0 0 13 13">
+																<use xlink:href="img/sprites.svg#pin"></use>
+															</svg>
+														</span>
+													</a>
+												</li>
+												<li>
+													<a href="summary-employees.html" class="is-current" title="Employees">
+														<span>Employees</span>
+														<span>
+															<svg width="20" height="20" viewBox="0 0 25 25">
+																<use xlink:href="img/sprites.svg#members"></use>
+															</svg>
+														</span>
+													</a>
+												</li>
+											</ul>
 										</div>
 									</li>
 								</ul>
 							</nav>
 							<div class="aside__add">
-								<a href="#" class="aside__user" style="--avatar-theme: #EF3129;" aria-label="Olena Rybak">
+								<a href="#profile-popup" class="aside__user open-popup" style="--avatar-theme: var(--accent);" aria-label="Olena Rybak">
 									<div class="aside__user--avatar">
 										OR
 									</div>
@@ -111,7 +110,7 @@
 											</svg>
 										</span>
 									</a>
-									<a href="#" class="aside__log-out">
+									<a href="login.html" class="aside__log-out">
 										<svg width="16" height="17" viewBox="0 0 16 17">
 											<use xlink:href="img/sprites.svg#logout"></use>
 										</svg>

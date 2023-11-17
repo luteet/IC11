@@ -1,25 +1,13 @@
 @@include("html/_header-2.html")
 
 <main class="main">
-	<div class="message">
-		<div class="message__text">
-			<p>
-				Don't forget, in 5 days the deadline for submitting the timesheet
-			</p>
-		</div>
-		<button class="message__close" type="button" title="Close">
-			<svg width="15" height="15" viewBox="0 0 15 15">
-				<use xlink:href="img/sprites.svg#close"></use>
-			</svg>
-		</button>
-	</div>
 	<section class="section-table">
 		<div class="section-table__header">
 			<div class="section-table__header--row is-always-row">
 				<div class="section-table__header--col">
 					<h1 class="section-table__title title change-title" id="main-title">
-						<span>Timesheet</span>
-						<span>Timesheet / Add task</span>
+						<span>Costs</span>
+						<span>Costs / Add costs</span>
 					</h1>
 				</div>
 				<div class="section-table__header--col">
@@ -52,7 +40,7 @@
 						<div class="section-table__header--row">
 							<div class="section-table__header--col">
 								<button type="button" class="section-table__add-member btn add-is-active" data-add-active-change-title="main-title">
-									Add new task
+									Add expence
 									<svg width="16" height="15" viewBox="0 0 16 15">
 										<use xlink:href="img/sprites.svg#plus"></use>
 									</svg>
@@ -198,7 +186,7 @@
 										</div>
 									</div>
 								</div>
-								<div class="section-table__export drop-down">
+								<div class="section-table__export drop-down is-right-default">
 									<button class="section-table__export--target drop-down__target" type="button">
 										Export
 										<svg width="16" height="17" viewBox="0 0 16 17">
@@ -225,9 +213,9 @@
 					</div>
 				</div>
 				<div class="section-table__header--block-item">
-					<div>	
-						<div class="section-table__header--add-task section-table__add-task">
-							<button class="section-table__add-task--back back-btn remove-is-active" data-remove-active-change-title="main-title" type="button" aria-label="Go back">
+					<div>
+						<div class="section-table__header--add-costs section-table__add-costs">
+							<button class="section-table__add-costs--back back-btn remove-is-active" data-remove-active-change-title="main-title" type="button" aria-label="Go back">
 								<svg width="7" height="10" viewBox="0 0 7 10">
 									<use xlink:href="img/sprites.svg#arrow-prev"></use>
 								</svg>
@@ -235,13 +223,13 @@
 									Go back
 								</span>
 							</button>
-							<div class="section-table__add-task--set-date">
+							<div class="section-table__add-costs--set-date">
 								<input type="text" name="date" placeholder="Set date" class="input date-input" required>
 								<svg width="10" height="7" viewBox="0 0 10 7">
 									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 								</svg>
 							</div>
-							<div class="section-table__add-task--project">
+							<div class="section-table__add-costs--project">
 								<select name="project" class="custom-select" required>
 									<option value="" disabled selected>Choose project</option>
 									<option value="61x200495">61x200495</option>
@@ -258,117 +246,23 @@
 									<option value="61x200495">61x200495</option>
 								</select>
 							</div>
-							<div class="section-table__add-task--text">
+							<div class="section-table__add-costs--text">
 								<label>
-									<input type="text" name="task" required placeholder="Tell us your secrets - what did you do?" class="input">
+									<input type="text" name="costs" required placeholder="Write short description of the expence" class="input">
 								</label>
 							</div>
-							<div class="section-table__add-task--time section-table__time drop-down is-right-default">
-								<button class="section-table__time--target drop-down__target" type="button">
-									<span>Choose time</span>
-									<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
-										<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
-									</svg>
-								</button>
-								<div class="section-table__time--block drop-down__block">
-									<div class="section-table__time--item">
-										<div class="section-table__time--item-col">
-											<span>From:</span>
-										</div>
-										<div class="section-table__time--item-col">
-											<div class="section-table__time--select">
-												<select name="from-hours" class="custom-select from-hours">
-													<option value="01">01</option>
-													<option value="02">02</option>
-													<option value="03">03</option>
-													<option value="04">04</option>
-													<option value="05">05</option>
-													<option value="06">06</option>
-													<option value="07">07</option>
-													<option value="08">08</option>
-													<option value="09">09</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
-													<option value="13">13</option>
-													<option value="14">14</option>
-													<option value="15">15</option>
-													<option value="16">16</option>
-													<option value="17">17</option>
-													<option value="18">18</option>
-													<option value="19">19</option>
-													<option value="20">20</option>
-													<option value="21">21</option>
-													<option value="22">22</option>
-													<option value="23">23</option>
-													<option value="24">24</option>
-												</select>
-											</div>
-											<span>:</span>
-											<div class="section-table__time--select">
-												<select name="from-minutes" class="custom-select from-minutes">
-													<option value="00">00</option>
-													<option value="30">30</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="section-table__time--item">
-										<div class="section-table__time--item-col">
-											<span>To:</span>	
-										</div>
-										<div class="section-table__time--item-col">
-											<div class="section-table__time--select">
-												<select name="to-hours" class="custom-select to-hours">
-													<option value="01">01</option>
-													<option value="02">02</option>
-													<option value="03">03</option>
-													<option value="04">04</option>
-													<option value="05">05</option>
-													<option value="06">06</option>
-													<option value="07">07</option>
-													<option value="08">08</option>
-													<option value="09">09</option>
-													<option value="10">10</option>
-													<option value="11">11</option>
-													<option value="12">12</option>
-													<option value="13">13</option>
-													<option value="14">14</option>
-													<option value="15">15</option>
-													<option value="16">16</option>
-													<option value="17">17</option>
-													<option value="18">18</option>
-													<option value="19">19</option>
-													<option value="20">20</option>
-													<option value="21">21</option>
-													<option value="22">22</option>
-													<option value="23">23</option>
-													<option value="24">24</option>
-												</select>
-											</div>
-											<span>:</span>
-											<div class="section-table__time--select">
-												<select name="to-minutes" class="custom-select to-minutes">
-													<option value="00">00</option>
-													<option value="30">30</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
+							<div class="section-table__add-costs--cost">
+								<input type="text" name="cost" placeholder="Cost" required class="input">
 							</div>
-							<div class="section-table__add-task--hours">
-								<input type="text" readonly name="hours" placeholder="0 hours" required class="input hours-input" data-add-text="hours">
-							</div>
-							<button class="section-table__add-task--submit btn" type="submit">
-								Add task
+							<button class="section-table__add-costs--submit btn" type="submit">
+								Add expence
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="section-table__main table-timesheet add-border">
+		<div class="section-table__main table-costs add-border">
 			<div class="section-table__main--container">
 				<div class="section-table__main--wrapper">
 					<div class="section-table__head">
@@ -455,7 +349,7 @@
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#project"></use>
 										</svg>
-										Project ne
+										Project name
 										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
 											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 										</svg>
@@ -578,36 +472,20 @@
 								</div>
 							</div>
 							<div class="section-table__head-th">
-								<span class="section-table__main--param is-center">
+								<span class="section-table__main--param">
 									<svg width="13" height="13" viewBox="0 0 13 13">
 										<use xlink:href="img/sprites.svg#pin"></use>
 									</svg>
-									Task
-								</span>
-							</div>
-							<div class="section-table__head-th">
-								<span class="section-table__main--param is-center">
-									<svg width="13" height="13" viewBox="0 0 13 13">
-										<use xlink:href="img/sprites.svg#time"></use>
-									</svg>
-									Time
-								</span>
-							</div>
-							<div class="section-table__head-th">
-								<span class="section-table__main--param is-center">
-									<svg width="13" height="13" viewBox="0 0 13 13">
-										<use xlink:href="img/sprites.svg#hours"></use>
-									</svg>
-									Hours
+									Description of the expence
 								</span>
 							</div>
 							<div class="section-table__head-th">
 								<div class="section-table__main--func drop-down is-mode-1 is-right-default">
 									<button class="section-table__main--func-target drop-down__target" type="button">
-										<svg width="13" height="13" viewBox="0 0 13 13">
-											<use xlink:href="img/sprites.svg#total"></use>
+										<svg width="13" height="13" viewBox="0 0 20 20">
+											<use xlink:href="img/sprites.svg#money"></use>
 										</svg>
-										Total
+										Cost (UAH)
 										<svg width="10" height="15" viewBox="0 0 11 15">
 											<use xlink:href="img/sprites.svg#sort-up-down"></use>
 										</svg>
@@ -637,7 +515,7 @@
 						</div>
 					</div>
 					<div class="section-table__body">
-						@@loop("html/_table-timesheet-item-none.html", [
+						@@loop("html/_table-costs-item.html", [
 							{},
 							{},
 							{},
@@ -650,9 +528,34 @@
 				</div>
 			</div>
 		</div>
-		<div class="section-table__footer"></div>
+		<div class="section-table__footer">
+			<div class="section-table__row-per-page visible-on-mob">
+				<span>Rows per page:</span>
+				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+			<button class="section-table__see-more btn" type="button">
+				Show more
+				<svg width="15" height="15" viewBox="0 0 15 15">
+					<use xlink:href="img/sprites.svg#arrow-down"></use>
+				</svg>
+			</button>
+			<div class="section-table__row-per-page visible-on-desktop">
+				<span>Rows per page:</span>
+				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+		</div>
 	</section>
-	@@include("html/_down-sidebar-none.html")
+	@@include("html/_down-sidebar.html")
 </main>
 
 @@include("html/_footer.html")

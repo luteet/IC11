@@ -143,12 +143,16 @@ input[type="search"] {
 
 .password-input {
 
+	padding-right: 50px;
+
 	// .password-input__visible-toggle
 
 	&__visible-toggle {
 		position: absolute;
-		right: 15px; top: 50%;
+		right: 0; top: 50%;
 		transform: translate(0,-50%);
+
+		width: 40px; height: 40px;
 
 		display: grid;
 		background: transparent;
@@ -166,6 +170,7 @@ input[type="search"] {
 
 		> * {
 			grid-area: 1/1;
+			align-self: center; justify-self: center;
 			transition: opacity .2s ease;
 
 			&:nth-child(1) {
@@ -199,6 +204,7 @@ input[type="search"] {
 		padding: 14px 20px;
 		border: 1px solid rgba(174, 182, 206, 0.30);
 		background: var(--white);
+		color: var(--title-color);
 
 		// .select-drop-down__target--arrow
 

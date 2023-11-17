@@ -24,13 +24,13 @@
 			&:hover {
 				background: var(--accent);
 				border-color: var(--accent);
-				color: var(--white);
+				color: var(--theme-text-color);
 			}
 			
 			&:active {
 				background: var(--accent-dark);
 				border-color: var(--accent-dark);
-				color: var(--white);
+				color: var(--theme-text-color);
 			}
 		}
 	}
@@ -62,7 +62,7 @@
 
 			&.is-current {
 				border-color: var(--accent);
-				color: var(--accent);
+				color: var(--theme-text-color-2);
 
 				pointer-events: none;
 			}

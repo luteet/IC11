@@ -65,10 +65,12 @@
 			margin-top: 10px;
 			padding-right: 15px;
 
-			max-height: 350px;
+			max-height: 250px;
+			@include _992 {
+				max-height: 350px;
+			}
 			overflow-y: auto;
 
-			
 		}
 
 		// .notification__block--text

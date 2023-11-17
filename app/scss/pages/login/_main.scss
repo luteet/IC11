@@ -92,6 +92,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+
+			color: var(--title-color);
 		}
 
 		// .login__lang--target-arrow
@@ -200,7 +202,9 @@
 
 	&__form-row {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		@include _550 {
+			grid-template-columns: 1fr 1fr;
+		}
 		gap: 10px;
 
 		&:last-child {

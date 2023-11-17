@@ -1,0 +1,371 @@
+@@include("html/_header-2.html")
+
+<main class="main">
+	<section class="summary">
+		<div class="summary__header page-header">
+			<div class="page-header__col">
+				<h1 class="page-header__title title">
+					Summary / Employees
+				</h1>
+			</div>
+			<div class="page-header__col">
+				<div class="page-header__notification notification drop-down is-right-default">
+					<button class="notification__target drop-down__target is-has-notice" type="button">
+						<svg width="17" height="20" viewBox="0 0 17 20">
+							<use xlink:href="img/sprites.svg#notification"></use>
+						</svg>
+					</button>
+					<div class="notification__block drop-down__block">
+						<h2 class="notification__block--title">
+							Your notifications
+						</h2>
+						<div class="notification__block--wrapper custom-scrollbar" data-simplebar data-simplebar-auto-hide="false">
+							<ul class="notification__list">
+								@@loop("html/_notification-items.html", [
+									{},
+									{},
+									{},
+								])
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<form class="page-header__row employees-row">
+				<div class="section-table__change-full-date drop-down employees-row__date">
+					<button class="section-table__change-full-date--target drop-down__target" type="button">
+						<span>April, 2023</span>
+						<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-full-date--target-arrow drop-down__target--arrow">
+							<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+						</svg>
+					</button>
+					<div class="section-table__change-full-date--block drop-down__block" style="min-width: 250px;">
+						<div class="section-table__change-full-date--months">
+							<ul>
+								<li>
+									<label>
+										<input type="radio" name="month" value="1" checked>
+										<span>January</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="7">
+										<span>July</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="2">
+										<span>February</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="8">
+										<span>August</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="3">
+										<span>March</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="9">
+										<span>September</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="4">
+										<span>April</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="10">
+										<span>October</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="5">
+										<span>May</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="11">
+										<span>November</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="6">
+										<span>June</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="12">
+										<span>December</span>
+									</label>
+								</li>
+							</ul>
+						</div>
+						<div class="section-table__change-full-date--slider splide">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2021">
+											<span>2021</span>
+										</label>
+									</li>
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2022">
+											<span>2022</span>
+										</label>
+									</li>
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2023" checked>
+											<span>2023</span>
+										</label>
+									</li>
+									<li class="splide__slide is-disabled">
+										<label>
+											<input type="radio" name="year" value="2024" disabled>
+											<span>2024</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="splide__arrows">
+								<button class="splide__arrow splide__arrow--prev" type="button">
+									<svg width="7" height="10" viewBox="0 0 7 10">
+										<use xlink:href="img/sprites.svg#arrow-prev"></use>
+									</svg>
+								</button>
+								<button class="splide__arrow splide__arrow--next" type="button">
+									<svg width="7" height="10" viewBox="0 0 7 10">
+										<use xlink:href="img/sprites.svg#arrow-next"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="page-header__select employees-row__projects">
+					<select name="project" class="custom-select">
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+						<option value="61x200495">61x200495</option>
+					</select>
+				</div>
+				<div class="employees-row__search">
+					<div class="section-table__search is-alternative">
+						<label class="section-table__search--label">
+							<input type="search" required name="search" placeholder="Search an employee" class="section-table__search--input">
+						</label>
+						<button class="section-table__search--submit btn is-grey is-min-on-mob" type="submit">
+							Search
+							<svg width="15" height="15" viewBox="0 0 15 15">
+								<use xlink:href="img/sprites.svg#search"></use>
+							</svg>
+						</button>
+					</div>
+				</div>
+				<div class="page-header__select employees-row__sort">
+					<select name="sort" class="custom-select">
+						<option value="Rejected first ">Rejected first</option>
+						<option value="Approved first ">Approved first</option>
+					</select>
+				</div>
+			</form>
+		</div>
+		<div class="summary__main">
+			@@loop("html/_summary-item-2.html", [
+				{
+					"name": "Olena Rybak",
+					"position": "Managing director",
+					"favorite": " is-active",
+					"avatar": ' style="--theme: #2D9CDB;"',
+					"status_mode": "",
+					"status_text": "In progress",
+					"status_icon": "attention",
+					"message": '<div class="summary-item__message"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-error"></use></svg><p>This summary already rejected by Irina Omelianenko on 03/05/2023.</p></div>',
+					"buttons": "",
+				},
+				{
+					"name": "Irina Omelianenko",
+					"position": "Managing director",
+					"favorite": " is-active",
+					"avatar": '',
+					"status_mode": " is-danger",
+					"status_text": "03 / 09 / 2023",
+					"status_icon": "round-error",
+					"message": '<div class="summary-item__message is-danger"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-error"></use></svg><p>Your timesheet was rejected. Please, correct and send for reapproval. (by Irina Omelianenko)</p></div>',
+					"buttons": "",
+				},
+				{
+					"name": "Dmytro Ocheretyanyi",
+					"position": "Managing director",
+					"favorite": "",
+					"avatar": '',
+					"status_mode": " is-waiting",
+					"status_text": "Sent for approval 05 / 08 / 2023",
+					"status_icon": "time",
+					"message": '<div class="summary-item__message is-waiting"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#time"></use></svg><p>You already sent this timesheet for approval. Please, wait for the answer.</p></div>',
+					"buttons": " is-disabled",
+				},
+				{
+					"name": "Vitaliy Shapovalenko",
+					"position": "Managing director",
+					"favorite": "",
+					"avatar": '',
+					"status_mode": " is-waiting",
+					"status_text": "Sent for approval 05 / 08 / 2023",
+					"status_icon": "time",
+					"message": "",
+					"buttons": "",
+				},
+				{
+					"name": "Andreas Helbl",
+					"position": "Managing director",
+					"favorite": "",
+					"avatar": '',
+					"status_mode": " is-success",
+					"status_text": "03 / 06 / 2023",
+					"status_icon": "round-check",
+					"message": '<div class="summary-item__message is-success"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-check"></use></svg><p>Your summary was approved! (by Irina Omelianenko)</p></div>',
+					"buttons": " is-disabled",
+				},
+			])
+		</div>
+		<div class="summary__footer page-footer">
+			<div class="page-footer__row-per-page visible-on-mob">
+				<span>Rows per page:</span>
+				<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
+					<option value="10">10</option>
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+			<button class="page-footer__see-more btn" type="button">
+				Show more
+				<svg width="15" height="15" viewBox="0 0 15 15">
+					<use xlink:href="img/sprites.svg#arrow-down"></use>
+				</svg>
+			</button>
+			<div class="page-footer__row-per-page visible-on-desktop">
+				<span>Rows per page:</span>
+				<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
+					<option value="20">20</option>
+					<option value="40">40</option>
+					<option value="60">60</option>
+					<option value="all">All</option>
+				</select>
+			</div>
+		</div>
+	</section>
+	@@include("html/_down-sidebar.html")
+</main>
+
+<div class="approve-timesheet popup" id="approve-timesheet-popup" style="display: none;">
+	<div class="approve-timesheet__wrapper popup-wrapper">
+		<div class="approve-timesheet__bg popup-bg popup-close"></div>
+		<div class="approve-timesheet__body popup-body">
+			<button type="button" class="approve-timesheet__close-btn popup-close-btn popup-close" title="Закрыть">
+				<svg width="15" height="15" viewBox="0 0 15 15">
+					<use xlink:href="img/sprites.svg#close"></use>
+				</svg>
+			</button>
+			<div class="approve-timesheet__container popup-container">
+				<h2 class="approve-timesheet__title title popup-title">
+					You are going to approve the timesheet, continue?
+				</h2>
+				<div class="approve-timesheet__buttons">
+					<button type="button" class="approve-timesheet__button btn is-transparent popup-close">
+						Cancel
+					</button>
+					<button class="approve-timesheet__submit btn" type="submit">
+						Continue
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="approve-timesheet popup" id="rejected-timesheet-popup" style="display: none;">
+	<div class="approve-timesheet__wrapper popup-wrapper">
+		<div class="approve-timesheet__bg popup-bg popup-close"></div>
+		<div class="approve-timesheet__body popup-body">
+			<button type="button" class="approve-timesheet__close-btn popup-close-btn popup-close" title="Закрыть">
+				<svg width="15" height="15" viewBox="0 0 15 15">
+					<use xlink:href="img/sprites.svg#close"></use>
+				</svg>
+			</button>
+			<div class="approve-timesheet__container popup-container">
+				<h2 class="approve-timesheet__title title popup-title">
+					You are going to reject the timesheet, continue?
+				</h2>
+				<div class="approve-timesheet__buttons">
+					<button type="button" class="approve-timesheet__button btn is-transparent popup-close">
+						Cancel
+					</button>
+					<button class="approve-timesheet__submit btn" type="submit">
+						Continue
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="approve-timesheet popup" id="approve-timesheet-thanks-popup" style="display: none;">
+	<div class="approve-timesheet__wrapper popup-wrapper">
+		<div class="approve-timesheet__bg popup-bg popup-close"></div>
+		<div class="approve-timesheet__body popup-body">
+			<button type="button" class="approve-timesheet__close-btn popup-close-btn popup-close" title="Закрыть">
+				<svg width="15" height="15" viewBox="0 0 15 15">
+					<use xlink:href="img/sprites.svg#close"></use>
+				</svg>
+			</button>
+			<div class="approve-timesheet__container popup-container">
+				<h2 class="approve-timesheet__title title popup-title">
+					Thank you!
+				</h2>
+				<div class="approve-timesheet__text popup-text">
+					<p>
+						This timesheet is successfully approved. <br>
+						Olena will get the notification on her e-mail.
+					</p>
+				</div>
+				<div class="approve-timesheet__buttons">
+					<button class="approve-timesheet__submit btn popup-close" type="button">
+						Continue
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+@@include("html/_footer.html")

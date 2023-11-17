@@ -13,8 +13,10 @@
 @import 'components/notification';
 @import 'components/down-sidebar';
 
-@import 'pages/login/main';
+@import 'components/page-header';
+@import 'components/page-footer';
 
-//@import 'pages';
+@import 'pages/login/main';
+@import 'pages/summary/main';
 
 @import 'components/footer';
