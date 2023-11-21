@@ -1,6 +1,6 @@
 @@include("html/_header.html")
 
-	<main class="main">
+	<main class="main" data-simplebar data-simplebar-auto-hide="false">
 		<section class="section-table">
 			<div class="section-table__header">
 				<div class="section-table__header--row is-always-row">
@@ -12,7 +12,7 @@
 				</div>
 				<div class="section-table__header--row">
 					<div class="section-table__header--col">
-						<a href="#add-project-popup" class="section-table__add-member btn open-popup">
+						<a href="#add-project-popup" class="section-table__add btn open-popup">
 							Add new project
 							<svg width="16" height="15" viewBox="0 0 16 15">
 								<use xlink:href="img/sprites.svg#plus"></use>
@@ -107,10 +107,9 @@
 						</div>
 					</div>
 				</div>
-				
 			</div>
-			<div class="section-table__main is-row-mode table-projects visible-on-desktop">
-				<div class="section-table__main--container">
+			<div class="section-table__main is-row-mode table-projects visible-on-desktop add-border">
+				<div class="section-table__main--container" data-simplebar data-simplebar-auto-hide="false">
 					<div class="section-table__main--wrapper">
 						<div class="section-table__head">
 							<div class="section-table__head-row">
@@ -120,7 +119,7 @@
 									</span>
 								</div>
 								<div class="section-table__head-th">
-									<span class="section-table__main--param">
+									<span class="section-table__main--param is-center">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#project"></use>
 										</svg>
@@ -158,7 +157,7 @@
 									</span>
 								</div>
 								<div class="section-table__head-th">
-									<span class="section-table__main--param">
+									<span class="section-table__main--param is-center">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#project"></use>
 										</svg>
@@ -190,7 +189,7 @@
 				</div>
 			</div>
 			<div class="section-table__main table-projects visible-on-mob">
-				<div class="section-table__main--container">
+				<div class="section-table__main--container" data-simplebar data-simplebar-auto-hide="false">
 					<div class="section-table__main--wrapper">
 						<div class="section-table__head">
 							<div class="section-table__head-row">
@@ -245,7 +244,7 @@
 			<div class="section-table__footer">
 				<div class="section-table__row-per-page visible-on-mob">
 					<span>Rows per page:</span>
-					<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<select name="row-per-page" class="section-table__row-per-page--select custom-select is-center">
 						<option value="10">10</option>
 						<option value="20">20</option>
 						<option value="40">40</option>
@@ -259,7 +258,7 @@
 						</svg>
 					</button>
 					<div class="pagination__list">
-						<a href="#">
+						<a href="#" class="is-current">
 							1
 						</a>
 						<a href="#">
@@ -268,10 +267,10 @@
 						<a href="#">
 							3
 						</a>
-						<a href="#">
+						<span>
 							...
-						</a>
-						<a href="#" class="is-current">
+						</span>
+						<a href="#">
 							12
 						</a>
 					</div>
@@ -289,7 +288,7 @@
 				</button>
 				<div class="section-table__row-per-page visible-on-desktop">
 					<span>Rows per page:</span>
-					<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<select name="row-per-page" class="section-table__row-per-page--select custom-select is-center">
 						<option value="20">20</option>
 						<option value="40">40</option>
 						<option value="60">60</option>
@@ -299,5 +298,85 @@
 			</div>
 		</section>
 	</main>
+
+	<div class="add-project popup" id="add-project-popup" style="display: none;">
+		<div class="add-project__wrapper popup-wrapper">
+			<div class="add-project__bg popup-bg popup-close"></div>
+			<div class="add-project__body popup-body">
+				<button type="button" class="add-project__close-btn popup-close-btn popup-close" title="Close">
+					<svg width="15" height="15" viewBox="0 0 15 15">
+						<use xlink:href="img/sprites.svg#close"></use>
+					</svg>
+				</button>
+				<div class="add-project__container popup-container" data-simplebar data-simplebar-auto-hide="false">
+					<h2 class="add-project__title popup-title title">
+						Add new project
+					</h2>
+					<form class="add-project__form popup-form">
+						<div class="popup-form__row">
+							<label class="popup-form__label is-full">
+								<span>Project name</span>
+								<input type="text" name="project-name" required placeholder="Project name" class="input">
+							</label>
+						</div>
+						<div class="popup-form__row">
+							<label class="popup-form__label is-full">
+								<span>Project description</span>
+								<input type="text" name="project-description" required placeholder="Project description" class="input">
+							</label>
+						</div>
+						<div class="popup-form__row is-min-gap">
+							<button class="popup-form__cancel btn is-transparent popup-close" type="button">
+								Cancel
+							</button>
+							<button class="popup-form__submit btn" type="submit">
+								Save
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="add-project popup" id="edit-project-popup" style="display: none;">
+		<div class="add-project__wrapper popup-wrapper">
+			<div class="add-project__bg popup-bg popup-close"></div>
+			<div class="add-project__body popup-body">
+				<button type="button" class="add-project__close-btn popup-close-btn popup-close" title="Close">
+					<svg width="15" height="15" viewBox="0 0 15 15">
+						<use xlink:href="img/sprites.svg#close"></use>
+					</svg>
+				</button>
+				<div class="add-project__container popup-container" data-simplebar data-simplebar-auto-hide="false">
+					<h2 class="add-project__title popup-title title">
+						Edit project
+					</h2>
+					<form class="add-project__form popup-form">
+						<div class="popup-form__row">
+							<label class="popup-form__label is-full">
+								<span>Project name</span>
+								<input type="text" name="project-name" required value="61x200495" class="input">
+							</label>
+						</div>
+						<div class="popup-form__row">
+							<label class="popup-form__label is-full">
+								<span>Project description</span>
+								<input type="text" name="project-description" required value="Ukraine EE Building Certification Study" class="input">
+							</label>
+						</div>
+						<div class="popup-form__row is-min-gap">
+							<button class="popup-form__cancel btn is-transparent popup-close" type="button">
+								Cancel
+							</button>
+							<button class="popup-form__submit btn" type="submit">
+								Save
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
 @@include("html/_footer.html")

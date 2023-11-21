@@ -6,6 +6,9 @@
 	<meta name="theme-color" content="#212529">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/style.min.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -16,6 +19,7 @@
 					<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 				</svg>
 			</button>
+			<div class="aside__background" aria-hidden="true"></div>
 			<div class="aside__body" data-simplebar>
 				<div class="aside__body--wrapper">
 					<div class="aside__header">
@@ -40,7 +44,7 @@
 							<nav class="aside__nav">
 								<ul>
 									<li>
-										<a href="index.html" class="is-current">
+										<a href="index.html" class="is-current" aria-label="Employees">
 											<svg width="25" height="25" viewBox="0 0 25 25">
 												<use xlink:href="img/sprites.svg#members"></use>
 											</svg>
@@ -48,7 +52,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="vacations.html">
+										<a href="vacations.html" aria-label="Vacations">
 											<svg width="25" height="25" viewBox="0 0 25 25">
 												<use xlink:href="img/sprites.svg#calendar-check"></use>
 											</svg>
@@ -56,7 +60,7 @@
 										</a>
 									</li>
 									<li>
-										<a href="projects.html">
+										<a href="projects.html" aria-label="Projects">
 											<svg width="25" height="25" viewBox="0 0 25 25">
 												<use xlink:href="img/sprites.svg#calendar-selected"></use>
 											</svg>
@@ -66,46 +70,86 @@
 								</ul>
 							</nav>
 							<div class="aside__add">
-								<a href="#profile-popup" class="aside__user open-popup" style="--avatar-theme: var(--accent);" aria-label="Olena Rybak">
-									<div class="aside__user--avatar">
-										OR
-									</div>
-									<strong class="aside__user--name">
-										Olena Rybak
-									</strong>
-								</a>
-								<a href="login.html" class="aside__log-out">
-									<svg width="16" height="17" viewBox="0 0 16 17">
-										<use xlink:href="img/sprites.svg#logout"></use>
-									</svg>
-									Log out
-								</a>
-								<div class="aside__language drop-down is-dark is-bottom">
-									<button class="aside__language--target drop-down__target" type="button">
-										<i>
-											<svg width="15" height="15" viewBox="0 0 15 15">
-												<use xlink:href="img/sprites.svg#language"></use>
-											</svg>
-										</i>
-										<span>
-											<span>English</span>
-											<span>En</span>
-										</span>
-										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
-											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+								<div class="aside__add--row">
+									<a href="#profile-popup" class="aside__user open-popup" style="--avatar-theme: var(--accent);" aria-label="Olena Rybak">
+										<div class="aside__user--avatar">
+											OR
+										</div>
+										<strong class="aside__user--name">
+											Olena Rybak
+										</strong>
+									</a>
+									<a href="login.html" class="aside__log-out visible-on-mob">
+										<svg width="16" height="17" viewBox="0 0 16 17">
+											<use xlink:href="img/sprites.svg#logout"></use>
 										</svg>
-									</button>
-									<div class="aside__language--block drop-down__block">
-										<ul class="drop-down__list">
-											<li>
-												<a href="#" aria-label="Українська">
-													<span>
-														<span>Українська</span>
-														<span>Укр</span>
-													</span>
-												</a>
-											</li>
-										</ul>
+										Log out
+									</a>
+								</div>
+								<div class="aside__change-on-min visible-on-desktop">
+									<div>
+										<a href="login.html" class="aside__log-out">
+											<svg width="16" height="17" viewBox="0 0 16 17">
+												<use xlink:href="img/sprites.svg#logout"></use>
+											</svg>
+											Log out
+										</a>
+									</div>
+									<div>
+										<a href="login.html" class="aside__log-out is-min" aria-label="Log out">
+											<svg width="16" height="17" viewBox="0 0 16 17">
+												<use xlink:href="img/sprites.svg#logout"></use>
+											</svg>
+										</a>
+									</div>
+								</div>
+								<div class="aside__change-on-min">
+									<div>
+										<div class="aside__language drop-down is-dark is-bottom">
+											<button class="aside__language--target drop-down__target" type="button">
+												<i>
+													<svg width="15" height="15" viewBox="0 0 15 15">
+														<use xlink:href="img/sprites.svg#language"></use>
+													</svg>
+												</i>
+												<span>
+													English
+												</span>
+												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+												</svg>
+											</button>
+											<div class="aside__language--block drop-down__block">
+												<ul class="drop-down__list">
+													<li>
+														<a href="#" aria-label="Ukrainian">
+															Ukrainian
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div>
+										<div class="aside__language drop-down is-dark is-bottom">
+											<button class="aside__language--target drop-down__target" type="button">
+												<span>
+													En
+												</span>
+												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+												</svg>
+											</button>
+											<div class="aside__language--block drop-down__block">
+												<ul class="drop-down__list">
+													<li>
+														<a href="#" aria-label="Ua">
+															Ua
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

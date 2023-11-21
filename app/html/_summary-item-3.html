@@ -1,25 +1,8 @@
 <div class="summary-item">
 	<div class="summary-item__target">
-		<div class="summary-item__target--user summary-item__user">
-			<a href="index.html" class="summary-item__user--avatar"@@avatar>
-				<picture>
-					<source srcset="img/profile-avatar.avif" type="image/avif">
-					<source srcset="img/profile-avatar.webp" type="image/webp">
-					<img src="img/profile-avatar.jpg" alt="" width="60" height="60" loading="lazy">
-				</picture>
-			</a>
-			<div class="summary-item__user--info">
-				<h2 class="summary-item__user--name">@@name</h2>
-				<span class="summary-item__user--position">
-					@@position
-				</span>
-			</div>
-			<button type="button" class="summary-item__user--favorite@@favorite">
-				<svg width="20" height="20" viewBox="0 0 20 20">
-					<use xlink:href="img/sprites.svg#star"></use>
-				</svg>
-			</button>
-		</div>
+		<h2 class="summary-item__target--name">
+			@@month
+		</h2>
 		<div class="summary-item__target--status@@status_mode">
 			<span>
 				@@status_text
@@ -28,7 +11,7 @@
 				<use xlink:href="img/sprites.svg#@@status_icon"></use>
 			</svg>
 		</div>
-		<button type="button" class="summary-item__target--toggle">
+		<button class="summary-item__target--toggle" type="button">
 			<svg width="10" height="7" viewBox="0 0 10 7" class="summary-item__target--arrow">
 				<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 			</svg>
@@ -103,7 +86,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="summary-item__footer add-cols">
+			<div class="summary-item__footer">
 				<div class="summary-item__footer--col">
 					@@message
 				</div>
@@ -114,14 +97,8 @@
 							<use xlink:href="img/sprites.svg#download"></use>
 						</svg>
 					</button>
-					<a href="#approve-timesheet-popup" class="summary-item__button btn open-popup is-success@@buttons" type="button">
-						Approved
-						<svg width="16" height="17" viewBox="0 0 20 20">
-							<use xlink:href="img/sprites.svg#round-check"></use>
-						</svg>
-					</a>
-					<a href="#rejected-timesheet-popup" class="summary-item__button btn is-error open-popup@@buttons" type="button">
-						Rejected
+					<a href="#" class="summary-item__button btn is-grey" type="button">
+						Change decision
 					</a>
 				</div>
 			</div>

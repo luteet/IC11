@@ -18,6 +18,7 @@
 					<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 				</svg>
 			</button>
+			<div class="aside__background" aria-hidden="true"></div>
 			<div class="aside__body" data-simplebar>
 				<div class="aside__body--wrapper">
 					<div class="aside__header">
@@ -42,7 +43,7 @@
 							<nav class="aside__nav">
 								<ul>
 									<li>
-										<a href="timesheet.html" title="Timesheet">
+										<a href="timesheet.html" aria-label="Timesheet" class="is-current">
 											<svg width="25" height="25" viewBox="0 0 25 25">
 												<use xlink:href="img/sprites.svg#timesheet"></use>
 											</svg>
@@ -50,129 +51,180 @@
 										</a>
 									</li>
 									<li>
-										<a href="costs.html" title="Costs">
+										<a href="costs.html" aria-label="Costs">
 											<svg width="25" height="25" viewBox="0 0 25 25">
-												<use xlink:href="img/sprites.svg#calendar-check"></use>
+												<use xlink:href="img/sprites.svg#costs"></use>
 											</svg>
 											<span>Costs</span>
 										</a>
 									</li>
 									<li>
-										<button type="button" class="is-active" title="Summary">
+										<a href="summary.html" aria-label="Summary">
 											<svg width="25" height="25" viewBox="0 0 25 25">
-												<use xlink:href="img/sprites.svg#calendar-selected"></use>
+												<use xlink:href="img/sprites.svg#calendar-table"></use>
 											</svg>
 											<span>Summary</span>
-											<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
-												<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+										</a>
+									</li>
+									<li>
+										<a href="summary-employees.html" aria-label="Employees">
+											<svg width="25" height="25" viewBox="0 0 25 25">
+												<use xlink:href="img/sprites.svg#members"></use>
 											</svg>
-										</button>
-										<div>
-											<ul>
-												<li>
-													<a href="summary.html" title="My summaries">
-														<span>My summaries</span>
-														<span>
-															<svg width="20" height="20" viewBox="0 0 13 13">
-																<use xlink:href="img/sprites.svg#pin"></use>
-															</svg>
-														</span>
-													</a>
-												</li>
-												<li>
-													<a href="summary-employees.html" class="is-current" title="Employees">
-														<span>Employees</span>
-														<span>
-															<svg width="20" height="20" viewBox="0 0 25 25">
-																<use xlink:href="img/sprites.svg#members"></use>
-															</svg>
-														</span>
-													</a>
-												</li>
-											</ul>
-										</div>
+											<span>Employees</span>
+										</a>
 									</li>
 								</ul>
 							</nav>
 							<div class="aside__add">
-								<a href="#profile-popup" class="aside__user open-popup" style="--avatar-theme: var(--accent);" aria-label="Olena Rybak">
-									<div class="aside__user--avatar">
-										OR
-									</div>
-									<strong class="aside__user--name">
-										Olena Rybak
-									</strong>
-								</a>
-								<div class="aside__user-nav">
-									<a href="#profile-popup" class="aside__user-nav--button btn open-popup">
-										<span>Show my profile</span>
-										<span>
-											<svg width="16" height="16" viewBox="0 0 13 13">
-												<use xlink:href="img/sprites.svg#user"></use>
-											</svg>
-										</span>
+								<div class="aside__add--row">
+									<a href="#profile-popup" class="aside__user open-popup" style="--avatar-theme: var(--accent);" aria-label="Olena Rybak">
+										<div class="aside__user--avatar">
+											OR
+										</div>
+										<strong class="aside__user--name">
+											Olena Rybak
+										</strong>
 									</a>
-									<a href="login.html" class="aside__log-out">
+									<a href="login.html" class="aside__log-out visible-on-mob">
 										<svg width="16" height="17" viewBox="0 0 16 17">
 											<use xlink:href="img/sprites.svg#logout"></use>
 										</svg>
 										Log out
 									</a>
 								</div>
-								<div class="aside__add--list">
-									<div class="aside__add--item">
-										<div class="aside__min-drop-down drop-down is-dark is-bottom">
-											<button class="aside__min-drop-down--target drop-down__target" type="button">
-												<i>
-													<svg width="15" height="15" viewBox="0 0 15 15">
-														<use xlink:href="img/sprites.svg#language"></use>
-													</svg>
-												</i>
-												<span>
-													En
-												</span>
-												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
-													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+								<div class="aside__user-nav visible-on-desktop">
+									<!-- <a href="#profile-popup" class="aside__user-nav--button btn open-popup">
+										<span>Show my profile</span>
+										<span>
+											<svg width="16" height="16" viewBox="0 0 13 13">
+												<use xlink:href="img/sprites.svg#user"></use>
+											</svg>
+										</span>
+									</a> -->
+									<div class="aside__change-on-min">
+										<div>
+											<a href="login.html" class="aside__log-out">
+												<svg width="16" height="17" viewBox="0 0 16 17">
+													<use xlink:href="img/sprites.svg#logout"></use>
 												</svg>
-											</button>
-											<div class="aside__min-drop-down--block drop-down__block">
-												<ul class="drop-down__list">
-													<li>
-														<a href="#" aria-label="Українська">
-															Укр
-														</a>
-													</li>
-												</ul>
+												Log out
+											</a>
+										</div>
+										<div>
+											<a href="login.html" class="aside__log-out is-min" aria-label="Log out">
+												<svg width="16" height="17" viewBox="0 0 16 17">
+													<use xlink:href="img/sprites.svg#logout"></use>
+												</svg>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="aside__change-on-min">
+									<div>
+										<div class="aside__add--list">
+											<div class="aside__add--item">
+												<div class="aside__min-drop-down drop-down is-dark is-bottom">
+													<button class="aside__min-drop-down--target drop-down__target" type="button">
+														<i>
+															<svg width="15" height="15" viewBox="0 0 15 15">
+																<use xlink:href="img/sprites.svg#language"></use>
+															</svg>
+														</i>
+														<span>
+															En
+														</span>
+														<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+															<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+														</svg>
+													</button>
+													<div class="aside__min-drop-down--block drop-down__block">
+														<ul class="drop-down__list">
+															<li>
+																<a href="#" aria-label="Українська">
+																	Укр
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="aside__add--item">
+												<div class="aside__min-drop-down drop-down is-dark is-bottom">
+													<button class="aside__min-drop-down--target drop-down__target" type="button">
+														<i>
+															<svg width="15" height="15" viewBox="0 0 20 20">
+																<use xlink:href="img/sprites.svg#money"></use>
+															</svg>
+														</i>
+														<span>
+															UAH
+														</span>
+														<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+															<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+														</svg>
+													</button>
+													<div class="aside__min-drop-down--block drop-down__block">
+														<ul class="drop-down__list">
+															<li>
+																<a href="#">
+																	EUR
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="aside__add--item">
-										<div class="aside__min-drop-down drop-down is-dark is-bottom">
-											<button class="aside__min-drop-down--target drop-down__target" type="button">
-												<i>
-													<svg width="15" height="15" viewBox="0 0 20 20">
-														<use xlink:href="img/sprites.svg#money"></use>
-													</svg>
-												</i>
-												<span>
-													UAH
-												</span>
-												<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
-													<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
-												</svg>
-											</button>
-											<div class="aside__min-drop-down--block drop-down__block">
-												<ul class="drop-down__list">
-													<li>
-														<a href="#">
-															EUR
-														</a>
-													</li>
-												</ul>
+									<div>
+										<div class="aside__add--list to-min">
+											<div class="aside__add--item">
+												<div class="aside__min-drop-down drop-down is-dark is-bottom">
+													<button class="aside__min-drop-down--target drop-down__target" type="button">
+														<span>
+															En
+														</span>
+														<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+															<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+														</svg>
+													</button>
+													<div class="aside__min-drop-down--block drop-down__block">
+														<ul class="drop-down__list">
+															<li>
+																<a href="#" aria-label="Українська">
+																	Укр
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="aside__add--item">
+												<div class="aside__min-drop-down drop-down is-dark is-bottom">
+													<button class="aside__min-drop-down--target drop-down__target" type="button">
+														<span>
+															UAH
+														</span>
+														<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+															<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+														</svg>
+													</button>
+													<div class="aside__min-drop-down--block drop-down__block">
+														<ul class="drop-down__list">
+															<li>
+																<a href="#">
+																	EUR
+																</a>
+															</li>
+														</ul>
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
+
 								<!-- <div class="aside__language drop-down is-dark is-bottom">
 									<button class="aside__language--target drop-down__target" type="button">
 										<i>
@@ -214,7 +266,7 @@
 			</script>
 		</aside>
 
-		<main class="main">
+		<main class="main" data-simplebar data-simplebar-auto-hide="false">
 			<section class="summary">
 				<div class="summary__header page-header">
 					<div class="page-header__col">
@@ -239,7 +291,7 @@
 											<div class="notification__item">
 												<div class="notification__block--text">
 													<p>
-														<b>You have a new comment from Irina Omelianenko:</b><br>
+														<b>You have a new comment from Irina Omelianenko:</b>
 														No problems, take your time. Don’t forget please about the fact that 19th was weekend
 													</p>
 												</div>
@@ -277,7 +329,7 @@
 											<div class="notification__item">
 												<div class="notification__block--text">
 													<p>
-														<b>You have a new comment from Irina Omelianenko:</b><br>
+														<b>You have a new comment from Irina Omelianenko:</b>
 														No problems, take your time. Don’t forget please about the fact that 19th was weekend
 													</p>
 												</div>
@@ -315,7 +367,7 @@
 											<div class="notification__item">
 												<div class="notification__block--text">
 													<p>
-														<b>You have a new comment from Irina Omelianenko:</b><br>
+														<b>You have a new comment from Irina Omelianenko:</b>
 														No problems, take your time. Don’t forget please about the fact that 19th was weekend
 													</p>
 												</div>
@@ -355,91 +407,143 @@
 						</div>
 					</div>
 					<div class="page-header__col">
-						<div class="section-table__change-full-date drop-down">
-							<button class="section-table__change-full-date--target drop-down__target" type="button">
-								<span>April, 2023</span>
-								<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-full-date--target-arrow drop-down__target--arrow">
+						<!-- <div class="section-table__change-full-date drop-down">
+					<button class="section-table__change-full-date--target drop-down__target" type="button">
+						<span>April, 2023</span>
+						<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-full-date--target-arrow drop-down__target--arrow">
+							<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+						</svg>
+					</button>
+					<div class="section-table__change-full-date--block drop-down__block">
+						<div class="section-table__change-full-date--months">
+							<ul>
+								<li>
+									<label>
+										<input type="radio" name="month" value="1" checked>
+										<span>January</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="7">
+										<span>July</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="2">
+										<span>February</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="8">
+										<span>August</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="3">
+										<span>March</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="9">
+										<span>September</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="4">
+										<span>April</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="10">
+										<span>October</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="5">
+										<span>May</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="11">
+										<span>November</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="6">
+										<span>June</span>
+									</label>
+								</li>
+								<li>
+									<label>
+										<input type="radio" name="month" value="12">
+										<span>December</span>
+									</label>
+								</li>
+							</ul>
+						</div>
+						<div class="section-table__change-full-date--slider splide">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2021">
+											<span>2021</span>
+										</label>
+									</li>
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2022">
+											<span>2022</span>
+										</label>
+									</li>
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2023" checked>
+											<span>2023</span>
+										</label>
+									</li>
+									<li class="splide__slide is-disabled">
+										<label>
+											<input type="radio" name="year" value="2024" disabled>
+											<span>2024</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="splide__arrows">
+								<button class="splide__arrow splide__arrow--prev" type="button">
+									<svg width="7" height="10" viewBox="0 0 7 10">
+										<use xlink:href="img/sprites.svg#arrow-prev"></use>
+									</svg>
+								</button>
+								<button class="splide__arrow splide__arrow--next" type="button">
+									<svg width="7" height="10" viewBox="0 0 7 10">
+										<use xlink:href="img/sprites.svg#arrow-next"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div> -->
+						<div class="section-table__change-date drop-down">
+							<button class="section-table__change-date--target drop-down__target" type="button">
+								2023
+								<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-date--target-arrow drop-down__target--arrow">
 									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 								</svg>
 							</button>
-							<div class="section-table__change-full-date--block drop-down__block">
-								<div class="section-table__change-full-date--months">
-									<ul>
-										<li>
-											<label>
-												<input type="radio" name="month" value="1" checked>
-												<span>January</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="7">
-												<span>July</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="2">
-												<span>February</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="8">
-												<span>August</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="3">
-												<span>March</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="9">
-												<span>September</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="4">
-												<span>April</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="10">
-												<span>October</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="5">
-												<span>May</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="11">
-												<span>November</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="6">
-												<span>June</span>
-											</label>
-										</li>
-										<li>
-											<label>
-												<input type="radio" name="month" value="12">
-												<span>December</span>
-											</label>
-										</li>
-									</ul>
-								</div>
-								<div class="section-table__change-full-date--slider splide">
+							<div class="section-table__change-date--block drop-down__block">
+								<div class="section-table__change-date--slider splide">
 									<div class="splide__track">
 										<ul class="splide__list">
 											<li class="splide__slide">
@@ -485,9 +589,9 @@
 						</div>
 					</div>
 					<div class="page-header__col">
-						<div class="section-table__export drop-down">
+						<div class="section-table__export drop-down is-right-default">
 							<button class="section-table__export--target drop-down__target" type="button">
-								Export
+								Export All
 								<svg width="16" height="17" viewBox="0 0 16 17">
 									<use xlink:href="img/sprites.svg#download"></use>
 								</svg>
@@ -535,22 +639,22 @@
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>8h</span>
+											<span>18 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>5 000UAH</span>
+											<span>5 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>18h</span>
+											<span>8 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>522 000UAH</span>
+											<span>522 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
@@ -588,7 +692,7 @@
 											Time spent for projects
 										</b>
 										<a href="#" class="summary-item__total-element--link">
-											Money spent for projects
+											Show full data
 											<svg width="7" height="10" viewBox="0 0 7 10">
 												<use xlink:href="img/sprites.svg#arrow-next"></use>
 											</svg>
@@ -600,7 +704,11 @@
 								</div>
 								<div class="summary-item__footer">
 									<div class="summary-item__footer--col">
-
+										<div class="summary-item__message"><svg width="20" height="20" viewBox="0 0 13 13">
+												<use xlink:href="img/sprites.svg#attention"></use>
+											</svg>
+											<p>You already sent this timesheet for reapproval. Please, wait for the answer.</p>
+										</div>
 									</div>
 									<div class="summary-item__footer--col">
 										<button class="summary-item__button btn is-grey is-transparent" type="button">
@@ -609,8 +717,8 @@
 												<use xlink:href="img/sprites.svg#download"></use>
 											</svg>
 										</button>
-										<a href="#approve-timesheet-popup" class="summary-item__button btn open-popup" type="button">
-											Send timesheet for approval
+										<a href="#" class="summary-item__button btn is-grey" type="button">
+											Change decision
 										</a>
 									</div>
 								</div>
@@ -642,22 +750,22 @@
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>8h</span>
+											<span>18 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>5 000UAH</span>
+											<span>5 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>18h</span>
+											<span>8 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>522 000UAH</span>
+											<span>522 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
@@ -695,7 +803,7 @@
 											Time spent for projects
 										</b>
 										<a href="#" class="summary-item__total-element--link">
-											Money spent for projects
+											Show full data
 											<svg width="7" height="10" viewBox="0 0 7 10">
 												<use xlink:href="img/sprites.svg#arrow-next"></use>
 											</svg>
@@ -711,6 +819,11 @@
 												<use xlink:href="img/sprites.svg#round-error"></use>
 											</svg>
 											<p>Your timesheet was rejected. Please, correct and send for reapproval. (by Irina Omelianenko)</p>
+										</div>
+										<div class="summary-item__message is-waiting"><svg width="20" height="20" viewBox="0 0 13 13">
+												<use xlink:href="img/sprites.svg#time"></use>
+											</svg>
+											<p>You already sent this timesheet for reapproval. Please, wait for the answer.</p>
 										</div>
 									</div>
 									<div class="summary-item__footer--col">
@@ -753,22 +866,22 @@
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>8h</span>
+											<span>18 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>5 000UAH</span>
+											<span>5 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>18h</span>
+											<span>8 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>522 000UAH</span>
+											<span>522 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
@@ -806,7 +919,7 @@
 											Time spent for projects
 										</b>
 										<a href="#" class="summary-item__total-element--link">
-											Money spent for projects
+											Show full data
 											<svg width="7" height="10" viewBox="0 0 7 10">
 												<use xlink:href="img/sprites.svg#arrow-next"></use>
 											</svg>
@@ -825,7 +938,7 @@
 										</div>
 									</div>
 									<div class="summary-item__footer--col">
-										<button class="summary-item__button btn is-grey is-transparent is-disabled" type="button">
+										<button class="summary-item__button btn is-grey is-transparent" type="button">
 											Export monthly summary
 											<svg width="16" height="17" viewBox="0 0 16 17">
 												<use xlink:href="img/sprites.svg#download"></use>
@@ -864,22 +977,22 @@
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>8h</span>
+											<span>18 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>5 000UAH</span>
+											<span>5 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>18h</span>
+											<span>8 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>522 000UAH</span>
+											<span>522 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
@@ -917,7 +1030,7 @@
 											Time spent for projects
 										</b>
 										<a href="#" class="summary-item__total-element--link">
-											Money spent for projects
+											Show full data
 											<svg width="7" height="10" viewBox="0 0 7 10">
 												<use xlink:href="img/sprites.svg#arrow-next"></use>
 											</svg>
@@ -971,22 +1084,22 @@
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>8h</span>
+											<span>18 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>5 000UAH</span>
+											<span>5 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
 									<div class="summary-item__element">
 										<h3 class="summary-item__element--name">61xA210739_Kremenchuk Bridge supervision</h3>
 										<div class="summary-item__element--progress">
-											<span>18h</span>
+											<span>8 h</span>
 											<span style="--value: 9%;" data-value="9%"></span>
 										</div>
 										<div class="summary-item__element--progress">
-											<span>522 000UAH</span>
+											<span>522 000 UAH</span>
 											<span style="--value: 2%;" data-value="2%"></span>
 										</div>
 									</div>
@@ -1024,7 +1137,7 @@
 											Time spent for projects
 										</b>
 										<a href="#" class="summary-item__total-element--link">
-											Money spent for projects
+											Show full data
 											<svg width="7" height="10" viewBox="0 0 7 10">
 												<use xlink:href="img/sprites.svg#arrow-next"></use>
 											</svg>
@@ -1043,7 +1156,7 @@
 										</div>
 									</div>
 									<div class="summary-item__footer--col">
-										<button class="summary-item__button btn is-grey is-transparent is-disabled" type="button">
+										<button class="summary-item__button btn is-grey is-transparent" type="button">
 											Export monthly summary
 											<svg width="16" height="17" viewBox="0 0 16 17">
 												<use xlink:href="img/sprites.svg#download"></use>
@@ -1058,311 +1171,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="summary__footer page-footer">
-					<div class="page-footer__row-per-page visible-on-mob">
-						<span>Rows per page:</span>
-						<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
-							<option value="10">10</option>
-							<option value="20">20</option>
-							<option value="40">40</option>
-							<option value="all">All</option>
-						</select>
-					</div>
-					<button class="page-footer__see-more btn" type="button">
-						Show more
-						<svg width="15" height="15" viewBox="0 0 15 15">
-							<use xlink:href="img/sprites.svg#arrow-down"></use>
-						</svg>
-					</button>
-					<div class="page-footer__row-per-page visible-on-desktop">
-						<span>Rows per page:</span>
-						<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
-							<option value="20">20</option>
-							<option value="40">40</option>
-							<option value="60">60</option>
-							<option value="all">All</option>
-						</select>
-					</div>
-				</div>
 			</section>
-			<div class="down-sidebar">
-				<button class="down-sidebar__arrow-target" type="button">
-					<svg width="10" height="7" viewBox="0 0 10 7">
-						<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
-					</svg>
-				</button>
-				<div class="down-sidebar__wrapper">
-					<div class="down-sidebar__target-place">
-						<div class="down-sidebar__target-place--row">
-							<button class="down-sidebar__comments-target btn is-grey" type="button">
-								<svg width="13" height="13" viewBox="0 0 13 13">
-									<use xlink:href="img/sprites.svg#comments"></use>
-								</svg>
-								Comments (3)
-							</button>
-							<div class="down-sidebar__total-target">
-								<span>Total for month:</span>
-								<div class="down-sidebar__total-target--value">
-									45 hours
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="down-sidebar__row">
-						<div class="down-sidebar__col">
-							<div class="down-sidebar__chat">
-								<div class="down-sidebar__chat-block" data-simplebar data-simplebar-auto-hide="false">
-									<div class="down-sidebar__chat-item" data-author="Olena Rybak">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<b>Olena Rybak:</b> Still not finished, sorry, please not approve till Wednesday
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Irina Omelianenko">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<span>@Olena Rybak.</span>
-												<b>Irina Omelianenko:</b> No problems, take your time. Don’t forget please about the fact that 19th was weekend
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Olena Rybak">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<b>Olena Rybak:</b> Still not finished, sorry, please not approve till Wednesday
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Irina Omelianenko">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<span>@Olena Rybak.</span>
-												<b>Irina Omelianenko:</b> No problems, take your time. Don’t forget please about the fact that 19th was weekend
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Olena Rybak">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<b>Olena Rybak:</b> Still not finished, sorry, please not approve till Wednesday
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Irina Omelianenko">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<span>@Olena Rybak.</span>
-												<b>Irina Omelianenko:</b> No problems, take your time. Don’t forget please about the fact that 19th was weekend
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Olena Rybak">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<b>Olena Rybak:</b> Still not finished, sorry, please not approve till Wednesday
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Irina Omelianenko">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<span>@Olena Rybak.</span>
-												<b>Irina Omelianenko:</b> No problems, take your time. Don’t forget please about the fact that 19th was weekend
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Olena Rybak">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<b>Olena Rybak:</b> Still not finished, sorry, please not approve till Wednesday
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="down-sidebar__chat-item" data-author="Irina Omelianenko">
-										<div class="down-sidebar__chat-item--text">
-											<p>
-												<span>@Olena Rybak.</span>
-												<b>Irina Omelianenko:</b> No problems, take your time. Don’t forget please about the fact that 19th was weekend
-											</p>
-										</div>
-										<button type="button" class="down-sidebar__chat-item--answer" title="Answer">
-											<svg width="20" height="20" viewBox="0 0 20 20">
-												<use xlink:href="img/sprites.svg#answer"></use>
-											</svg>
-										</button>
-									</div>
-								</div>
-								<div class="down-sidebar__chat-user-panel">
-									<label>
-										<input type="text" name="comment" placeholder="Add new comment" required class="input">
-									</label>
-									<button type="submit" title="Send">
-										<svg width="17" height="17" viewBox="0 0 17 17">
-											<use xlink:href="img/sprites.svg#send"></use>
-										</svg>
-									</button>
-								</div>
-							</div>
-						</div>
-						<div class="down-sidebar__col">
-							<div class="down-sidebar__total">
-								<div class="down-sidebar__total-block" data-simplebar data-simplebar-auto-hide="false">
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-									<div class="down-sidebar__total-item">
-										<b class="down-sidebar__total-item--name">61xA210739_Kremenchuk Bridge supervision</b>
-										<div class="down-sidebar__total-item--value">
-											<b>10h</b>
-											<div class="down-sidebar__total-item--progress-bar" style="--value: 11%;" data-value="11%"></div>
-										</div>
-									</div>
-								</div>
-								<div class="down-sidebar__total-footer">
-									<div class="down-sidebar__total-value">
-										<span>Total for month:</span>
-										<b>45 hours</b>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 		</main>
 
 		<div class="approve-timesheet popup" id="approve-timesheet-popup" style="display: none;">
@@ -1374,7 +1183,7 @@
 							<use xlink:href="img/sprites.svg#close"></use>
 						</svg>
 					</button>
-					<div class="approve-timesheet__container popup-container">
+					<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 						<h2 class="approve-timesheet__title title popup-title">
 							You are going to send the timesheet for approving, continue?
 						</h2>
@@ -1400,7 +1209,7 @@
 							<use xlink:href="img/sprites.svg#close"></use>
 						</svg>
 					</button>
-					<div class="approve-timesheet__container popup-container">
+					<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 						<h2 class="approve-timesheet__title title popup-title">
 							Thank you!
 						</h2>
@@ -1422,319 +1231,6 @@
 
 	</div>
 
-	<div class="add-new-employee popup" id="add-new-employee-popup" style="display: none;">
-		<div class="add-new-employee__wrapper popup-wrapper">
-			<div class="add-new-employee__bg popup-bg popup-close"></div>
-			<div class="add-new-employee__body popup-body">
-				<button type="button" class="add-new-employee__close-btn popup-close-btn popup-close" title="Close">
-					<svg width="15" height="15" viewBox="0 0 15 15">
-						<use xlink:href="img/sprites.svg#close"></use>
-					</svg>
-				</button>
-				<div class="add-new-employee__container popup-container" data-simplebar data-simplebar-auto-hide="false">
-					<h2 class="popup-title title">
-						Add new employee
-					</h2>
-					<form class="popup-form">
-						<div class="popup-form__row">
-							<label class="popup-form__label">
-								<span>First name</span>
-								<input type="text" name="first-name" required placeholder="First name" class="input">
-							</label>
-							<label class="popup-form__label">
-								<span>Second name</span>
-								<input type="text" name="last-name" required placeholder="Second name" class="input">
-							</label>
-						</div>
-						<div class="popup-form__row">
-							<label class="popup-form__label">
-								<span>Role</span>
-								<input type="text" name="role" required placeholder="Role" class="input">
-							</label>
-							<label class="popup-form__label">
-								<span>Status on the web-site</span>
-								<select name="status-on-web-site" class="custom-select">
-									<option value="Project Lead">Project Lead</option>
-									<option value="Project Lead 2">Project Lead 2</option>
-									<option value="Project Lead 3">Project Lead 3</option>
-								</select>
-							</label>
-						</div>
-						<div class="popup-form__row">
-							<label class="popup-form__label">
-								<span>Email</span>
-								<input type="email" name="email" required placeholder="Email" class="input">
-							</label>
-							<label class="popup-form__label">
-								<span>Password</span>
-								<input type="text" name="password" required placeholder="Password" class="input">
-							</label>
-						</div>
-						<div class="popup-form__row">
-							<label class="popup-form__item">
-								<span>Phone number</span>
-								<div class="popup-form__item--row">
-									<select name="tel-code" class="custom-select">
-										<option value="+380">+380</option>
-										<option value="+385">+385</option>
-										<option value="+390">+390</option>
-									</select>
-									<input type="tel" name="tel" required placeholder="012 345 67 89" class="input">
-								</div>
-							</label>
-							<label class="popup-form__label">
-								<span>Holidays</span>
-								<input type="text" name="holidays" required placeholder="Holidays" data-add-text="Holidays" class="input input-number">
-							</label>
-						</div>
-						<div class="popup-form__row">
-							<label class="popup-form__label is-full">
-								<span>Projects</span>
-								<a href="#sub-popup-employee" class="popup-form__open-sub-popup open-popup">
-									<span id="checked-projects" data-none-text="None" data-all-text="All projects">All projects</span>
-									<svg width="10" height="7" viewBox="0 0 10 7">
-										<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
-									</svg>
-								</a>
-							</label>
-						</div>
-						<div class="popup-form__row is-min-gap">
-							<button class="popup-form__cancel btn is-transparent" type="button">
-								Cancel
-							</button>
-							<button class="popup-form__submit btn" type="submit">
-								Save
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="sub-popup-employee popup is-sub" id="sub-popup-employee" style="display: none;">
-		<div class="sub-popup-employee__wrapper popup-wrapper">
-			<div class="sub-popup-employee__bg popup-bg popup-close"></div>
-			<div class="sub-popup-employee__body popup-body">
-				<button type="button" class="sub-popup-employee__close-btn popup-close-btn popup-close" title="Close">
-					<svg width="15" height="15" viewBox="0 0 15 15">
-						<use xlink:href="img/sprites.svg#close"></use>
-					</svg>
-				</button>
-				<div class="sub-popup-employee__container popup-container" data-simplebar>
-					<ul class="popup-checkbox-list" data-checked-list-id="checked-projects">
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="All projects" class="popup-checkbox__input all-check">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									All projects
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61xA210739_Kremenchuk Bridge supervision" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61xA210739_Kremenchuk Bridge supervision
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x200495_NEFCO_PIU_Novomoskov" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x200495_NEFCO_PIU_Novomoskov
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x210204_Ukraine EE Building Certification S..." class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x210204_Ukraine EE Building Certification S...
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61xA210567_GGF_IA_Supermarket" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61xA210567_GGF_IA_Supermarket
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61xA210739_Kremenchuk Bridge supervision" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61xA210739_Kremenchuk Bridge supervision
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x210593_KfW_Hospitals_Ukr" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x210593_KfW_Hospitals_Ukr
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x200495_NEFCO_PIU_Novomoskov" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x200495_NEFCO_PIU_Novomoskov
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x210204_Ukraine EE Building Certification S..." class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x210204_Ukraine EE Building Certification S...
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61xA210567_GGF_IA_Supermarket" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61xA210567_GGF_IA_Supermarket
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61xA210739_Kremenchuk Bridge supervision" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61xA210739_Kremenchuk Bridge supervision
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x210593_KfW_Hospitals_Ukr" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x210593_KfW_Hospitals_Ukr
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x200495_NEFCO_PIU_Novomoskov" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x200495_NEFCO_PIU_Novomoskov
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61x210204_Ukraine EE Building Certification S..." class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61x210204_Ukraine EE Building Certification S...
-								</span>
-							</label>
-						</li>
-						<li>
-							<label class="popup-checkbox">
-								<input type="checkbox" name="61xA210567_GGF_IA_Supermarket" class="popup-checkbox__input">
-								<span class="popup-checkbox__element">
-									<svg width="11" height="8" viewBox="0 0 11 8">
-										<use xlink:href="img/sprites.svg#check"></use>
-									</svg>
-								</span>
-								<span class="popup-checkbox__text">
-									61xA210567_GGF_IA_Supermarket
-								</span>
-							</label>
-						</li>
-					</ul>
-					<div class="sub-popup-employee__search">
-						<label>
-							<input type="search" name="search" required placeholder="Search a project" class="input">
-						</label>
-						<button class="btn is-grey" type="submit">
-							Search
-							<svg width="15" height="15" viewBox="0 0 15 15">
-								<use xlink:href="img/sprites.svg#search"></use>
-							</svg>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<div class="remove-table-item popup" id="remove-table-item-popup" style="display: none;">
 		<div class="remove-table-item__wrapper popup-wrapper">
 			<div class="remove-table-item__bg popup-bg popup-close"></div>
@@ -1744,51 +1240,11 @@
 						<use xlink:href="img/sprites.svg#close"></use>
 					</svg>
 				</button>
-				<div class="remove-table-item__container popup-container">
+				<div class="remove-table-item__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 					<h2 class="remove-table-item__title popup-title title is-center">
 						Are you sure you want to delete this row?
 					</h2>
 					<form class="popup-form">
-						<div class="popup-form__row is-min-gap">
-							<button class="popup-form__cancel btn is-transparent popup-close" type="button">
-								Cancel
-							</button>
-							<button class="popup-form__submit btn" type="submit">
-								Delete
-							</button>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="add-project popup" id="add-project-popup" style="display: none;">
-		<div class="add-project__wrapper popup-wrapper">
-			<div class="add-project__bg popup-bg popup-close"></div>
-			<div class="add-project__body popup-body">
-				<button type="button" class="add-project__close-btn popup-close-btn popup-close" title="Close">
-					<svg width="15" height="15" viewBox="0 0 15 15">
-						<use xlink:href="img/sprites.svg#close"></use>
-					</svg>
-				</button>
-				<div class="add-project__container popup-container">
-					<h2 class="add-project__title popup-title title">
-						Add new project
-					</h2>
-					<form class="add-project__form popup-form">
-						<div class="popup-form__row">
-							<label class="popup-form__label is-full">
-								<span>Project name</span>
-								<input type="text" name="project-name" required placeholder="Project name" class="input">
-							</label>
-						</div>
-						<div class="popup-form__row">
-							<label class="popup-form__label is-full">
-								<span>Project description</span>
-								<input type="text" name="project-description" required placeholder="Project description" class="input">
-							</label>
-						</div>
 						<div class="popup-form__row is-min-gap">
 							<button class="popup-form__cancel btn is-transparent popup-close" type="button">
 								Cancel
@@ -1812,7 +1268,7 @@
 						<use xlink:href="img/sprites.svg#close"></use>
 					</svg>
 				</button>
-				<form class="profile__container popup-container">
+				<form class="profile__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 					<div class="profile__user">
 						<div class="profile__user--avatar" style="--theme: var(--accent);">
 							OG
@@ -1825,7 +1281,7 @@
 						<div class="profile__info--item">
 							<span>Position</span>
 							<label>
-								<button class="copy-btn" type="button" data-clipboard-text="Managing director">
+								<button class="copy-btn" type="button" data-clipboard-text="Managing director" data-copied-text="Text copied to the clipboard">
 									<svg width="15" height="16" viewBox="0 0 15 16">
 										<use xlink:href="img/sprites.svg#copy"></use>
 									</svg>
@@ -1836,7 +1292,7 @@
 						<div class="profile__info--item">
 							<span>E-mail</span>
 							<label>
-								<button class="copy-btn" type="button" data-clipboard-text="o.rybak@ic-group.org">
+								<button class="copy-btn" type="button" data-clipboard-text="o.rybak@ic-group.org" data-copied-text="Text copied to the clipboard">
 									<svg width="15" height="16" viewBox="0 0 15 16">
 										<use xlink:href="img/sprites.svg#copy"></use>
 									</svg>
@@ -1847,7 +1303,7 @@
 						<div class="profile__info--item">
 							<span>Phone number</span>
 							<label>
-								<button class="copy-btn" type="button" data-clipboard-text="(012)345-67-89">
+								<button class="copy-btn" type="button" data-clipboard-text="(012)345-67-89" data-copied-text="Text copied to the clipboard">
 									<svg width="15" height="16" viewBox="0 0 15 16">
 										<use xlink:href="img/sprites.svg#copy"></use>
 									</svg>
@@ -1875,7 +1331,7 @@
 						<use xlink:href="img/sprites.svg#close"></use>
 					</svg>
 				</button>
-				<form class="profile__container popup-container">
+				<form class="profile__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 					<div class="profile__user">
 						<div class="profile__user--avatar">
 							<picture>
@@ -1906,11 +1362,21 @@
 								<input type="email" name="email" value="o.rybak@ic-group.org" readonly class="input">
 							</label>
 						</div>
-						<div class="profile__info--item">
-							<span>Phone number</span>
-							<label>
-								<input type="tel" name="tel" value="(012)345-67-89" class="input">
-							</label>
+						<div class="profile__info--row">
+							<div class="profile__info--item">
+								<span>Phone number</span>
+								<select name="phone-code" class="profile__info--select custom-select">
+									<option value="+380">+380</option>
+									<option value="+385">+385</option>
+									<option value="+390">+390</option>
+								</select>
+							</div>
+							<div class="profile__info--item">
+								<span>Phone number</span>
+								<label>
+									<input type="tel" name="tel" value="(012)345-67-89" class="input">
+								</label>
+							</div>
 						</div>
 						<div class="profile__info--item">
 							<span>Enter your new password</span>

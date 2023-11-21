@@ -71,22 +71,23 @@ body {
 		max-width: 530px;
 		width: 100%;
 
-		padding: 10px 0px 10px 10px;
+		padding: 20px 1px 20px 20px;
 		@include _550 {
-			padding: 20px;
+			padding: 40px 7px 40px 40px;
 		}
 
 		z-index: 2;
 	}
 	&-container {
 		
-		overflow-y: auto;
+		overflow-y: auto; overflow-x: hidden;
 		max-height: calc(var(--vh,1vh) * 100 - 70px);
 		//max-height: calc(100svh - 30px);
 		
-		padding: 10px 20px 10px 10px;
+		padding: 0px 20px 0px 0px;
 		@include _550 {
-			padding: 20px;
+			padding: 0 33px 0 0;
+			max-height: calc(var(--vh,1vh) * 100 - 110px);
 		}
 
 		.simplebar-track.simplebar-vertical {
@@ -100,10 +101,27 @@ body {
 			background: rgba(94, 100, 115, .1)
 		}
 
+		.simplebar-content-wrapper {
+			min-height: 100%;
+
+			display: flex;
+			flex-direction: column;
+		}
+
+		.simplebar-content {
+			min-height: 100%; flex: 1 1;
+
+			display: flex;
+			flex-direction: column;
+		}
+
 	}
 	&-close-btn {
 		position: absolute;
-		right: 15px; top: 15px;
+		right: 10px; top: 10px;
+		@include _550 {
+			right: 15px; top: 15px;
+		}
 		line-height: 100%;
 		width: 30px; height: 30px;
 		color: #AEB6CE;
@@ -138,7 +156,10 @@ body {
 	}
 
 	&-title {
-
+		padding-top: 20px;
+		@include _550 {
+			padding-top: 10px;
+		}
 	}
 
 	&-form {
@@ -258,6 +279,11 @@ body {
 			margin-bottom: 8px;
 		}
 
+		> span:nth-child(2) {
+			position: relative;
+			display: block;
+		}
+
 		input {
 			width: 100%;
 		}
@@ -295,7 +321,7 @@ body {
 	}
 
 	&__open-sub-popup {
-		padding: 14px 20px;
+		padding: 14px 20px; min-height: 45px;
 
 		border: 1px solid rgba(174, 182, 206, 0.30);
 		background: var(--white);
@@ -353,6 +379,8 @@ body {
 .popup-checkbox {
 
 	display: flex;
+	align-items: center;
+
 	cursor: pointer;
 
 	position: relative;
@@ -429,6 +457,11 @@ body {
 	}
 }
 
+.popup-checkbox-list li:first-child .popup-checkbox__text {
+	font-weight: 500;
+	color: #212529;
+}
+
 .sub-popup-employee {
 
 	// .sub-popup-employee__wrapper
@@ -445,8 +478,29 @@ body {
 
 	&__body {
 		padding: 0;
+		
 		@include _550 {
 			padding: 0;
+			background: transparent;
+
+			height: min(650px, calc(var(--vh,1vh) * 100) - 30px);
+			//height: 100%;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+		}
+
+		&--wrapper {
+			position: relative;
+			@include _550 {
+				padding: 15px 7px 0 0;
+				//transform: translate(0,40px);
+				max-height: calc((var(--vh,1vh) * 100) - 20px);
+				//height: 100%;
+				
+			}
+			background: var(--white);
 		}
 	}
 
@@ -459,9 +513,11 @@ body {
 
 	&__container {
 		@include _550 {
-			padding: 30px 40px 40px;
+			padding: 0px 40px 90px;
+			margin-top: 2popup-checkbox-list0px;
 		}
-		margin-bottom: 50px;
+
+		//margin-bottom: 50px;
 	}
 
 	// .sub-popup-employee__search
@@ -495,6 +551,12 @@ body {
 	@include _768 {
 		padding: 0;
 	}
+
+	&.is-active .popup-body {
+		@include _768 {
+			transform: translate(0%,0);
+		}
+	}
 	
 	.popup-body {
 		@include _768 {
@@ -502,8 +564,18 @@ body {
 			max-height: calc(var(--vh,1vh) * 100);
 			height: calc(var(--vh,1vh) * 100);
 
-			padding: 40px;
+			padding: 40px 7px 40px 40px;
 			max-width: 530px;
+
+			transform: translate(100%,0);
+			transition: transform .4s ease;
+		}
+	}
+
+	.popup-container {
+		padding-right: 15px;
+		@include _768 {
+			padding-right: 30px;
 		}
 	}
 
@@ -641,10 +713,24 @@ body {
 		margin-top: 30px;
 		flex: 1 1 auto;
 
-		&--item {
+		& > &--item:not(:first-child) {
+			margin-top: 20px;
+		}
+
+		&--row {
 			&:not(:first-child) {
 				margin-top: 20px;
 			}
+
+			display: grid;
+			gap: 10px;
+			grid-template-columns: 100px auto;
+		}
+
+		
+
+		&--item {
+			
 			
 			> span:first-child {
 				display: block;
@@ -673,6 +759,29 @@ body {
 				padding: 15px;
 
 				color: #97A0BB;
+
+				&::before {
+					content: attr(data-copied-text);
+					position: absolute;
+					right: 100%; top: 50%;
+					transform: translate(0,-50%);
+					width: 200px;
+					background: var(--title-color);
+
+					color: var(--white);
+
+					padding: 5px;
+					border-radius: 7px;
+
+					opacity: 0; visibility: hidden;
+
+					pointer-events: none;
+				}
+
+				&.tooltip-active::before {
+					opacity: 1; visibility: visible;
+					animation: fadeOut 1s ease 0.5s 1 normal forwards;
+				}
 			}
 
 			.copy-btn + .input {
@@ -681,9 +790,7 @@ body {
 
 			.input {
 				width: 100%;
-				&:read-only {
-					background: rgba(174, 182, 206, 0.20);
-				}
+				
 			}
 		}
 	}

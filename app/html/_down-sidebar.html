@@ -16,59 +16,61 @@
 				<div class="down-sidebar__total-target">
 					<span>Total for month:</span>
 					<div class="down-sidebar__total-target--value">
-						45 hours
+						45 @@currency
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="down-sidebar__row">
-			<div class="down-sidebar__col">
-				<div class="down-sidebar__chat">
-					<div class="down-sidebar__chat-block" data-simplebar data-simplebar-auto-hide="false">
-						@@loop("_down-sidebar-chat-item.html", [
-							{},
-							{},
-							{},
-							{},
-							{},
-						])
-					</div>
-					<div class="down-sidebar__chat-user-panel">
-						<label>
-							<input type="text" name="comment" placeholder="Add new comment" required class="input">
-						</label>
-						<button type="submit" title="Send">
-							<svg width="17" height="17" viewBox="0 0 17 17">
-								<use xlink:href="img/sprites.svg#send"></use>
-							</svg>
-						</button>
+			<div>
+				<div class="down-sidebar__col">
+					<div class="down-sidebar__chat">
+						<div class="down-sidebar__chat-block" data-simplebar data-simplebar-auto-hide="false">
+							@@loop("_down-sidebar-chat-item.html", [
+								{},
+								{},
+								{},
+								{},
+								{},
+							])
+						</div>
+						<form class="down-sidebar__chat-user-panel">
+							<label>
+								<input type="text" name="comment" placeholder="Add new comment" required class="input">
+							</label>
+							<button type="submit" title="Send">
+								<svg width="17" height="17" viewBox="0 0 17 17">
+									<use xlink:href="img/sprites.svg#send"></use>
+								</svg>
+							</button>
+						</form>
 					</div>
 				</div>
-			</div>
-			<div class="down-sidebar__col">
-				<div class="down-sidebar__total">
-					<div class="down-sidebar__total-block" data-simplebar data-simplebar-auto-hide="false">
-						@@loop("_down-sidebar-total-item.html", [
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-						])
-					</div>
-					<div class="down-sidebar__total-footer">
-						<div class="down-sidebar__total-value">
-							<span>Total for month:</span>
-							<b>45 hours</b>
+				<div class="down-sidebar__col">
+					<div class="down-sidebar__total">
+						<div class="down-sidebar__total-block" data-simplebar data-simplebar-auto-hide="false">
+							@@loop("_down-sidebar-total-item.html", [
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+								{},
+							])
+						</div>
+						<div class="down-sidebar__total-footer">
+							<div class="down-sidebar__total-value">
+								<span>Total for month:</span>
+								<b>45 @@currency</b>
+							</div>
 						</div>
 					</div>
 				</div>

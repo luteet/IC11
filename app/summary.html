@@ -1,6 +1,6 @@
 @@include("html/_header-2.html")
 
-<main class="main">
+<main class="main" data-simplebar data-simplebar-auto-hide="false">
 	<section class="summary">
 		<div class="summary__header page-header">
 			<div class="page-header__col">
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="page-header__col">
-				<div class="section-table__change-full-date drop-down">
+				<!-- <div class="section-table__change-full-date drop-down">
 					<button class="section-table__change-full-date--target drop-down__target" type="button">
 						<span>April, 2023</span>
 						<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-full-date--target-arrow drop-down__target--arrow">
@@ -159,12 +159,64 @@
 							</div>
 						</div>
 					</div>
+				</div> -->
+				<div class="section-table__change-date drop-down">
+					<button class="section-table__change-date--target drop-down__target" type="button">
+						2023
+						<svg width="10" height="7" viewBox="0 0 10 7" class="section-table__change-date--target-arrow drop-down__target--arrow">
+							<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+						</svg>
+					</button>
+					<div class="section-table__change-date--block drop-down__block">
+						<div class="section-table__change-date--slider splide">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2021">
+											<span>2021</span>
+										</label>
+									</li>
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2022">
+											<span>2022</span>
+										</label>
+									</li>
+									<li class="splide__slide">
+										<label>
+											<input type="radio" name="year" value="2023" checked>
+											<span>2023</span>
+										</label>
+									</li>
+									<li class="splide__slide is-disabled">
+										<label>
+											<input type="radio" name="year" value="2024" disabled>
+											<span>2024</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+							<div class="splide__arrows">
+								<button class="splide__arrow splide__arrow--prev" type="button">
+									<svg width="7" height="10" viewBox="0 0 7 10">
+										<use xlink:href="img/sprites.svg#arrow-prev"></use>
+									</svg>
+								</button>
+								<button class="splide__arrow splide__arrow--next" type="button">
+									<svg width="7" height="10" viewBox="0 0 7 10">
+										<use xlink:href="img/sprites.svg#arrow-next"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="page-header__col">
-				<div class="section-table__export drop-down">
+				<div class="section-table__export drop-down is-right-default">
 					<button class="section-table__export--target drop-down__target" type="button">
-						Export
+						Export All
 						<svg width="16" height="17" viewBox="0 0 16 17">
 							<use xlink:href="img/sprites.svg#download"></use>
 						</svg>
@@ -187,21 +239,21 @@
 			</div>
 		</div>
 		<div class="summary__main">
+			@@include("html/_summary-item-3.html", {
+				"month": "October",
+				"status_mode": "",
+				"status_text": "In progress",
+				"status_icon": "attention",
+				"message": '<div class="summary-item__message"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#attention"></use></svg><p>You already sent this timesheet for reapproval. Please, wait for the answer.</p></div>',
+				"buttons": "",
+			})
 			@@loop("html/_summary-item.html", [
-				{
-					"month": "October",
-					"status_mode": "",
-					"status_text": "In progress",
-					"status_icon": "attention",
-					"message": "",
-					"buttons": "",
-				},
 				{
 					"month": "September",
 					"status_mode": " is-danger",
 					"status_text": "03 / 09 / 2023",
 					"status_icon": "round-error",
-					"message": '<div class="summary-item__message is-danger"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-error"></use></svg><p>Your timesheet was rejected. Please, correct and send for reapproval. (by Irina Omelianenko)</p></div>',
+					"message": '<div class="summary-item__message is-danger"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-error"></use></svg><p>Your timesheet was rejected. Please, correct and send for reapproval. (by Irina Omelianenko)</p></div><div class="summary-item__message is-waiting"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#time"></use></svg><p>You already sent this timesheet for reapproval. Please, wait for the answer.</p></div>',
 					"buttons": "",
 				},
 				{
@@ -230,34 +282,7 @@
 				},
 			])
 		</div>
-		<div class="summary__footer page-footer">
-			<div class="page-footer__row-per-page visible-on-mob">
-				<span>Rows per page:</span>
-				<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
-					<option value="10">10</option>
-					<option value="20">20</option>
-					<option value="40">40</option>
-					<option value="all">All</option>
-				</select>
-			</div>
-			<button class="page-footer__see-more btn" type="button">
-				Show more
-				<svg width="15" height="15" viewBox="0 0 15 15">
-					<use xlink:href="img/sprites.svg#arrow-down"></use>
-				</svg>
-			</button>
-			<div class="page-footer__row-per-page visible-on-desktop">
-				<span>Rows per page:</span>
-				<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
-					<option value="20">20</option>
-					<option value="40">40</option>
-					<option value="60">60</option>
-					<option value="all">All</option>
-				</select>
-			</div>
-		</div>
 	</section>
-	@@include("html/_down-sidebar.html")
 </main>
 
 <div class="approve-timesheet popup" id="approve-timesheet-popup" style="display: none;">
@@ -269,7 +294,7 @@
 					<use xlink:href="img/sprites.svg#close"></use>
 				</svg>
 			</button>
-			<div class="approve-timesheet__container popup-container">
+			<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 				<h2 class="approve-timesheet__title title popup-title">
 					You are going to send the timesheet for approving, continue?
 				</h2>
@@ -295,7 +320,7 @@
 					<use xlink:href="img/sprites.svg#close"></use>
 				</svg>
 			</button>
-			<div class="approve-timesheet__container popup-container">
+			<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 				<h2 class="approve-timesheet__title title popup-title">
 					Thank you!
 				</h2>

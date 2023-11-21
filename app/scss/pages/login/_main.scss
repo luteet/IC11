@@ -1,5 +1,7 @@
 .login {
 
+	width: 100vw;
+
 	// .login__wrapper
 
 	&__wrapper {
@@ -18,14 +20,19 @@
 	&__col {
 		&:nth-child(1) {
 			
-			padding: 15px;
+			padding: 15px 15px 30px;
 
 			@include _992 {
+				padding: 15px;
 				max-width: calc(100vw - (((100vw - 1720px) / 2) + ((1720px - var(--container-padding) * 2) * 0.35) + var(--container-padding)));
 
 				padding-top: 100px; padding-bottom: 50px; padding-right: 100px;
 				padding-left: max(100px, calc(50% - 860px));
+
+				flex: none;
 			}
+
+			flex: 1 1;
 
 			display: flex;
 			flex-direction: column;
@@ -72,10 +79,10 @@
 
 	&__logo {
 		img {
-			max-width: 70px; height: auto;
+			width: 70px; height: 70px;
 			object-fit: contain;
 			@include _992 {
-				max-width: none; height: initial;
+				height: 100px; width: 100px;
 			}
 		}
 	}
@@ -92,6 +99,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+			text-transform: uppercase;
 
 			color: var(--title-color);
 		}
@@ -140,6 +148,9 @@
 	// .login__title
 
 	&__title {
+		@include _992 {
+			margin-bottom: 20px;
+		}
 	}
 
 	// .login__drop-down
@@ -264,7 +275,13 @@
 	// .login__copyright
 
 	&__copyright {
-		color: rgba(94, 100, 115, 0.5)
+		color: rgba(94, 100, 115, 0.5);
+
+		font-size: 0.75rem;
+
+		@include _992 {
+			font-size: 0.875rem;
+		}
 	}
 
 	// .login__image
@@ -279,23 +296,25 @@
 		@include _992 {
 			width: 100%; height: 100%;
 			padding-top: 0;
-			overflow: visible;
+			overflow: hidden;
 		}
 
 		display: flex;
-		align-items: flex-end;
+		align-items: center;
 
 		img {
 
 			object-fit: cover;
 
 			position: absolute;
-			left: 0; top: 10%;
-			width: 100%; height: 100%;
+			left: 50%; top: 10%;
+			transform: translate(-50%,-10%);
+			width: 150%; height: auto;
 
 			@include _992 {
-				position: static;
-				height: auto;
+				width: 115%; height: auto;
+				top: 50%;
+				transform: translate(-50%,-20%);
 			}
 		}	
 	}

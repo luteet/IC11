@@ -1,7 +1,7 @@
 @@include("html/_header-2.html")
 
-<main class="main">
-	<div class="message">
+<main class="main" data-simplebar data-simplebar-auto-hide="false">
+	<div class="message deadline-message" style="display: none;">
 		<div class="message__text">
 			<p>
 				Don't forget, in 5 days the deadline for submitting the timesheet
@@ -51,7 +51,7 @@
 					<div>
 						<div class="section-table__header--row">
 							<div class="section-table__header--col">
-								<button type="button" class="section-table__add-member btn add-is-active" data-add-active-change-title="main-title">
+								<button type="button" class="section-table__add btn add-is-active" data-add-active-change-title="main-title">
 									Add new task
 									<svg width="16" height="15" viewBox="0 0 16 15">
 										<use xlink:href="img/sprites.svg#plus"></use>
@@ -236,13 +236,14 @@
 								</span>
 							</button>
 							<div class="section-table__add-task--set-date">
-								<input type="text" name="date" placeholder="Set date" class="input date-input" required>
+								<input type="text" name="date" placeholder="Set date" autocomplete="off" readonly class="input date-input none-disabled-style" required
+								data-prev-arrow-path="img/sprites.svg#arrow-prev" data-next-arrow-path="img/sprites.svg#arrow-next">
 								<svg width="10" height="7" viewBox="0 0 10 7">
 									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 								</svg>
 							</div>
-							<div class="section-table__add-task--project">
-								<select name="project" class="custom-select" required>
+							<div class="section-table__add-task--project drop-down">
+								<!-- <select name="project" class="custom-select" required>
 									<option value="" disabled selected>Choose project</option>
 									<option value="61x200495">61x200495</option>
 									<option value="61x200495">61x200495</option>
@@ -256,7 +257,95 @@
 									<option value="61x200495">61x200495</option>
 									<option value="61x200495">61x200495</option>
 									<option value="61x200495">61x200495</option>
-								</select>
+								</select> -->
+								<button class="section-table__add-task--project-target drop-down__target" type="button">
+									Choose project
+									<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+										<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+									</svg>
+								</button>
+								<div class="section-table__main--project-name-block drop-down__block">
+									<div class="project-popup">
+										<div class="project-popup__body" data-simplebar data-simplebar-auto-hide="false">
+											<div class="project-popup__block">
+												<h2>Сommonly used</h2>
+												<ul class="project-popup__list">
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div class="project-popup__block">
+												<h2>All projects</h2>
+												<ul class="project-popup__list">
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<form class="project-popup__search">
+											<label>
+												<input type="search" name="search" class="input" placeholder="Search a project" required>
+											</label>
+											<button class="btn is-grey" type="submit">
+												Search
+												<svg width="15" height="15" viewBox="0 0 15 15">
+													<use xlink:href="img/sprites.svg#search"></use>
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
 							</div>
 							<div class="section-table__add-task--text">
 								<label>
@@ -277,7 +366,7 @@
 										</div>
 										<div class="section-table__time--item-col">
 											<div class="section-table__time--select">
-												<select name="from-hours" class="custom-select from-hours">
+												<select name="from-hours" class="custom-select from-hours is-center">
 													<option value="01">01</option>
 													<option value="02">02</option>
 													<option value="03">03</option>
@@ -285,7 +374,7 @@
 													<option value="05">05</option>
 													<option value="06">06</option>
 													<option value="07">07</option>
-													<option value="08">08</option>
+													<option value="08" selected>08</option>
 													<option value="09">09</option>
 													<option value="10">10</option>
 													<option value="11">11</option>
@@ -306,7 +395,7 @@
 											</div>
 											<span>:</span>
 											<div class="section-table__time--select">
-												<select name="from-minutes" class="custom-select from-minutes">
+												<select name="from-minutes" class="custom-select from-minutes is-center">
 													<option value="00">00</option>
 													<option value="30">30</option>
 												</select>
@@ -319,7 +408,7 @@
 										</div>
 										<div class="section-table__time--item-col">
 											<div class="section-table__time--select">
-												<select name="to-hours" class="custom-select to-hours">
+												<select name="to-hours" class="custom-select to-hours is-center">
 													<option value="01">01</option>
 													<option value="02">02</option>
 													<option value="03">03</option>
@@ -327,7 +416,7 @@
 													<option value="05">05</option>
 													<option value="06">06</option>
 													<option value="07">07</option>
-													<option value="08">08</option>
+													<option value="08" selected>08</option>
 													<option value="09">09</option>
 													<option value="10">10</option>
 													<option value="11">11</option>
@@ -348,7 +437,7 @@
 											</div>
 											<span>:</span>
 											<div class="section-table__time--select">
-												<select name="to-minutes" class="custom-select to-minutes">
+												<select name="to-minutes" class="custom-select to-minutes is-center">
 													<option value="00">00</option>
 													<option value="30">30</option>
 												</select>
@@ -358,7 +447,7 @@
 								</div>
 							</div>
 							<div class="section-table__add-task--hours">
-								<input type="text" readonly name="hours" placeholder="0 hours" required class="input hours-input" data-add-text="hours">
+								<input type="text" readonly name="hours" placeholder="0 hours" required class="input hours-input none-disabled-style" data-add-text="hours">
 							</div>
 							<button class="section-table__add-task--submit btn" type="submit">
 								Add task
@@ -368,7 +457,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="section-table__main table-timesheet add-border">
+		<div class="section-table__main table-timesheet add-border" style="display: none;">
 			<div class="section-table__main--container">
 				<div class="section-table__main--wrapper">
 					<div class="section-table__head">
@@ -637,15 +726,7 @@
 						</div>
 					</div>
 					<div class="section-table__body">
-						@@loop("html/_table-timesheet-item-none.html", [
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-							{},
-						])
+						
 					</div>
 				</div>
 			</div>

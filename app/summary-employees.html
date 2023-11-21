@@ -1,11 +1,11 @@
 @@include("html/_header-2.html")
 
-<main class="main">
+<main class="main" data-simplebar data-simplebar-auto-hide="false">
 	<section class="summary">
 		<div class="summary__header page-header">
 			<div class="page-header__col">
 				<h1 class="page-header__title title">
-					Summary / Employees
+					Summary Employees
 				</h1>
 			</div>
 			<div class="page-header__col">
@@ -160,8 +160,96 @@
 						</div>
 					</div>
 				</div>
-				<div class="page-header__select employees-row__projects">
-					<select name="project" class="custom-select">
+				<div class="employees-row__projects drop-down-absolute">
+					<button class="employees-row__projects--target drop-down-absolute__target" data-drop-down-target="choose-project" type="button">
+						<span>Choose project</span>
+						<svg width="10" height="7" viewBox="0 0 10 7" class="employees-row__projects--target-arrow drop-down-absolute__target--arrow">
+							<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+						</svg>
+					</button>
+					<div class="employees-row__projects--block drop-down-absolute__block" id="choose-project">
+						<div class="project-popup">
+							<div class="project-popup__body" data-simplebar data-simplebar-auto-hide="false">
+								<div class="project-popup__block">
+									<h2>Сommonly used</h2>
+									<ul class="project-popup__list">
+										<li class="project-popup__item">
+											<a href="#">
+												61x210204_Ukraine EE Building Certification Study
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61x210204_Ukraine EE Building Certification Study
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61x210204_Ukraine EE Building Certification Study
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61x210204_Ukraine EE Building Certification Study
+											</a>
+										</li>
+									</ul>
+								</div>
+								<div class="project-popup__block">
+									<h2>All projects</h2>
+									<ul class="project-popup__list">
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+										<li class="project-popup__item">
+											<a href="#">
+												61xA210739_Kremenchuk Bridge supervision
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="project-popup__search">
+								<label>
+									<input type="search" name="search" class="input" placeholder="Search a project" required>
+								</label>
+								<button class="btn is-grey" type="submit">
+									Search
+									<svg width="15" height="15" viewBox="0 0 15 15">
+										<use xlink:href="img/sprites.svg#search"></use>
+									</svg>
+								</button>
+							</div>
+						</div>
+					</div>
+					<!-- <select name="project" class="custom-select">
 						<option value="61x200495">61x200495</option>
 						<option value="61x200495">61x200495</option>
 						<option value="61x200495">61x200495</option>
@@ -173,7 +261,7 @@
 						<option value="61x200495">61x200495</option>
 						<option value="61x200495">61x200495</option>
 						<option value="61x200495">61x200495</option>
-					</select>
+					</select> -->
 				</div>
 				<div class="employees-row__search">
 					<div class="section-table__search is-alternative">
@@ -190,6 +278,7 @@
 				</div>
 				<div class="page-header__select employees-row__sort">
 					<select name="sort" class="custom-select">
+						<option value="Pending first ">Pending first</option>
 						<option value="Rejected first ">Rejected first</option>
 						<option value="Approved first ">Approved first</option>
 					</select>
@@ -206,7 +295,7 @@
 					"status_mode": "",
 					"status_text": "In progress",
 					"status_icon": "attention",
-					"message": '<div class="summary-item__message"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-error"></use></svg><p>This summary already rejected by Irina Omelianenko on 03/05/2023.</p></div>',
+					"message": '',
 					"buttons": "",
 				},
 				{
@@ -215,7 +304,7 @@
 					"favorite": " is-active",
 					"avatar": '',
 					"status_mode": " is-danger",
-					"status_text": "03 / 09 / 2023",
+					"status_text": "03 / 09 / 2023 (Irina Omelianenko)",
 					"status_icon": "round-error",
 					"message": '<div class="summary-item__message is-danger"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-error"></use></svg><p>Your timesheet was rejected. Please, correct and send for reapproval. (by Irina Omelianenko)</p></div>',
 					"buttons": "",
@@ -248,41 +337,14 @@
 					"favorite": "",
 					"avatar": '',
 					"status_mode": " is-success",
-					"status_text": "03 / 06 / 2023",
+					"status_text": "03 / 06 / 2023 (Irina Omelianenko)",
 					"status_icon": "round-check",
 					"message": '<div class="summary-item__message is-success"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#round-check"></use></svg><p>Your summary was approved! (by Irina Omelianenko)</p></div>',
 					"buttons": " is-disabled",
 				},
 			])
 		</div>
-		<div class="summary__footer page-footer">
-			<div class="page-footer__row-per-page visible-on-mob">
-				<span>Rows per page:</span>
-				<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
-					<option value="10">10</option>
-					<option value="20">20</option>
-					<option value="40">40</option>
-					<option value="all">All</option>
-				</select>
-			</div>
-			<button class="page-footer__see-more btn" type="button">
-				Show more
-				<svg width="15" height="15" viewBox="0 0 15 15">
-					<use xlink:href="img/sprites.svg#arrow-down"></use>
-				</svg>
-			</button>
-			<div class="page-footer__row-per-page visible-on-desktop">
-				<span>Rows per page:</span>
-				<select name="row-per-page" class="page-footer__row-per-page--select custom-select">
-					<option value="20">20</option>
-					<option value="40">40</option>
-					<option value="60">60</option>
-					<option value="all">All</option>
-				</select>
-			</div>
-		</div>
 	</section>
-	@@include("html/_down-sidebar.html")
 </main>
 
 <div class="approve-timesheet popup" id="approve-timesheet-popup" style="display: none;">
@@ -294,7 +356,7 @@
 					<use xlink:href="img/sprites.svg#close"></use>
 				</svg>
 			</button>
-			<div class="approve-timesheet__container popup-container">
+			<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 				<h2 class="approve-timesheet__title title popup-title">
 					You are going to approve the timesheet, continue?
 				</h2>
@@ -320,7 +382,7 @@
 					<use xlink:href="img/sprites.svg#close"></use>
 				</svg>
 			</button>
-			<div class="approve-timesheet__container popup-container">
+			<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 				<h2 class="approve-timesheet__title title popup-title">
 					You are going to reject the timesheet, continue?
 				</h2>
@@ -346,7 +408,7 @@
 					<use xlink:href="img/sprites.svg#close"></use>
 				</svg>
 			</button>
-			<div class="approve-timesheet__container popup-container">
+			<div class="approve-timesheet__container popup-container" data-simplebar data-simplebar-auto-hide="false">
 				<h2 class="approve-timesheet__title title popup-title">
 					Thank you!
 				</h2>
@@ -365,7 +427,5 @@
 		</div>
 	</div>
 </div>
-
-
 
 @@include("html/_footer.html")

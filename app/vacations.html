@@ -1,6 +1,6 @@
 @@include("html/_header.html")
 
-	<main class="main">
+	<main class="main" data-simplebar data-simplebar-auto-hide="false">
 		<section class="section-table">
 			<div class="section-table__header">
 				<div class="section-table__header--row is-always-row">
@@ -10,7 +10,7 @@
 						</h1>
 					</div>
 				</div>
-				<div class="section-table__header--row">
+				<div class="section-table__header--row is-alternative-row">
 					<div class="section-table__header--col">
 						<form class="section-table__search is-alternative">
 							<label class="section-table__search--label">
@@ -77,7 +77,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="section-table__export drop-down">
+						<div class="section-table__export drop-down is-right-default">
 							<button class="section-table__export--target drop-down__target" type="button">
 								Export
 								<svg width="16" height="17" viewBox="0 0 16 17">
@@ -103,7 +103,7 @@
 				</div>
 			</div>
 			<div class="section-table__main is-alternative add-border table-vacations">
-				<div class="section-table__main--container">
+				<div class="section-table__main--container" data-simplebar data-simplebar-auto-hide="false">
 					<div class="section-table__main--wrapper">
 						<div class="section-table__head">
 							<div class="section-table__head-row">
@@ -111,8 +111,8 @@
 									<span class="section-table__main--param">
 										<span>№</span>
 										<span>
-											<div class="section-table__main--sort drop-down is-mode-1">
-												<button class="section-table__main--sort-target drop-down__target" type="button">
+											<div class="section-table__main--sort drop-down-absolute">
+												<button class="section-table__main--sort-target drop-down-absolute__target" data-drop-down-target="name-sort" type="button">
 													<svg width="13" height="13" viewBox="0 0 13 13">
 														<use xlink:href="img/sprites.svg#user"></use>
 													</svg>
@@ -121,7 +121,7 @@
 														<use xlink:href="img/sprites.svg#sort-up-down"></use>
 													</svg>
 												</button>
-												<div class="section-table__main--sort-block drop-down__block" style="min-width: 150px;">
+												<div class="section-table__main--sort-block drop-down-absolute__block" id="name-sort" style="min-width: 150px;">
 													<ul class="drop-down__list">
 														<li>
 															<a href="#">
@@ -151,8 +151,8 @@
 									</span>
 								</div>
 								<div class="section-table__head-th visible-on-desktop">
-									<div class="section-table__main--sort drop-down is-mode-1">
-										<button class="section-table__main--sort-target drop-down__target" type="button">
+									<div class="section-table__main--sort drop-down-absolute">
+										<button class="section-table__main--sort-target drop-down-absolute__target" data-drop-down-target="name-sort-2" type="button">
 											<svg width="13" height="13" viewBox="0 0 13 13">
 												<use xlink:href="img/sprites.svg#user"></use>
 											</svg>
@@ -161,7 +161,7 @@
 												<use xlink:href="img/sprites.svg#sort-up-down"></use>
 											</svg>
 										</button>
-										<div class="section-table__main--sort-block drop-down__block" style="min-width: 150px;">
+										<div class="section-table__main--sort-block drop-down-absolute__block" id="name-sort-2" style="min-width: 150px;">
 											<ul class="drop-down__list">
 												<li>
 													<a href="#">
@@ -287,7 +287,7 @@
 			<div class="section-table__footer">
 				<div class="section-table__row-per-page visible-on-mob">
 					<span>Rows per page:</span>
-					<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<select name="row-per-page" class="section-table__row-per-page--select custom-select is-center">
 						<option value="10">10</option>
 						<option value="20">20</option>
 						<option value="40">40</option>
@@ -302,7 +302,7 @@
 				</button>
 				<div class="section-table__row-per-page visible-on-desktop">
 					<span>Rows per page:</span>
-					<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+					<select name="row-per-page" class="section-table__row-per-page--select custom-select is-center">
 						<option value="20">20</option>
 						<option value="40">40</option>
 						<option value="60">60</option>

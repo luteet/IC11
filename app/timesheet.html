@@ -1,6 +1,6 @@
 @@include("html/_header-2.html")
 
-<main class="main">
+<main class="main" data-simplebar data-simplebar-auto-hide="false">
 	<section class="section-table">
 		<div class="section-table__header">
 			<div class="section-table__header--row is-always-row">
@@ -39,8 +39,8 @@
 					<div>
 						<div class="section-table__header--row">
 							<div class="section-table__header--col">
-								<button type="button" class="section-table__add-member btn add-is-active" data-add-active-change-title="main-title">
-									Add new task
+								<button type="button" class="section-table__add btn add-is-active" data-add-active-change-title="main-title">
+									Add task
 									<svg width="16" height="15" viewBox="0 0 16 15">
 										<use xlink:href="img/sprites.svg#plus"></use>
 									</svg>
@@ -224,13 +224,14 @@
 								</span>
 							</button>
 							<div class="section-table__add-task--set-date">
-								<input type="text" name="date" placeholder="Set date" class="input date-input" required>
+								<input type="text" name="date" placeholder="Set date" autocomplete="off" readonly class="input date-input none-disabled-style" required
+								data-prev-arrow-path="img/sprites.svg#arrow-prev" data-next-arrow-path="img/sprites.svg#arrow-next">
 								<svg width="10" height="7" viewBox="0 0 10 7">
 									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 								</svg>
 							</div>
-							<div class="section-table__add-task--project">
-								<select name="project" class="custom-select" required>
+							<div class="section-table__add-task--project drop-down">
+								<!-- <select name="project" class="custom-select" required>
 									<option value="" disabled selected>Choose project</option>
 									<option value="61x200495">61x200495</option>
 									<option value="61x200495">61x200495</option>
@@ -244,7 +245,95 @@
 									<option value="61x200495">61x200495</option>
 									<option value="61x200495">61x200495</option>
 									<option value="61x200495">61x200495</option>
-								</select>
+								</select> -->
+								<button class="section-table__add-task--project-target drop-down__target" type="button">
+									Choose project
+									<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+										<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+									</svg>
+								</button>
+								<div class="section-table__main--project-name-block drop-down__block">
+									<div class="project-popup">
+										<div class="project-popup__body" data-simplebar data-simplebar-auto-hide="false">
+											<div class="project-popup__block">
+												<h2>Сommonly used</h2>
+												<ul class="project-popup__list">
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div class="project-popup__block">
+												<h2>All projects</h2>
+												<ul class="project-popup__list">
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<form class="project-popup__search">
+											<label>
+												<input type="search" name="search" class="input" placeholder="Search a project" required>
+											</label>
+											<button class="btn is-grey" type="submit">
+												Search
+												<svg width="15" height="15" viewBox="0 0 15 15">
+													<use xlink:href="img/sprites.svg#search"></use>
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
 							</div>
 							<div class="section-table__add-task--text">
 								<label>
@@ -265,7 +354,7 @@
 										</div>
 										<div class="section-table__time--item-col">
 											<div class="section-table__time--select">
-												<select name="from-hours" class="custom-select from-hours">
+												<select name="from-hours" class="custom-select from-hours is-center">
 													<option value="01">01</option>
 													<option value="02">02</option>
 													<option value="03">03</option>
@@ -273,7 +362,7 @@
 													<option value="05">05</option>
 													<option value="06">06</option>
 													<option value="07">07</option>
-													<option value="08">08</option>
+													<option value="08" selected>08</option>
 													<option value="09">09</option>
 													<option value="10">10</option>
 													<option value="11">11</option>
@@ -294,7 +383,7 @@
 											</div>
 											<span>:</span>
 											<div class="section-table__time--select">
-												<select name="from-minutes" class="custom-select from-minutes">
+												<select name="from-minutes" class="custom-select from-minutes is-center">
 													<option value="00">00</option>
 													<option value="30">30</option>
 												</select>
@@ -307,7 +396,7 @@
 										</div>
 										<div class="section-table__time--item-col">
 											<div class="section-table__time--select">
-												<select name="to-hours" class="custom-select to-hours">
+												<select name="to-hours" class="custom-select to-hours is-center">
 													<option value="01">01</option>
 													<option value="02">02</option>
 													<option value="03">03</option>
@@ -315,7 +404,7 @@
 													<option value="05">05</option>
 													<option value="06">06</option>
 													<option value="07">07</option>
-													<option value="08">08</option>
+													<option value="08" selected>08</option>
 													<option value="09">09</option>
 													<option value="10">10</option>
 													<option value="11">11</option>
@@ -336,7 +425,7 @@
 											</div>
 											<span>:</span>
 											<div class="section-table__time--select">
-												<select name="to-minutes" class="custom-select to-minutes">
+												<select name="to-minutes" class="custom-select to-minutes is-center">
 													<option value="00">00</option>
 													<option value="30">30</option>
 												</select>
@@ -346,7 +435,7 @@
 								</div>
 							</div>
 							<div class="section-table__add-task--hours">
-								<input type="text" readonly name="hours" placeholder="0 hours" required class="input hours-input" data-add-text="hours">
+								<input type="text" readonly name="hours" placeholder="0 hours" required class="input hours-input none-disabled-style" data-add-text="hours">
 							</div>
 							<button class="section-table__add-task--submit btn" type="submit">
 								Add task
@@ -357,7 +446,7 @@
 			</div>
 		</div>
 		<div class="section-table__main table-timesheet">
-			<div class="section-table__main--container">
+			<div class="section-table__main--container" data-simplebar data-simplebar-auto-hide="false">
 				<div class="section-table__main--wrapper">
 					<div class="section-table__head">
 						<div class="section-table__head-row">
@@ -365,8 +454,8 @@
 								<span class="section-table__main--param">
 									<span>№</span>
 									<span>
-										<div class="section-table__main--sort drop-down is-mode-1">
-											<button class="section-table__main--sort-target drop-down__target" type="button">
+										<div class="section-table__main--sort drop-down-absolute">
+											<button class="section-table__main--sort-target drop-down-absolute__target" data-drop-down-target="date-sort" type="button">
 												<svg width="13" height="13" viewBox="0 0 13 13">
 													<use xlink:href="img/sprites.svg#calendar-selected"></use>
 												</svg>
@@ -375,22 +464,16 @@
 													<use xlink:href="img/sprites.svg#sort-up-down"></use>
 												</svg>
 											</button>
-											<div class="section-table__main--sort-block drop-down__block" style="min-width: 150px;">
+											<div class="section-table__main--sort-block drop-down-absolute__block" id="date-sort" style="min-width: 150px;">
 												<ul class="drop-down__list">
 													<li>
 														<a href="#">
-															<svg width="15" height="16" viewBox="0 0 15 16">
-																<use xlink:href="img/sprites.svg#sort-asc"></use>
-															</svg> 
-															A-Z
+															Oldest first
 														</a>
 													</li>
 													<li>
 														<a href="#">
-															<svg width="15" height="16" viewBox="0 0 15 16">
-																<use xlink:href="img/sprites.svg#sort-asc"></use>
-															</svg> 
-															Z-A
+															Newest first
 														</a>
 													</li>
 												</ul>
@@ -405,8 +488,8 @@
 								</span>
 							</div>
 							<div class="section-table__head-th visible-on-desktop">
-								<div class="section-table__main--sort drop-down is-mode-1">
-									<button class="section-table__main--sort-target drop-down__target" type="button">
+								<div class="section-table__main--sort drop-down-absolute is-center">
+									<button class="section-table__main--sort-target drop-down-absolute__target" data-drop-down-target="date-sort-2" type="button">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#calendar-selected"></use>
 										</svg>
@@ -415,22 +498,16 @@
 											<use xlink:href="img/sprites.svg#sort-up-down"></use>
 										</svg>
 									</button>
-									<div class="section-table__main--sort-block drop-down__block" style="min-width: 150px;">
+									<div class="section-table__main--sort-block drop-down-absolute__block" id="date-sort-2" style="min-width: 150px;">
 										<ul class="drop-down__list">
 											<li>
 												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													A-Z
+													Oldest first
 												</a>
 											</li>
 											<li>
 												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													Z-A
+													Newest first
 												</a>
 											</li>
 										</ul>
@@ -438,19 +515,19 @@
 								</div>
 							</div>
 							<div class="section-table__head-th">
-								<div class="section-table__main--project-name drop-down">
-									<button class="section-table__main--project-name-target drop-down__target" type="button">
+								<div class="section-table__main--project-name drop-down-absolute">
+									<button class="section-table__main--project-name-target drop-down-absolute__target" data-drop-down-target="project-name" type="button">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#project"></use>
 										</svg>
-										Project ne
-										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+										Project name
+										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down-absolute__target--arrow">
 											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 										</svg>
 									</button>
-									<div class="section-table__main--project-name-block drop-down__block">
+									<div class="section-table__main--project-name-block drop-down-absolute__block" id="project-name">
 										<div class="project-popup">
-											<div class="project-popup__body custom-scrollbar" data-simplebar data-simplebar-auto-hide="false">
+											<div class="project-popup__body" data-simplebar data-simplebar-auto-hide="false">
 												<div class="project-popup__block">
 													<h2>Сommonly used</h2>
 													<ul class="project-popup__list">
@@ -533,35 +610,97 @@
 								</div>
 							</div>
 							<div class="section-table__head-th">
-								<div class="section-table__main--project-descr drop-down is-mode-1">
-									<button class="section-table__main--project-desrc-target drop-down__target" type="button">
+								<div class="section-table__main--project-name drop-down-absolute">
+									<button class="section-table__main--project-name-target drop-down-absolute__target" data-drop-down-target="project-description" type="button">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#comments"></use>
 										</svg>
 										Project description
-										<svg width="10" height="7" viewBox="0 0 10 7">
+										<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down-absolute__target--arrow">
 											<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 										</svg>
 									</button>
-									<div class="section-table__main--project-descr-block drop-down__block">
-										<ul class="drop-down__list">
-											<li>
-												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													A-Z
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													Z-A
-												</a>
-											</li>
-										</ul>
+									<div class="section-table__main--project-name-block drop-down-absolute__block" id="project-description">
+										<div class="project-popup">
+											<div class="project-popup__body" data-simplebar data-simplebar-auto-hide="false">
+												<div class="project-popup__block">
+													<h2>Сommonly used</h2>
+													<ul class="project-popup__list">
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61x210204_Ukraine EE Building Certification Study
+															</a>
+														</li>
+													</ul>
+												</div>
+												<div class="project-popup__block">
+													<h2>All projects</h2>
+													<ul class="project-popup__list">
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+														<li class="project-popup__item">
+															<a href="#">
+																61xA210739_Kremenchuk Bridge supervision
+															</a>
+														</li>
+													</ul>
+												</div>
+											</div>
+											<form class="project-popup__search">
+												<label>
+													<input type="search" name="search" class="input" placeholder="Search a project" required>
+												</label>
+												<button class="btn is-grey" type="submit">
+													Search
+													<svg width="15" height="15" viewBox="0 0 15 15">
+														<use xlink:href="img/sprites.svg#search"></use>
+													</svg>
+												</button>
+											</form>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -590,8 +729,8 @@
 								</span>
 							</div>
 							<div class="section-table__head-th">
-								<div class="section-table__main--func drop-down is-mode-1 is-right-default">
-									<button class="section-table__main--func-target drop-down__target" type="button">
+								<div class="section-table__main--func drop-down-absolute">
+									<button class="section-table__main--func-target drop-down-absolute__target" data-drop-down-target="total-sort" type="button">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#total"></use>
 										</svg>
@@ -600,22 +739,16 @@
 											<use xlink:href="img/sprites.svg#sort-up-down"></use>
 										</svg>
 									</button>
-									<div class="section-table__main--func-block drop-down__block" style="min-width: 150px;">
+									<div class="section-table__main--func-block drop-down-absolute__block is-right-default" id="total-sort" style="min-width: 170px;">
 										<ul class="drop-down__list">
 											<li>
 												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													A-Z
+													Uncompleted first
 												</a>
 											</li>
 											<li>
 												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													Z-A
+													Completed first
 												</a>
 											</li>
 										</ul>
@@ -641,7 +774,7 @@
 		<div class="section-table__footer">
 			<div class="section-table__row-per-page visible-on-mob">
 				<span>Rows per page:</span>
-				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+				<select name="row-per-page" class="section-table__row-per-page--select custom-select is-center">
 					<option value="10">10</option>
 					<option value="20">20</option>
 					<option value="40">40</option>
@@ -656,7 +789,7 @@
 			</button>
 			<div class="section-table__row-per-page visible-on-desktop">
 				<span>Rows per page:</span>
-				<select name="row-per-page" class="section-table__row-per-page--select custom-select">
+				<select name="row-per-page" class="section-table__row-per-page--select custom-select is-center">
 					<option value="20">20</option>
 					<option value="40">40</option>
 					<option value="60">60</option>
@@ -665,7 +798,9 @@
 			</div>
 		</div>
 	</section>
-	@@include("html/_down-sidebar.html")
+	@@include("html/_down-sidebar.html", {
+		"currency": "hours",
+	})
 </main>
 
 @@include("html/_footer.html")

@@ -3,6 +3,7 @@ const
 	body = document.querySelector('body'),
 	html = document.querySelector('html'),
 	aside = document.querySelector('aside'),
+	main = document.querySelector('main'),
 	menu = document.querySelectorAll('.aside, .aside__burger, body'),
 	header = document.querySelector('.header');
 
@@ -21,19 +22,37 @@ imageAspectRatio.forEach(imageAspectRatio => {
 
 // =-=-=-=-=-=-=-=-=-=- </image-aspect-ratio> -=-=-=-=-=-=-=-=-=-=-
 
-
+/* body.style.overflowY = 'auto';
+body.scrollTop = 0;
+html.scrollTop = 0; */
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <click-events> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let dropDownArray = [];
 
-/* document.querySelectorAll('.drop-down-2').forEach((dropDown, index) => {
-	const block = dropDown.querySelector('.drop-down-2__block');
-	block.setAttribute('id', "drop-down-block-" + (index+1));
-	dropDown.setAttribute('data-drop-down-target', "drop-down-block-" + (index+1));
-	dropDownArray.push(block);
+let dropDownAbsoluteInterval = 0;
+
+document.querySelectorAll('.drop-down-absolute').forEach(dropDown => {
+
+	const block = dropDown.querySelector('.drop-down-absolute__block');
+	block.style.display = 'none';
 	body.append(block);
-}) */
+
+})
+
+setInterval(() => {
+	document.querySelectorAll('.drop-down-absolute__block.is-active').forEach(block => {
+
+		const target = document.querySelector(`[data-drop-down-target="${block.getAttribute('id')}"]`);
+		
+		//block.style.setProperty('--x', getCoords(target).left + 'px');
+		block.style.setProperty('--y', getCoords(target).top + target.offsetHeight + 'px');
+	
+	})
+},10)
+
+
+
 
 let asideTimeout;
 body.addEventListener('click', function (event) {
@@ -41,6 +60,86 @@ body.addEventListener('click', function (event) {
 	function $(elem) {
 		return event.target.closest(elem)
 	}
+
+
+	// =-=-=-=-=-=-=-=-=-=-=-=- <drop-down-absolute> -=-=-=-=-=-=-=-=-=-=-=-=
+	
+	const dropDownAbsoluteTarget = $(".drop-down-absolute__target")
+	if(dropDownAbsoluteTarget) {
+
+		if(dropDownAbsoluteTarget.classList.contains('is-active')) {
+			
+			document.querySelectorAll('.drop-down-absolute__target.is-active').forEach(target => {
+				target.classList.remove('is-active')
+			})
+	
+			document.querySelectorAll('.drop-down-absolute__block.is-active').forEach(block => {
+				block.classList.remove('is-active');
+			})
+
+			body.style.removeProperty('--drop-down-size');
+
+		} else {
+
+			document.querySelectorAll('.drop-down-absolute__target.is-active').forEach(target => {
+				target.classList.remove('is-active')
+			})
+	
+			document.querySelectorAll('.drop-down-absolute__block.is-active').forEach(block => {
+				block.classList.remove('is-active');
+			})
+
+			body.style.removeProperty('--drop-down-size');
+
+			const block = document.querySelector(`#${dropDownAbsoluteTarget.dataset.dropDownTarget}`);
+			block.style.removeProperty('display')
+			
+			
+			if(block.classList.contains('is-right-default')) {
+				block.style.setProperty('--x', windowSize - getCoords(dropDownAbsoluteTarget).left - dropDownAbsoluteTarget.offsetWidth + 'px');
+			} else {
+				if(getCoords(dropDownAbsoluteTarget).left + block.offsetWidth + 20 > windowSize) {
+					block.style.setProperty('--x', '15px');
+					block.classList.add('is-right');
+				} else {
+					block.classList.remove('is-right');
+					block.style.setProperty('--x', getCoords(dropDownAbsoluteTarget).left + 'px');
+				}
+			}
+			
+			
+			block.style.setProperty('--y', getCoords(dropDownAbsoluteTarget).top + dropDownAbsoluteTarget.offsetHeight + 'px');
+			
+			const asideHeight = (windowSize < 992 && aside) ? 70 : 0; 
+			const targetTop = main.querySelector('.simplebar-content-wrapper').scrollTop + asideHeight + getCoords(dropDownAbsoluteTarget).top
+
+			setTimeout(() => {
+				dropDownAbsoluteTarget.classList.toggle('is-active');
+				block.classList.toggle('is-active');
+
+				setTimeout(() => {
+					const topCoords = targetTop + dropDownAbsoluteTarget.offsetHeight + block.offsetHeight;
+
+					if(topCoords + 25 > main.querySelector('.simplebar-content').offsetHeight) {
+						body.style.setProperty('--drop-down-size', topCoords + 50 - main.querySelector('.simplebar-content').offsetHeight + 'px');
+					}
+				},100)
+			},0)
+		}
+		
+	} else if(!$('.drop-down-absolute') && !$('.drop-down-absolute__block')) {
+		document.querySelectorAll('.drop-down-absolute__target.is-active').forEach(target => {
+			target.classList.remove('is-active')
+		})
+
+		document.querySelectorAll('.drop-down-absolute__block.is-active').forEach(block => {
+			block.classList.remove('is-active');
+		})
+
+		body.style.removeProperty('--drop-down-size');
+	}
+	
+	// =-=-=-=-=-=-=-=-=-=-=-=- </drop-down-absolute> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
 	// =-=-=-=-=-=-=-=-=-=-=-=- <menu-in-header> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -92,36 +191,52 @@ body.addEventListener('click', function (event) {
 	if(asideSlideToggle) {
 
 		clearTimeout(asideTimeout);
+		body.style.setProperty('--transition-width', 'max-width .5s ease, width .5s ease, left .5s ease');
 	
-		aside.querySelector('.aside__body--wrapper').classList.add('fade-out-2');
+		/* aside.querySelector('.aside__body--wrapper').classList.add('fade-out-2');
 		setTimeout(() => {
 			aside.querySelector('.aside__body--wrapper').classList.remove('fade-in-2');
-		},0)
+		},0) */
+
+		/* aside.querySelectorAll('.aside__nav span').forEach(span => {
+			span.style.width = span.offsetWidth + 'px';
+		}) */
+
+		/* aside.querySelectorAll('.aside__user--name').forEach(name => {
+			name.style.width = name.offsetWidth + 'px';
+		}) */
 
 		setTimeout(() => {
 
 			aside.classList.toggle('is-min');
+			
 			if(aside.classList.contains('is-min')) {
+				if(aside) html.style.setProperty('--aside-width', 65 + 'px');
 				localStorage.setItem('ic11-aside-min', true);
 			} else {
+				if(aside) html.style.setProperty('--aside-width', 230 + 'px');
 				localStorage.setItem('ic11-aside-min', false);
 			}
 			
 			if(aside.classList.contains('is-min')) {
 				aside.classList.add('is-min-2');
 				setTimeout(() => {
+					body.style.removeProperty('--transition-width');
+				},500)
+				/* setTimeout(() => {
 					aside.querySelector('.aside__body--wrapper').classList.add('fade-in-2');
 					setTimeout(() => {
 						aside.querySelector('.aside__body--wrapper').classList.remove('fade-out-2');
 					},0)
-				},500)
+				},500) */
 			} else {
 				asideTimeout = setTimeout(() => {
 					aside.classList.toggle('is-min-2');
-					aside.querySelector('.aside__body--wrapper').classList.add('fade-in-2');
+					body.style.removeProperty('--transition-width');
+					/* aside.querySelector('.aside__body--wrapper').classList.add('fade-in-2');
 					setTimeout(() => {
 						aside.querySelector('.aside__body--wrapper').classList.remove('fade-out-2');
-					},0)
+					},0) */
 				},500)
 			}
 
@@ -158,7 +273,7 @@ body.addEventListener('click', function (event) {
 			sectionTableSearchSubmit.parentElement.classList.add('is-active')
 		}
 	
-	} else {
+	} else if(!$('.section-table__search')) {
 		document.querySelectorAll('.section-table__search.is-active').forEach(search => {
 			search.classList.remove('is-active')
 		})
@@ -188,57 +303,63 @@ body.addEventListener('click', function (event) {
 				dropDownActive.classList.remove('is-active-drop-down')
 				if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
 			})
+			
 		} else {
-			document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
-				dropDownActive.classList.remove('is-active-drop-down')
-				if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
-			})
 
-			dataDropDownTarget.classList.add('is-active-drop-down')
-			if(dataDropDownTarget.closest('.section-table__row-block')) dataDropDownTarget.closest('.section-table__row-block').classList.add('on-active');
+			if(document.querySelector('.drop-down-2.is-active-drop-down')) {
 
-			document.querySelectorAll('.drop-down-2__block.is-active').forEach(block => {
-				setTimeout(() => {
-					block.classList.add('is-hidden')
-				},0)
-
-				block.classList.remove('is-active')
+				document.querySelectorAll('.drop-down-2.is-active-drop-down').forEach(dropDownActive => {
+					dropDownActive.classList.remove('is-active-drop-down')
+					if(dropDownActive.closest('.section-table__row-block')) dropDownActive.closest('.section-table__row-block').classList.remove('on-active');
+				})
+	
 				
-			})
+	
+				document.querySelectorAll('.drop-down-2__block.is-active').forEach(block => {
+					setTimeout(() => {
+						block.classList.add('is-hidden')
+					},0)
+	
+					block.classList.remove('is-active')
+				})
 
-			if(dataDropDownTarget.querySelector('.drop-down-2__block')) {
-				const block = dataDropDownTarget.querySelector('.drop-down-2__block');
-				block.setAttribute('id', "drop-down-block-" + dropDownArray.length);
-				dataDropDownTarget.setAttribute('data-drop-down-target', "drop-down-block-" + dropDownArray.length);
-				dropDownArray.push(block);
-				body.append(block);
-			}
-
-			const block = document.querySelector(`#${dataDropDownTarget.dataset.dropDownTarget}`);
-			
-			
-			if(event.pageY + block.offsetHeight > window.innerHeight) {
-				block.style.setProperty('--y', event.pageY - block.offsetHeight + 'px');
 			} else {
-				block.style.setProperty('--y', event.pageY + 'px');
-			}
+				dataDropDownTarget.classList.add('is-active-drop-down')
+				if(dataDropDownTarget.closest('.section-table__row-block')) dataDropDownTarget.closest('.section-table__row-block').classList.add('on-active');
 
-			if(event.pageX + block.offsetWidth > windowSize) {
-				if(windowSize > 992) {
-					block.style.setProperty('--x', window.innerWidth - block.offsetWidth - 20 + 'px');
-				} else {
-					block.style.setProperty('--x', window.innerWidth - block.offsetWidth + 40 + 'px');
+				if(dataDropDownTarget.querySelector('.drop-down-2__block')) {
+					const block = dataDropDownTarget.querySelector('.drop-down-2__block');
+					block.setAttribute('id', "drop-down-block-" + dropDownArray.length);
+					dataDropDownTarget.setAttribute('data-drop-down-target', "drop-down-block-" + dropDownArray.length);
+					dropDownArray.push(block);
+					body.append(block);
 				}
-			} else {
-				block.style.setProperty('--x', Math.max(100, Math.min(window.innerWidth - 70 - 20, event.pageX)) + 'px');
-			}
-
-			setTimeout(() => {
-				block.classList.remove('is-hidden')
+	
+				const block = document.querySelector(`#${dataDropDownTarget.dataset.dropDownTarget}`);
+				
+				if(event.pageY + block.offsetHeight > window.innerHeight) {
+					block.style.setProperty('--y', event.pageY - block.offsetHeight + 'px');
+				} else {
+					block.style.setProperty('--y', event.pageY + 'px');
+				}
+	
+				if(event.pageX + block.offsetWidth > windowSize) {
+					if(windowSize > 992) {
+						block.style.setProperty('--x', window.innerWidth - block.offsetWidth - 20 + 'px');
+					} else {
+						block.style.setProperty('--x', window.innerWidth - block.offsetWidth + 40 + 'px');
+					}
+				} else {
+					block.style.setProperty('--x', Math.max(100, Math.min(window.innerWidth - 70 - 20, event.pageX)) + 'px');
+				}
+	
 				setTimeout(() => {
-					block.classList.add('is-active')
+					block.classList.remove('is-hidden')
+					setTimeout(() => {
+						block.classList.add('is-active')
+					},0)
 				},0)
-			},0)
+			}
 		}
 	
 	} else if(document.querySelector('.drop-down-2__block.is-active')) {
@@ -315,6 +436,10 @@ body.addEventListener('click', function (event) {
 				row.style.setProperty('--opacity', 0);
 				row.classList.add('fade-in');
 				row.classList.remove('fade-out');
+
+				setTimeout(() => {
+					html.style.setProperty('--down-sidebar-height', downSidebar.offsetHeight + 'px');
+				},500)
 			},300)
 
 		} else if(!sideBar.classList.contains('is-active-2')) {
@@ -327,8 +452,14 @@ body.addEventListener('click', function (event) {
 				targetPlace.style.setProperty('--opacity', 0);
 				sideBar.classList.toggle('is-active');
 
-				targetPlace.classList.add('fade-in');
-				targetPlace.classList.remove('fade-out');
+				setTimeout(() => {
+					targetPlace.classList.add('fade-in');
+					targetPlace.classList.remove('fade-out');
+				},300)
+
+				setTimeout(() => {
+					html.style.setProperty('--down-sidebar-height', downSidebar.offsetHeight + 'px');
+				},500)
 			},300)
 
 		}
@@ -429,6 +560,14 @@ body.addEventListener('click', function (event) {
 	
 		const message = messageClose.closest('.message');
 		message.classList.add('fade-out');
+
+		const date = new Date();
+		date.setMonth(date.getMonth() + 1);
+
+		if(message.classList.contains('deadline-message')) {
+			localStorage.setItem('ic11-deadline', date.getMonth());
+		}
+
 		setTimeout(() => {
 			message.remove();
 		},300)
@@ -475,6 +614,10 @@ body.addEventListener('click', function (event) {
 })
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </click-events> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <custom-context-menu> -=-=-=-=-=-=-=-=-=-=-=-=
 
 window.addEventListener('contextmenu', function (event) {
 
@@ -563,6 +706,11 @@ window.addEventListener('contextmenu', function (event) {
 	// =-=-=-=-=-=-=-=-=-=-=-=- </drop-down-2> -=-=-=-=-=-=-=-=-=-=-=-=
 })
 
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </custom-context-menu> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
 // =-=-=-=-=-=-=-=-=-=- <Get-device-type> -=-=-=-=-=-=-=-=-=-=-
 
 const getDeviceType = () => {
@@ -586,6 +734,9 @@ const getDeviceType = () => {
 // =-=-=-=-=-=-=-=-=-=- </Get-device-type> -=-=-=-=-=-=-=-=-=-=-
 
 
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <pointer-leave-after-hover> -=-=-=-=-=-=-=-=-=-=-=-=
+
 body.addEventListener('pointerover', function (event) {
 	if(getDeviceType() == "desktop" && windowSize > 992) {
 		const row = event.target.closest('.section-table__row');
@@ -608,7 +759,7 @@ body.addEventListener('pointerover', function (event) {
 				}
 
 				eachRow.querySelectorAll('.section-table__param').forEach((param, index) => {
-					if(index == indexParam) {
+					if(index == indexParam && !param.classList.contains('is-none-vertical-hover')) {
 						param.classList.add('is-active')
 					} else {
 						param.classList.remove('is-active')
@@ -623,6 +774,12 @@ body.addEventListener('pointerover', function (event) {
 	}
 })
 
+// =-=-=-=-=-=-=-=-=-=-=-=- </pointer-leave-after-hover> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <accent-col-in-table> -=-=-=-=-=-=-=-=-=-=-=-=
+
 document.querySelectorAll('.section-table__main').forEach((main, index) => {
 
 	main.setAttribute('id', 'section-table-' + (index+1));
@@ -633,49 +790,52 @@ document.querySelectorAll('.section-table__main').forEach((main, index) => {
 	})
 
 	main.insertAdjacentHTML("afterbegin", `<style>${styles}</style>`)
-	const tableBody = main.querySelector('.section-table__body');
+	const tableBody = main.querySelectorAll('.section-table__body');
 
-	const rows = main.querySelectorAll('.section-table__row');
+	tableBody.forEach(tableBody => {
+		const rows = tableBody.querySelectorAll('.section-table__row');
+		if(!main.classList.contains('table-projects')) {
 
-	//const container = main.querySelector('.section-table__main--container');
-	
-	/* container.addEventListener('scroll', function (event) {
-		gsap.to(container, {
-			'--scroll-x': container.scrollLeft + 'px',
-			duration: 0,
-		})
-	}) */
+			rows.forEach((row, index) => {
+				if(index % 2) {
+					row.classList.add('is-even-mode');
+				}
+			})
 
-	rows.forEach((row, index) => {
-		if(index % 2) {
-			row.classList.add('is-even-mode');
 		}
-	})
 
-	tableBody.addEventListener('pointerleave', function (event) {
+		tableBody.addEventListener('pointerleave', function (event) {
 		
-		if(getDeviceType() == "desktop") {
-			
-			const rows = main.querySelectorAll('.section-table__row.is-active'),
-			activeParams = main.querySelectorAll('.section-table__param.is-active');
-	
-			if(rows[0]) {	
+			if(getDeviceType() == "desktop") {
 				
-				rows.forEach(row => {
-					row.classList.remove('is-active');
-					if(row.closest('.section-table__row-block')) row.closest('.section-table__row-block').classList.remove('on-hover');
-				})
-	
-				activeParams.forEach((param, index) => {
-					param.classList.remove('is-active')
-				})
-				
+				const rows = main.querySelectorAll('.section-table__row.is-active'),
+				activeParams = main.querySelectorAll('.section-table__param.is-active');
+		
+				if(rows[0]) {	
+					
+					rows.forEach(row => {
+						row.classList.remove('is-active');
+						if(row.closest('.section-table__row-block')) row.closest('.section-table__row-block').classList.remove('on-hover');
+					})
+		
+					activeParams.forEach((param, index) => {
+						param.classList.remove('is-active')
+					})
+					
+				}
+		
 			}
-	
-		}
+		})
+
 	})
 
 })
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </accent-col-in-table> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <input-append-add-text> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.input-number').forEach(inputNumber => {
 	inputNumber.addEventListener('input', function (event) {
@@ -694,6 +854,10 @@ document.querySelectorAll('.input-number').forEach(inputNumber => {
 		
 	})
 })
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </input-append-add-text> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <get-coords> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -715,11 +879,15 @@ function getCoords(elem) {
 // =-=-=-=-=-=-=-=-=-=-=-=- <resize> -=-=-=-=-=-=-=-=-=-=-=-=
 
 let windowSize = 0;
+const downSidebar = document.querySelector('.down-sidebar');
 
 function resize() {
 
 	//html.style.setProperty("--height-header", header.offsetHeight + "px");
+	if(downSidebar) html.style.setProperty('--down-sidebar-height', downSidebar.offsetHeight + 'px');
+
 	html.style.setProperty("--vh", window.innerHeight * 0.01 + "px");
+	html.style.setProperty("--vw", window.innerWidth * 0.01 + "px");
 	if(windowSize != window.innerWidth) {
 		html.style.setProperty("--svh", window.innerHeight * 0.01 + "px");
 	}
@@ -745,18 +913,19 @@ function resize() {
 		})
 
 	})
+
+	body.style.overflowY = 'auto';
+	body.scrollTop = 0;
 }
 
 resize();
 
 window.addEventListener('resize', resize)
 
-const downSidebar = document.querySelector('.down-sidebar');
+
 if(aside || downSidebar) {
-	setInterval(() => {
-		if(aside) html.style.setProperty('--aside-width', aside.offsetWidth + 'px');
-		if(downSidebar) html.style.setProperty('--down-sidebar-height', downSidebar.offsetHeight + 'px');
-	},100)
+	if(aside && windowSize>992) html.style.setProperty('--aside-width', aside.offsetWidth + 'px');
+	if(downSidebar) html.style.setProperty('--down-sidebar-height', downSidebar.offsetHeight + 'px');
 }
 
 
@@ -808,14 +977,56 @@ document.querySelectorAll('.section-table__change-date--slider, .section-table__
 // =-=-=-=-=-=-=-=-=-=-=-=- </slider> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
+// =-=-=-=-=-=-=-=-=-=-=-=- <custom-select> -=-=-=-=-=-=-=-=-=-=-=-=
+
 document.querySelectorAll('.custom-select').forEach(select => {
 	new SlimSelect({
 		select: select,
 		settings: {
 			showSearch: false,
+		},
+		events: {
+			beforeChange: (newVal) => {
+				document.querySelector('[data-id="' + newVal[0]['id'] + '"]').closest('.ss-list').style.overflowY = 'hidden';
+			},
+			afterChange: (newVal) => {
+				const list = document.querySelector('[data-id="' + newVal[0]['id'] + '"]').closest('.ss-list');
+				list.style.overflowY = 'auto';
+				const selected = list.querySelector('.ss-selected');
+
+				new SimpleBar(document.querySelector('[data-id="' + newVal[0]['id'] + '"]').closest('.ss-list'), {
+					autoHide: false,
+				});
+
+				if(selected) {
+					list.querySelector('.simplebar-content-wrapper').scrollTop = selected.offsetTop;
+				}
+			}
 		}
 	})
 })
+
+setTimeout(() => {
+	document.querySelectorAll('.ss-list').forEach(select => {
+		
+		new SimpleBar(select, {
+			autoHide: false,
+		});
+
+		const selected = select.querySelector('.ss-selected');
+		if(selected) {
+			select.querySelector('.simplebar-content-wrapper').scrollTop = selected.offsetTop;
+		}
+	})
+},500)
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </custom-select> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <popup-checkbox> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 	const inputs = list.querySelectorAll('input'),
@@ -850,6 +1061,7 @@ document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 
 			let counter = 0, noneChecked = true;
 			if(allChecked) {
+
 				noneChecked = false;
 				checkedList.title = checkedList.dataset.allText;
 				checkedList.textContent = checkedList.dataset.allText;
@@ -858,14 +1070,16 @@ document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 				inputs.forEach(input => {
 					if(input.checked) {
 						noneChecked = false
-						const text = input.nextElementSibling.nextElementSibling.textContent;
+						/* const text = input.nextElementSibling.nextElementSibling.textContent;
 						if(counter == 0) {
-							checkedList.title = text.trim();
-							checkedList.textContent = text.trim();
+							checkedList.title = counter+1;
+							checkedList.textContent = counter+1;
 						} else {
-							checkedList.textContent += ', ' + text.trim();
-							checkedList.title += ', ' + text.trim();
-						}
+							checkedList.textContent = counter+1;
+							checkedList.title = counter+1;
+						} */
+						checkedList.textContent = counter+1;
+						checkedList.title = counter+1;
 	
 						counter++;
 					}
@@ -881,6 +1095,11 @@ document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 	})
 	
 })
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </popup-checkbox> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <datepicker> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.section-table__change-full-date').forEach(changeFullDate => {
 	const targetText = changeFullDate.querySelector('.section-table__change-full-date--target span'),
@@ -912,10 +1131,25 @@ document.querySelectorAll('.section-table__change-full-date').forEach(changeFull
 
 const dateInputs = document.querySelectorAll('.date-input');
 dateInputs.forEach(input => {
+	
 	const datepicker = new Datepicker(input, {
 		todayButton: true,	
-	}); 
+		prevArrow: `<svg width="7" height="10" viewBox="0 0 7 10"><use xlink:href="${input.dataset.prevArrowPath}"></use></svg>`,
+		nextArrow: `<svg width="7" height="10" viewBox="0 0 7 10"><use xlink:href="${input.dataset.nextArrowPath}"></use></svg>`,
+		autohide: true,
+	});
+
+	const currentDate = new Date(),
+	month = currentDate.getMonth()+1 > 9 ? currentDate.getMonth()+1 : '0' + (currentDate.getMonth()+1);
+	
+	input.value = month + '/' + currentDate.getDate() + '/' + currentDate.getFullYear();
 })
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </datepicker> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <generate-time> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.section-table__time--block').forEach(block => {
 
@@ -923,6 +1157,8 @@ document.querySelectorAll('.section-table__time--block').forEach(block => {
 	fromMinutes = block.querySelector('.from-minutes'),
 	toHours = block.querySelector('.to-hours'),
 	toMinutes = block.querySelector('.to-minutes');
+
+	const target = block.parentElement.querySelector('.section-table__time--target');
 
 	let nowDate = new Date();
 
@@ -945,6 +1181,8 @@ document.querySelectorAll('.section-table__time--block').forEach(block => {
 			document.querySelectorAll('.hours-input').forEach(input => {
 				input.value = hours + ' ' + input.dataset.addText;
 			})
+
+			target.querySelector('span').textContent = fromHours.value + ':' + fromMinutes.value + ' - ' + toHours.value + ':' + toMinutes.value;
 		})
 	})
 
@@ -957,17 +1195,93 @@ document.querySelectorAll('.section-table__time--block').forEach(block => {
 	}) */
 })
 
-window.addEventListener('load', function (event) {
-	body.classList.add('is-init')
-})
+// =-=-=-=-=-=-=-=-=-=-=-=- </generate-time> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <clipboard> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.copy-btn').forEach(copyBtn => {
 	const clipboard = new ClipboardJS(copyBtn);
 	clipboard.on('success', function (event) {
 		const input = copyBtn.parentElement.querySelector('.copy-input');
 		input.select();
+
+		copyBtn.classList.remove('tooltip-active');
+
+		setTimeout(() => {
+			copyBtn.classList.add('tooltip-active');
+		},0)
+		
+		/* const tooltip = document.createElement('div');
+		tooltip.classList.add('copy-tooltip');
+		tooltip.textContent = input.dataset.copiedText;
+		tooltip.style.setProperty('--x', getCoords(copyBtn).left + 'px');
+		tooltip.style.setProperty('--y', getCoords(copyBtn).top + 'px'); */
+		
 	})
 })
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </clipboard> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+// =-=-=-=-=-=-=-=-=-=-=-=- <aside-nav-hover> -=-=-=-=-=-=-=-=-=-=-=-=
+
+document.querySelectorAll('.aside__nav > ul > li > a, .aside__nav > ul > li > button').forEach(target => {
+	target.addEventListener('pointerenter', function (event) {
+		if(getDeviceType() == "desktop" && !target.classList.contains('is-removing') && target.closest('.aside.is-min')) {
+
+			const tooltip = document.createElement('div');
+			tooltip.classList.add('aside-nav-tooltip');
+			tooltip.style.setProperty('--x', getCoords(target).left + target.offsetWidth + 'px');
+			tooltip.style.setProperty('--y', getCoords(target).top + target.offsetHeight / 2 + 'px');
+			body.append(tooltip);
+
+			tooltip.textContent = target.getAttribute('aria-label');
+
+			setTimeout(() => {
+				tooltip.classList.add('is-visible');
+			},0)
+		}
+	})
+
+	target.addEventListener('pointerleave', function (event) {
+		const asideNavTooltip = document.querySelectorAll('.aside-nav-tooltip');
+		asideNavTooltip.forEach(tooltip => {
+			tooltip.classList.remove('is-visible');
+			target.classList.add('is-removing');
+			setTimeout(() => {
+				tooltip.remove();
+				target.classList.remove('is-removing');
+			},200)
+		})
+	})
+})
+
+// =-=-=-=-=-=-=-=-=-=-=-=- </aside-nav-hover> -=-=-=-=-=-=-=-=-=-=-=-=
+
+
+document.querySelectorAll('.deadline-message').forEach(message => {
+	const currentDate = new Date(), newDate = new Date();
+
+	if(!localStorage.getItem('ic11-deadline')) {
+		localStorage.setItem('ic11-deadline', currentDate.getMonth())
+	}
+	
+	if(localStorage.getItem('ic11-deadline') == currentDate.getMonth()) {
+
+		const lastDay = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+		const daysLeft = lastDay.getDate() - currentDate.getDate();
+		
+		if(daysLeft <= 5) {
+
+			message.style.removeProperty('display');
+
+		}
+	}
+})
+
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <popup> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -1138,3 +1452,9 @@ popup.init()
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </popup> -=-=-=-=-=-=-=-=-=-=-=-=
 
+
+window.addEventListener('load', function (event) {
+	body.classList.add('is-init')
+
+	main.querySelector('.simplebar-content-wrapper').scrollTop = 0
+})

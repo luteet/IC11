@@ -2,10 +2,12 @@
 
 	position: fixed;
 	left: 0; bottom: 0;
-	width: 100%;
+	width: 100vw;
 	@include _992 {
 		left: var(--aside-width, 230px); bottom: 0;
 		width: calc(100% - var(--aside-width, 230px));
+
+		transition: var(--transition-width, none);
 	}
 
 	z-index: 2;
@@ -20,7 +22,7 @@
 
 		padding: 20px;
 		@media (min-width: 1440px) {
-			padding: 20px 50px;
+			padding: 20px 50px 20px 50px;
 		}
 	}
 	
@@ -37,12 +39,12 @@
 			opacity: 0; visibility: hidden;
 		}
 
-		&__row {
+		/* &__row {
 			display: flex;
 			@include _992 {
 				display: grid;
 			}
-		}
+		} */
 	}
 
 	// .down-sidebar__arrow-target
@@ -132,6 +134,10 @@
 		}
 	}
 
+	&.is-active &__row {
+		grid-template-rows: 1fr;
+	}
+
 	// .down-sidebar__row
 
 	&__row {
@@ -139,16 +145,40 @@
 		grid-area: 1/1;
 		align-self: self-end;
 
-		width: 100%;
+		display: grid;
+		grid-template-rows: 0fr;
 
-		display: none;
-		flex-direction: column-reverse;
+		transition: grid-template-rows .5s ease;
 
-		gap: 20px;
+		> * {
+			overflow: hidden;
+
+			display: grid;
+			> *:nth-child(1) {
+				grid-column: 1; grid-row: 2;
+				width: calc(100% - 0px);
+			}
+			> *:nth-child(2) {
+				grid-column: 1; grid-row: 1;
+				width: calc(100% - 0px);
+			}
+
+			gap: 20px;
+		}
 
 		@include _768 {
-			display: none;
-			grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+			
+			> * {
+				display: grid;
+				grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+
+				> *:nth-child(1) {
+					grid-column: auto; grid-row: auto;
+				}
+				> *:nth-child(2) {
+					grid-column: auto; grid-row: auto;
+				}
+			}
 		}
 	}
 
@@ -165,14 +195,19 @@
 	// .down-sidebar__chat-block
 
 	&__chat-block {
-		height: 163px;
+		height: calc(var(--vh,1vh) * 25);
+		@include _992 {
+			height: 163px;
+		}
 		padding: 10px 15px;
-		overflow-y: auto;
+		//overflow-y: auto;
 
 		&--none {
 			color: var(--text-color);
 			font-size: 0.875rem;
 			line-height: 120%;
+
+			padding: 10px 5px;
 		}
 
 		border: 1px solid rgba(174, 182, 206, 0.30);
@@ -287,14 +322,19 @@
 	// .down-sidebar__total-block
 
 	&__total-block {
-		height: 163px;
+		height: calc(var(--vh,1vh) * 25);
+		@include _992 {
+			height: 163px;
+		}
 		padding: 10px 15px;
-		overflow-y: auto;
+		//overflow-y: auto;
 
 		&--none {
 			color: var(--text-color);
 			font-size: 0.875rem;
 			line-height: 120%;
+
+			padding: 10px 5px;
 		}
 
 		border: 1px solid rgba(174, 182, 206, 0.30);
