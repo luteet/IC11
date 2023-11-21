@@ -124,6 +124,11 @@ input[type="search"] {
 		background: transparent;
 		color: #AEB6CE;
 
+		svg {
+			padding: 1px;
+			width: 16px; height: 16px;
+		}
+
 		&.is-active > * {
 			&:nth-child(1) {
 				opacity: 0;
