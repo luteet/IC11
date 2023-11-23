@@ -96,10 +96,6 @@ legend {
     white-space: normal
 }
 
-.ss-main,.ss-main.ss-disabled .ss-values .ss-disabled {
-    color: var(--ss-font-color)
-}
-
 textarea {
     overflow: auto
 }
@@ -169,7 +165,7 @@ summary {
     pointer-events: auto
 }
 
-.splide:not(.is-overflow) .splide__pagination {
+.splide:not(.is-overflow) .splide__pagination,.splide__toggle.is-active .splide__toggle__play,.splide__toggle__pause {
     display: none
 }
 
@@ -229,10 +225,6 @@ summary {
     margin: -1px;
     overflow: hidden;
     width: 1px
-}
-
-.splide__toggle.is-active .splide__toggle__play,.splide__toggle__pause {
-    display: none
 }
 
 .splide__toggle.is-active .splide__toggle__pause {
@@ -589,6 +581,7 @@ summary {
     flex-direction: row;
     position: relative;
     user-select: none;
+    color: var(--ss-font-color);
     min-height: var(--ss-main-height);
     width: 100%;
     padding: var(--ss-spacing-s);
@@ -601,6 +594,10 @@ summary {
 .ss-main.ss-disabled {
     background-color: var(--ss-disabled-color);
     cursor: not-allowed
+}
+
+.ss-main.ss-disabled .ss-values .ss-disabled {
+    color: var(--ss-font-color)
 }
 
 .ss-main.ss-disabled .ss-values .ss-value .ss-value-delete {
@@ -867,6 +864,10 @@ summary {
     margin: auto var(--ss-spacing-m)
 }
 
+.ss-content .ss-list .ss-optgroup.ss-close .ss-option,body:not(.is-init) .drop-down-2__block,body:not(.is-init) .ss-content {
+    display: none!important
+}
+
 .ss-content .ss-search .ss-addable svg path {
     fill: none;
     stroke: var(--ss-font-color);
@@ -890,10 +891,6 @@ summary {
 .ss-content .ss-list .ss-searching {
     color: var(--ss-font-color);
     padding: var(--ss-spacing-l)
-}
-
-.ss-content .ss-list .ss-optgroup.ss-close .ss-option {
-    display: none!important
 }
 
 .ss-content .ss-list .ss-optgroup .ss-optgroup-label {
@@ -1069,11 +1066,6 @@ summary {
     display: flex
 }
 
-.btn,.datepicker-controls .button {
-    display: inline-flex;
-    text-align: center
-}
-
 .datepicker-header .datepicker-controls {
     padding: 2px 2px 0
 }
@@ -1086,6 +1078,7 @@ summary {
     box-shadow: none;
     color: #363636;
     cursor: pointer;
+    display: inline-flex;
     font-size: 1rem;
     height: 2.25em;
     justify-content: center;
@@ -1093,6 +1086,7 @@ summary {
     margin: 0;
     padding: calc(.375em - 1px) .75em;
     position: relative;
+    text-align: center;
     vertical-align: top;
     white-space: nowrap
 }
@@ -1201,11 +1195,6 @@ summary {
 
 .btn,.datepicker-cell:not(.disabled):hover,.drop-down-2,button {
     cursor: pointer
-}
-
-.btn.is-disabled,.drop-down__target {
-    -webkit-user-select: none;
-    -ms-user-select: none
 }
 
 .datepicker .dow {
@@ -1628,14 +1617,21 @@ html {
     background: #f3f4f8
 }
 
-.btn,.message__text,body {
-    font-size: .875rem
-}
-
 body {
     font-family: var(--main-font);
     font-weight: 400;
-    line-height: 150%
+    line-height: 150%;
+    font-size: .875rem
+}
+
+.checkbox__input,.visually-hidden,body.is-mobile-menu-active,body.is-popup-active {
+    overflow: hidden
+}
+
+.btn,.message__text {
+    font-size: .875rem;
+    font-weight: 500;
+    text-align: center
 }
 
 body .simplebar-scrollbar.simplebar-visible::before {
@@ -1644,24 +1640,12 @@ body .simplebar-scrollbar.simplebar-visible::before {
     opacity: .1
 }
 
-.btn,.btn.is-transparent {
-    border: 1px solid var(--accent)
-}
-
 body .simplebar-track.simplebar-horizontal {
     height: 9px
 }
 
 body .simplebar-track.simplebar-vertical {
     width: 9px
-}
-
-body.is-mobile-menu-active {
-    overflow: hidden
-}
-
-body:not(.is-init) .drop-down-2__block,body:not(.is-init) .ss-content {
-    display: none!important
 }
 
 @-webkit-keyframes fadeIn {
@@ -1840,13 +1824,14 @@ section {
 }
 
 .btn {
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     line-height: 100%;
-    font-weight: 500;
     text-decoration: none;
     padding: 14px 5px;
     background: var(--accent);
+    border: 1px solid var(--accent);
     color: var(--theme-text-color);
     border-radius: 0
 }
@@ -1859,12 +1844,15 @@ section {
 .btn.is-disabled {
     opacity: .5;
     pointer-events: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none
 }
 
 .btn.is-transparent {
     color: var(--theme-text-color-2);
-    background: rgba(0,0,0,0)
+    background: rgba(0,0,0,0);
+    border: 1px solid var(--accent)
 }
 
 .btn.is-min-on-mob {
@@ -1904,13 +1892,6 @@ section {
     color: var(--white)
 }
 
-.checkbox__input,.visually-hidden {
-    border: 0;
-    -webkit-clip-path: inset(100%);
-    overflow: hidden;
-    white-space: nowrap
-}
-
 .btn.is-error.is-transparent {
     background: rgba(0,0,0,0);
     color: #ef3129
@@ -1926,11 +1907,14 @@ section {
     height: 1px;
     margin: -1px;
     padding: 0;
+    border: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
     clip: rect(0 0 0 0)
 }
 
-.drop-down {
+.checkbox,.drop-down {
     position: relative
 }
 
@@ -1986,7 +1970,14 @@ section {
 }
 
 .drop-down__target {
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none
+}
+
+.drop-down-2__list a,.drop-down__list a {
+    -webkit-user-select: none;
+    text-decoration: none
 }
 
 .drop-down__target--arrow {
@@ -2019,11 +2010,9 @@ section {
 .drop-down__list a {
     display: block;
     padding: 15px;
-    -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     color: #5f6472;
-    text-decoration: none;
     text-align: center
 }
 
@@ -2033,11 +2022,11 @@ section {
 
 .drop-down-2__block,.drop-down-absolute__block {
     left: var(--x);
+    top: var(--y);
     opacity: 0;
     background: var(--white);
     box-shadow: 0 0 30px 0 rgba(65,79,124,.08),0 4px 5px 0 rgba(65,79,124,.1);
-    position: absolute;
-    top: var(--y)
+    position: absolute
 }
 
 .drop-down-2.is-dark .drop-down-2__list a {
@@ -2070,11 +2059,9 @@ section {
     display: flex;
     align-items: center;
     padding: 15px 25px;
-    -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
     color: #5f6472;
-    text-decoration: none;
     text-align: start
 }
 
@@ -2168,10 +2155,8 @@ section {
 
 .message__text {
     line-height: 120%;
-    font-weight: 500;
     grid-column: 1/3;
     grid-row: 1;
-    text-align: center;
     padding: 0 20px;
     color: var(--white)
 }
@@ -2209,13 +2194,10 @@ section {
     font-size: 1.875rem
 }
 
-.large-title,.title {
-    font-weight: 800;
-    line-height: 120%
-}
-
 .title {
     font-family: var(--title-font);
+    font-weight: 800;
+    line-height: 120%;
     font-size: 1.375rem
 }
 
@@ -2228,6 +2210,8 @@ section {
 }
 
 .large-title {
+    font-weight: 800;
+    line-height: 120%;
     color: var(--title-color)
 }
 
@@ -2242,10 +2226,6 @@ input,input:not([readonly]):focus,textarea,textarea:not([readonly]):focus {
 
 .txt-center {
     text-align: center
-}
-
-.select-drop-down,.select-drop-down__block .drop-down__list a,.select-drop-down__target {
-    text-align: start
 }
 
 input,textarea {
@@ -2298,6 +2278,13 @@ input:not([readonly]):focus::placeholder,textarea:not([readonly]):focus::placeho
     transition: color .2s ease,border-color .2s ease
 }
 
+.checkbox__input,.popup-checkbox__input {
+    height: 1px;
+    padding: 0;
+    -webkit-clip-path: inset(100%);
+    white-space: nowrap
+}
+
 .input:not(.none-disabled-style):read-only {
     background: rgba(174,182,206,.2);
     border-color: transparent;
@@ -2320,16 +2307,14 @@ input:not([readonly]):focus::placeholder,textarea:not([readonly]):focus::placeho
 
 .checkbox {
     display: flex;
-    cursor: pointer;
-    position: relative
+    cursor: pointer
 }
 
 .checkbox__input {
     position: absolute;
     width: 1px;
-    height: 1px;
     margin: -1px;
-    padding: 0;
+    border: 0;
     clip-path: inset(100%);
     clip: rect(0 0 0 0)
 }
@@ -2389,6 +2374,12 @@ input:not([readonly]):focus::placeholder,textarea:not([readonly]):focus::placeho
     height: 16px
 }
 
+.popup,.popup-bg {
+    height: 100%;
+    width: 100%;
+    left: 0
+}
+
 .password-input__visible-toggle.is-active>:nth-child(1) {
     opacity: 0
 }
@@ -2408,8 +2399,13 @@ input:not([readonly]):focus::placeholder,textarea:not([readonly]):focus::placeho
     opacity: 0
 }
 
+.select-drop-down {
+    text-align: start
+}
+
 .select-drop-down__target {
     width: 100%;
+    text-align: start;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2426,6 +2422,10 @@ input:not([readonly]):focus::placeholder,textarea:not([readonly]):focus::placeho
 
 .select-drop-down__block {
     top: 100%
+}
+
+.select-drop-down__block .drop-down__list a {
+    text-align: start
 }
 
 .ss-main:focus {
@@ -2519,16 +2519,9 @@ body {
     padding-right: var(--popup-padding)
 }
 
-body.is-popup-active {
-    overflow: hidden
-}
-
 .popup {
     position: fixed;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -2567,10 +2560,7 @@ body.is-popup-active {
 
 .popup-bg {
     position: absolute;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
     background: rgba(0,0,0,.7)
 }
 
@@ -2648,7 +2638,11 @@ body.is-popup-active {
     padding-right: 40px
 }
 
-.popup-text+.popup-form,.popup-title+.popup-form {
+.popup-body>.popup-title {
+    margin-top: 10px
+}
+
+.popup-text+.popup-form,.popup-title+.popup-form,.profile__info {
     margin-top: 30px
 }
 
@@ -2803,12 +2797,8 @@ body.is-popup-active {
 .popup-checkbox__input {
     position: absolute;
     width: 1px;
-    height: 1px;
     margin: -1px;
-    padding: 0;
     border: 0;
-    white-space: nowrap;
-    -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden
@@ -2874,16 +2864,12 @@ body.is-popup-active {
 
 .sub-popup-employee__container {
     padding: 0 20px 2px;
-    margin-top: 40px;
-    margin-bottom: 75px
+    margin-top: 35px
 }
 
 .sub-popup-employee__search {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: auto;
+    position: relative;
+    z-index: 2;
     padding: 10px;
     display: grid;
     grid-template-columns: auto -webkit-min-content;
@@ -2968,7 +2954,6 @@ body.is-popup-active {
 }
 
 .profile__info {
-    margin-top: 30px;
     flex: 1 1 auto
 }
 
@@ -3182,6 +3167,10 @@ body.is-popup-active {
     color: var(--text-color)
 }
 
+.aside__body .simplebar-scrollbar::before,.aside__burger span {
+    background: var(--white)
+}
+
 .aside__slide-toggle svg {
     -webkit-transform: translate(0,-1px) rotate(90deg);
     transform: translate(0,-1px) rotate(90deg);
@@ -3225,10 +3214,6 @@ body.is-popup-active {
     display: flex;
     flex-direction: column;
     justify-content: space-between
-}
-
-.aside__body .simplebar-scrollbar::before {
-    background: var(--white)
 }
 
 .aside.is-mobile-menu-active .aside__block {
@@ -3281,12 +3266,15 @@ body.is-popup-active {
     left: 0;
     width: 100%;
     height: 2px;
-    background: var(--white);
     transition-duration: .3s;
     transition-timing-function: ease;
     transition-property: top,opacity,visibility,-webkit-transform;
     transition-property: transform,top,opacity,visibility;
     transition-property: transform,top,opacity,visibility,-webkit-transform
+}
+
+.aside__block,.section-table__search--label {
+    transition: opacity .3s ease,visibility .3s ease
 }
 
 .aside__burger span:nth-child(1) {
@@ -3338,8 +3326,7 @@ body.is-popup-active {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    overflow-x: visible;
-    transition: opacity .3s ease,visibility .3s ease
+    overflow-x: visible
 }
 
 .aside__block--background {
@@ -3634,7 +3621,8 @@ body.is-popup-active {
     line-height: 120%;
     font-weight: 500;
     text-decoration: none;
-    padding: 14px
+    padding: 14px;
+    transition: background .2s ease,color .2s ease,border-color .2s ease,padding .2s ease
 }
 
 .aside__log-out svg {
@@ -3784,7 +3772,9 @@ body.is-popup-active {
 
 .section-table__header--col:last-child {
     display: grid;
-    grid-template-columns: auto auto
+    grid-template-columns: auto auto;
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content
 }
 
 .section-table__header--block {
@@ -3842,8 +3832,7 @@ body.is-popup-active {
     top: 0;
     width: 100%;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity .3s ease,visibility .3s ease
+    visibility: hidden
 }
 
 .section-table__search--input {
@@ -3856,6 +3845,13 @@ body.is-popup-active {
     line-height: 120%;
     color: var(--text-color);
     transition: color .2s ease,border-color .2s ease
+}
+
+.section-table__change-date--slider .splide__slide label span,.section-table__change-full-date--slider .splide__slide label span {
+    text-align: center;
+    -webkit-font-feature-settings: "clig" off,"liga" off;
+    line-height: 120%;
+    transition: background .15s ease,color .15s ease
 }
 
 .section-table__search--input:focus {
@@ -3961,13 +3957,9 @@ body.is-popup-active {
     padding: 7px 2px;
     display: block;
     cursor: pointer;
-    text-align: center;
-    -webkit-font-feature-settings: "clig" off,"liga" off;
     font-feature-settings: "clig" off,"liga" off;
     font-size: .75rem;
-    font-weight: 400;
-    line-height: 120%;
-    transition: background .15s ease,color .15s ease
+    font-weight: 400
 }
 
 .section-table__change-full-date--target {
@@ -4096,13 +4088,9 @@ body.is-popup-active {
     padding: 7px 2px;
     display: block;
     cursor: pointer;
-    text-align: center;
-    -webkit-font-feature-settings: "clig" off,"liga" off;
     font-feature-settings: "clig" off,"liga" off;
     font-size: .75rem;
-    font-weight: 400;
-    line-height: 120%;
-    transition: background .15s ease,color .15s ease
+    font-weight: 400
 }
 
 .section-table__export.is-min .section-table__export--target {
@@ -4443,21 +4431,29 @@ body.is-popup-active {
 }
 
 .section-table__main:not(.table-timesheet) .section-table__head-th:nth-child(1)>span>span {
-    display: block
+    display: flex;
+    align-items: center
 }
 
 .section-table__main:not(.table-timesheet) .section-table__head-th:nth-child(1)>span>span:nth-child(1) {
     width: 35px;
     text-align: center;
+    justify-content: center;
     margin-right: 5px
 }
 
 .section-table__main:not(.table-timesheet) .section-table__head-th:nth-child(1)>span>span:nth-child(2) {
-    flex: 1 1 auto
+    flex: 1 1 auto;
+    justify-content: flex-start;
+    padding: 0
+}
+
+.section-table__main:not(.table-timesheet) .section-table__head-th:nth-child(1)>span>span:nth-child(2) .section-table__main--sort-target {
+    padding-left: 0
 }
 
 .section-table__main.table-timesheet .section-table__head-th {
-    padding: 8.5px 5px;
+    padding: 0 5px;
     border-right: 1px solid rgba(95,100,114,.1)
 }
 
@@ -4469,6 +4465,25 @@ body.is-popup-active {
     z-index: 3;
     transition: var(--transition,none);
     border-left: 1px solid rgba(94,100,115,.1)
+}
+
+.section-table__main.table-timesheet .section-table__head-th:nth-child(1) .section-table__main--param {
+    padding: 0
+}
+
+.section-table__main.table-timesheet .section-table__head-th:nth-child(1)>span>span:nth-child(1) {
+    width: 40px;
+    text-align: center
+}
+
+.section-table__main.table-timesheet .section-table__head-th:nth-child(1)>span>span:nth-child(2) {
+    flex: 1 1 auto
+}
+
+.section-table__main.table-timesheet .section-table__head-th:nth-child(1)>span>span:nth-child(2) .section-table__main--sort-target {
+    padding-left: 15px;
+    padding-right: 5px;
+    justify-content: center
 }
 
 .section-table__main.table-timesheet .section-table__head-th:nth-child(2) {
@@ -4864,7 +4879,7 @@ body.is-popup-active {
 }
 
 .table-vacations .section-table__head-th .section-table__main--param {
-    padding: 18.5px 5px
+    padding: 0 5px
 }
 
 .table-vacations .section-table__param {
@@ -4904,6 +4919,10 @@ body.is-popup-active {
     left: 1px
 }
 
+.table-projects .section-table__param:nth-child(1)::after {
+    display: none
+}
+
 .table-projects .section-table__param:not(:nth-child(4)),.table-projects .section-table__param:nth-child(1) span:nth-child(2) {
     text-align: center
 }
@@ -4930,8 +4949,7 @@ body.is-popup-active {
 
 .table-timesheet .section-table__main--container {
     overflow-x: auto;
-    overflow-y: hidden;
-    max-width: calc(100vw - 15px - 15px)
+    overflow-y: hidden
 }
 
 .table-timesheet .section-table__param {
@@ -6618,7 +6636,7 @@ body.is-popup-active {
     .sub-popup-employee__body {
         padding: 0;
         background: rgba(0,0,0,0);
-        height: min(616px,var(--vh,1vh) *100 - 40px);
+        height: min(598px,var(--vh,1vh) *100 - 40px);
         display: flex;
         flex-direction: column;
         justify-content: flex-end
@@ -6640,7 +6658,7 @@ body.is-popup-active {
     .sub-popup-employee__container {
         padding: 0 40px 2px;
         margin-top: 40px;
-        margin-bottom: 90px
+        margin-bottom: 0
     }
 
     .sub-popup-employee__container .simplebar-track.simplebar-vertical {
@@ -7300,6 +7318,10 @@ body.is-popup-active {
         padding: 7px 10px
     }
 
+    .section-table__main.table-timesheet .section-table__head-th:nth-child(1)>span>span:nth-child(2) .section-table__main--sort-target,.section-table__main:not(.table-timesheet) .section-table__head-th:nth-child(1)>span>span:nth-child(2) .section-table__main--sort-target {
+        padding-left: 15px
+    }
+
     .section-table__export.is-min .section-table__export--target {
         width: 100%;
         min-width: 120px
@@ -7332,6 +7354,10 @@ body.is-popup-active {
     .section-table__main.table-timesheet .section-table__head-th:nth-child(1),.section-table__main:not(.table-timesheet) .section-table__head-th:nth-child(1) {
         position: static;
         background: rgba(0,0,0,0)
+    }
+
+    .section-table__main.table-timesheet .section-table__head-th {
+        padding: 8.5px 5px
     }
 
     .section-table__main.table-timesheet .section-table__row-block--span-params .section-table__param {
@@ -7424,12 +7450,12 @@ body.is-popup-active {
         min-width: 1300px
     }
 
-    .table-projects .section-table__param:not(:nth-child(3)) {
-        text-align: center
+    .table-vacations .section-table__head-th .section-table__main--param {
+        padding: 18.5px 5px
     }
 
-    .table-timesheet .section-table__main--container {
-        max-width: calc(100vw - var(--aside-width,230px) - 30px - 15px)
+    .table-projects .section-table__param:not(:nth-child(3)) {
+        text-align: center
     }
 
     .project-popup__body {
@@ -7690,10 +7716,6 @@ body.is-popup-active {
 
     .table-vacations .section-table__main--wrapper {
         min-width: 1350px
-    }
-
-    .table-timesheet .section-table__main--container {
-        max-width: calc(100vw - var(--aside-width,230px) - 50px - 50px)
     }
 
     .section-table__add-task {
@@ -8051,10 +8073,6 @@ body.is-popup-active {
 
     .aside__nav button~div a:not(.is-current):active,.aside__nav button~div a:not(.is-current):hover {
         color: var(--white)
-    }
-
-    .aside__log-out {
-        transition: background .2s ease,color .2s ease,border-color .2s ease
     }
 
     .aside__log-out:hover {

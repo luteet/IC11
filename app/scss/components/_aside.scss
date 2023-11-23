@@ -1052,13 +1052,15 @@
 		text-decoration: none;
 
 		padding: 14px;
+
 		svg {
 			flex: 0 0 16px;
 			margin-right: 10px;
 		}
 
+		transition: background .2s ease, color .2s ease, border-color .2s ease, padding .2s ease;
+
 		@media (any-hover: hover) {
-			transition: background .2s ease, color .2s ease, border-color .2s ease;
 
 			&:hover {
 				color: var(--theme-text-color);
