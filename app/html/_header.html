@@ -131,7 +131,7 @@
 										</div>
 									</div>
 									<div>
-										<div class="aside__language drop-down is-dark is-bottom">
+										<div class="aside__language drop-down is-dark is-bottom is-min">
 											<button class="aside__language--target drop-down__target" type="button">
 												<span>
 													En
@@ -161,6 +161,7 @@
 				if(localStorage.getItem('ic11-aside-min') == "true") {
 					document.querySelector('.aside').classList.add('is-min');
 					document.querySelector('.aside').classList.add('is-min-2');
+					document.querySelector('html').style.setProperty('--aside-width', '65px');
 				}
 			</script>
 		</aside>

@@ -3,6 +3,9 @@
 
 	display: flex;
 	align-items: center;
+	justify-content: flex-end;
+
+	grid-column: 2 span;
 
 	&.is-active & {
 		&__target {
@@ -20,6 +23,10 @@
 		background: transparent;
 		color: #97A0BB;
 		transition: color .2s ease;
+
+		display: flex;
+		justify-content: flex-end;
+
 		&.is-has-notice {
 			&::after {
 				content: '';
@@ -42,9 +49,11 @@
 		padding: 20px 15px 20px 20px;
 		@include _992 {
 			padding: 20px 15px 20px 30px;
+
 		}
 
-		min-width: min(440px, calc(100vw - 30px));
+		max-width: min(440px, calc(100vw - 30px));
+		width: 100%;
 		max-height: none;
 		overflow-y: visible;
 		//transform: translateX(10px);
@@ -107,8 +116,6 @@
 		li:not(:first-child) {
 			margin-top: 10px;
 		}
-
-
 	}
 
 	// .notification__item

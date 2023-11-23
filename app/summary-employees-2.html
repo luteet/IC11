@@ -1,6 +1,6 @@
 @@include("html/_header-2.html")
 
-<main class="main" data-simplebar data-simplebar-auto-hide="false">
+<main class="main">
 	<section class="summary">
 		<div class="summary__header page-header">
 			<div class="page-header__col">
@@ -249,19 +249,6 @@
 							</div>
 						</div>
 					</div>
-					<!-- <select name="project" class="custom-select">
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-						<option value="61x200495">61x200495</option>
-					</select> -->
 				</div>
 				<div class="employees-row__search">
 					<div class="section-table__search is-alternative">
@@ -308,6 +295,17 @@
 			</form>
 		</div>
 		<div class="summary__main">
+			@@include("html/_summary-item-4.html", {
+				"name": "Olena Rybak",
+				"position": "Managing director",
+				"favorite": " is-active",
+				"avatar": ' style="--theme: #2D9CDB;"',
+				"status_mode": "",
+				"status_text": "In progress",
+				"status_icon": "attention",
+				"message": '<div class="summary-item__message"><svg width="20" height="20" viewBox="0 0 13 13"><use xlink:href="img/sprites.svg#attention"></use></svg><p>This summary already rejected by Irina Omelianenko on 03/05/2023.</p></div>',
+				"buttons": " is-disabled",
+			})
 			@@loop("html/_summary-item-2.html", [
 				{
 					"name": "Olena Rybak",

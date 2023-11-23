@@ -1,6 +1,6 @@
 @@include("html/_header-2.html")
 
-<main class="main" data-simplebar data-simplebar-auto-hide="false">
+<main class="main">
 	<section class="section-table">
 		<div class="section-table__header">
 			<div class="section-table__header--row is-always-row">
@@ -229,22 +229,95 @@
 									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 								</svg>
 							</div>
-							<div class="section-table__add-costs--project">
-								<select name="project" class="custom-select" required>
-									<option value="" disabled selected>Choose project</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-									<option value="61x200495">61x200495</option>
-								</select>
+							<div class="section-table__add-task--project drop-down">
+								<button class="section-table__add-task--project-target drop-down__target" type="button">
+									Choose project
+									<svg width="10" height="7" viewBox="0 0 10 7" class="drop-down__target--arrow">
+										<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
+									</svg>
+								</button>
+								<div class="section-table__main--project-name-block drop-down__block">
+									<div class="project-popup">
+										<div class="project-popup__body" data-simplebar data-simplebar-auto-hide="false">
+											<div class="project-popup__block">
+												<h2>Сommonly used</h2>
+												<ul class="project-popup__list">
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61x210204_Ukraine EE Building Certification Study
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div class="project-popup__block">
+												<h2>All projects</h2>
+												<ul class="project-popup__list">
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+													<li class="project-popup__item">
+														<a href="#">
+															61xA210739_Kremenchuk Bridge supervision
+														</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<form class="project-popup__search">
+											<label>
+												<input type="search" name="search" class="input" placeholder="Search a project" required>
+											</label>
+											<button class="btn is-grey" type="submit">
+												Search
+												<svg width="15" height="15" viewBox="0 0 15 15">
+													<use xlink:href="img/sprites.svg#search"></use>
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
 							</div>
 							<div class="section-table__add-costs--text">
 								<label>
@@ -311,7 +384,7 @@
 								</span>
 							</div>
 							<div class="section-table__head-th visible-on-desktop">
-								<div class="section-table__main--sort drop-down-absolute">
+								<div class="section-table__main--sort drop-down-absolute is-center">
 									<button class="section-table__main--sort-target drop-down-absolute__target" data-drop-down-target="date-sort" type="button">
 										<svg width="13" height="13" viewBox="0 0 13 13">
 											<use xlink:href="img/sprites.svg#calendar-selected"></use>
@@ -556,18 +629,12 @@
 										<ul class="drop-down__list">
 											<li>
 												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													A-Z
+													Ascending
 												</a>
 											</li>
 											<li>
 												<a href="#">
-													<svg width="15" height="16" viewBox="0 0 15 16">
-														<use xlink:href="img/sprites.svg#sort-asc"></use>
-													</svg> 
-													Z-A
+													Descending
 												</a>
 											</li>
 										</ul>

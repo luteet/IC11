@@ -184,13 +184,28 @@ section {
 	opacity: 0;
 
 	padding: 15px 15px var(--drop-down-size, 30px);
+
+	&.is-none-padding {
+		padding: 0;
+	}
 	
 	&.is-none-aside {
 		height: calc(var(--vh,1vh) * 100);
+		width: 100vw;
 	}
 
 	&:not(.is-none-aside) {
 		height: calc(var(--vh,1vh) * 100 - 70px);
+
+		width: 100vw;
+		@include _992 {
+			width: calc(100vw - var(--aside-width, 230px) - 30px - 14px);
+			transition: var(--transition-width, none);
+		}
+
+		@media (min-width: 1440px) {
+			width: calc(100vw - var(--aside-width, 230px) - 50px - 50px);
+		}
 	}
 
 	@include _992 {
@@ -205,6 +220,14 @@ section {
 	& > .simplebar-track > .simplebar-scrollbar::before {
 		opacity: .3;
 	}
+
+	& > .simplebar-track.simplebar-vertical {
+		z-index: -1;
+	}
+
+	/* & > .simplebar-track.simplebar-vertical {
+		right: 100px;
+	} */
 
 	@include _992 {
 		padding: 30px 15px var(--drop-down-size, 30px) 30px;
@@ -509,6 +532,7 @@ section {
 		&__block {
 			z-index: 2;
 			bottom: 100%; top: auto;
+			transform: translate(0,-10px);
 		}
 	}
 
@@ -526,7 +550,7 @@ section {
 	&__block {
 		position: absolute;
 		left: 0; top: 100%;
-		width: 100%;
+		min-width: 100%;
 
 		background: var(--white);
 		box-shadow: 0px 0px 30px 0px rgba(65, 79, 124, 0.08), 0px 4px 5px 0px rgba(65, 79, 124, 0.10);

@@ -24,8 +24,9 @@ input[type="search"] {
 .input {
 	padding: 13px 20px;
 	@include _550 {
-		padding: 14px 20px;
+		padding: 13px 20px;
 	}
+
 	border: 1px solid rgba(174, 182, 206, 0.30);
 	background: #FFF;
 
@@ -36,6 +37,8 @@ input[type="search"] {
 		cursor: default;
 	}
 
+	transition: color .2s ease, border-color .2s ease;
+
 	&:read-only {
 		pointer-events: none;
 	}
@@ -43,6 +46,11 @@ input[type="search"] {
 	&.date-input {
 		pointer-events: all;
 		cursor: pointer;
+	}
+
+	&.is-error {
+		border-color: #EF3129;
+		color: #EF3129;
 	}
 }
 
@@ -125,7 +133,6 @@ input[type="search"] {
 		color: #AEB6CE;
 
 		svg {
-			padding: 1px;
 			width: 16px; height: 16px;
 		}
 
@@ -289,6 +296,10 @@ input[type="search"] {
 .ss-content .ss-list {
 	//overflow-y: hidden;
 	max-height: 300px;
+}
+
+.ss-content .ss-list .ss-option {
+	justify-content: center;
 }
 
 .custom-select.ss-content {

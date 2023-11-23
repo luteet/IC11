@@ -52,8 +52,6 @@ setInterval(() => {
 },10)
 
 
-
-
 let asideTimeout;
 body.addEventListener('click', function (event) {
 
@@ -838,18 +836,45 @@ document.querySelectorAll('.section-table__main').forEach((main, index) => {
 // =-=-=-=-=-=-=-=-=-=-=-=- <input-append-add-text> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.input-number').forEach(inputNumber => {
+
 	inputNumber.addEventListener('input', function (event) {
 		
 		let result = inputNumber.value.replace(/[\D]+/g, '');
-		
+		/* console.log(result)
+
 		if(event.inputType == "deleteContentBackward") {
 			result = result.slice(0, -1);
-		}
+		} */
 
 		inputNumber.value = result;
 
 		if(result) {
 			inputNumber.value = result + ' ' + inputNumber.dataset.addText;
+			inputNumber.setSelectionRange(result.length, result.length);
+		}
+		
+	})
+
+	inputNumber.addEventListener('click', function (event) {
+
+		let result = inputNumber.value.replace(/[\D]+/g, '');
+		inputNumber.setSelectionRange(result.length, result.length);
+		
+	})
+
+	inputNumber.addEventListener('focus', function (event) {
+
+		let result = inputNumber.value.replace(/[\D]+/g, '');
+		inputNumber.setSelectionRange(result.length, result.length);
+		
+	})
+
+	inputNumber.addEventListener('blur', function (event) {
+
+		let result = inputNumber.value.replace(/[\D]+/g, '');
+
+		if(result && Number(result) >= 99) {
+			inputNumber.value = 99 + ' ' + inputNumber.dataset.addText;
 		}
 		
 	})
@@ -880,6 +905,10 @@ function getCoords(elem) {
 
 let windowSize = 0;
 const downSidebar = document.querySelector('.down-sidebar');
+
+let mainScrollbar = new SimpleBar(document.querySelector('.main'), {
+	autoHide: false,
+});
 
 function resize() {
 
@@ -914,8 +943,9 @@ function resize() {
 
 	})
 
-	body.style.overflowY = 'auto';
-	body.scrollTop = 0;
+	//mainScrollbar.recalculate();
+	//mainScrollbar = new SimpleBar(document.querySelector('.main'));
+	
 }
 
 resize();
@@ -1020,8 +1050,6 @@ setTimeout(() => {
 	})
 },500)
 
-
-
 // =-=-=-=-=-=-=-=-=-=-=-=- </custom-select> -=-=-=-=-=-=-=-=-=-=-=-=
 
 
@@ -1078,15 +1106,18 @@ document.querySelectorAll('.popup-checkbox-list').forEach(list => {
 							checkedList.textContent = counter+1;
 							checkedList.title = counter+1;
 						} */
-						checkedList.textContent = counter+1;
-						checkedList.title = counter+1;
+
+						const appendText = (counter+1 == 1) ? checkedList.dataset['text-1'] : checkedList.dataset['text-2'];
+
+						checkedList.textContent = counter+1 + ' ' + appendText;
+						checkedList.title = counter+1 + ' ' + appendText;
+						//console.log(checkedList.dataset['text-1'])
 	
 						counter++;
 					}
 				})
 			}
 			
-
 			if(noneChecked) {
 				checkedList.title = checkedList.dataset.noneText;
 				checkedList.textContent = checkedList.dataset.noneText;
@@ -1138,6 +1169,20 @@ dateInputs.forEach(input => {
 		nextArrow: `<svg width="7" height="10" viewBox="0 0 7 10"><use xlink:href="${input.dataset.nextArrowPath}"></use></svg>`,
 		autohide: true,
 	});
+
+	input.addEventListener('show', function (event) {
+		setTimeout(() => {
+			input.classList.add('is-show');
+		},300)
+	})
+
+	input.addEventListener('click', function () {
+		if(input.classList.contains('is-show')) {
+			input.classList.remove('is-show');
+			datepicker.hide();
+			input.blur()
+		}
+	})
 
 	const currentDate = new Date(),
 	month = currentDate.getMonth()+1 > 9 ? currentDate.getMonth()+1 : '0' + (currentDate.getMonth()+1);
@@ -1229,6 +1274,7 @@ document.querySelectorAll('.copy-btn').forEach(copyBtn => {
 // =-=-=-=-=-=-=-=-=-=-=-=- <aside-nav-hover> -=-=-=-=-=-=-=-=-=-=-=-=
 
 document.querySelectorAll('.aside__nav > ul > li > a, .aside__nav > ul > li > button').forEach(target => {
+
 	target.addEventListener('pointerenter', function (event) {
 		if(getDeviceType() == "desktop" && !target.classList.contains('is-removing') && target.closest('.aside.is-min')) {
 
@@ -1257,6 +1303,7 @@ document.querySelectorAll('.aside__nav > ul > li > a, .aside__nav > ul > li > bu
 			},200)
 		})
 	})
+
 })
 
 // =-=-=-=-=-=-=-=-=-=-=-=- </aside-nav-hover> -=-=-=-=-=-=-=-=-=-=-=-=
@@ -1282,6 +1329,57 @@ document.querySelectorAll('.deadline-message').forEach(message => {
 	}
 })
 
+function validatePhoneNumber(input_str) {
+	var re = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+  
+	return re.test(input_str);
+}
+
+function validateEmail(email) {
+	let reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	return reg.test(email);
+}
+
+document.querySelectorAll('form').forEach(form => {
+
+	const emailInputs = form.querySelectorAll('input[type="email"]'),
+	telInputs = form.querySelectorAll('input[type="tel"]');
+
+	emailInputs.forEach(input => {
+		input.addEventListener('blur', function (event) {
+			if(!validateEmail(input.value)) input.classList.add('is-error'); else input.classList.remove('is-error');
+		})
+	})
+
+	telInputs.forEach(input => {
+
+		let telCode = input.closest('.tel-parent');
+		if(telCode) {
+			telCode = telCode.querySelector('.tel-code');
+		} else {
+			telCode = false;
+		}
+
+		if(telCode) {
+			input.addEventListener('blur', function (event) {
+				if(!validatePhoneNumber(telCode.value + input.value)) input.classList.add('is-error'); else input.classList.remove('is-error');
+			})
+
+			telCode.addEventListener('change', function (event) {
+				if(!validatePhoneNumber(telCode.value + input.value)) input.classList.add('is-error'); else input.classList.remove('is-error');
+			})
+		} else {
+			input.addEventListener('blur', function (event) {
+				if(!validatePhoneNumber(input.value)) input.classList.add('is-error'); else input.classList.remove('is-error');
+			})
+		}
+		
+	})
+
+	form.addEventListener('submit', function (event) {
+		if(document.querySelector('.is-error')) event.preventDefault();
+	})
+})
 
 // =-=-=-=-=-=-=-=-=-=-=-=- <popup> -=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -1456,5 +1554,9 @@ popup.init()
 window.addEventListener('load', function (event) {
 	body.classList.add('is-init')
 
-	main.querySelector('.simplebar-content-wrapper').scrollTop = 0
+	main.querySelector('.simplebar-content-wrapper').scrollTop = 0;
+
+	if(document.querySelector('.down-sidebar__chat-block')) {
+		document.querySelector('.down-sidebar__chat-block .simplebar-content-wrapper').scrollTop = document.querySelector('.down-sidebar__chat-block .simplebar-content-wrapper').scrollHeight;
+	}
 })

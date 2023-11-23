@@ -139,8 +139,8 @@
 													<div class="aside__min-drop-down--block drop-down__block">
 														<ul class="drop-down__list">
 															<li>
-																<a href="#" aria-label="Українська">
-																	Укр
+																<a href="#" aria-label="Ua">
+																	Ua
 																</a>
 															</li>
 														</ul>
@@ -190,8 +190,8 @@
 													<div class="aside__min-drop-down--block drop-down__block">
 														<ul class="drop-down__list">
 															<li>
-																<a href="#" aria-label="Українська">
-																	Укр
+																<a href="#" aria-label="Ua">
+																	Ua
 																</a>
 															</li>
 														</ul>
@@ -260,6 +260,7 @@
 				if(localStorage.getItem('ic11-aside-min') == "true") {
 					document.querySelector('.aside').classList.add('is-min');
 					document.querySelector('.aside').classList.add('is-min-2');
+					document.querySelector('html').style.setProperty('--aside-width', '65px');
 				}
 			</script>
 		</aside>
