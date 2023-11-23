@@ -3547,7 +3547,8 @@ body.is-popup-active {
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    margin-right: 10px
 }
 
 .aside__user-nav {
@@ -6809,6 +6810,10 @@ body.is-popup-active {
 }
 
 @media (min-width:992px) {
+    .section-table__search,.section-table__search.is-alternative {
+        grid-template-columns: auto 121px
+    }
+
     .section-table__change-date--slider .splide__arrow--next,.section-table__change-full-date--slider .splide__arrow--next {
         right: 5px
     }
@@ -7023,7 +7028,7 @@ body.is-popup-active {
     }
 
     .aside.is-min .aside__log-out {
-        padding: 15px 10px;
+        padding: 15px 4px;
         justify-content: center
     }
 
@@ -7032,7 +7037,7 @@ body.is-popup-active {
     }
 
     .aside.is-min .aside__add {
-        padding: 30px 10px 0
+        padding: 30px 10px 0 9px
     }
 
     .aside.is-min .aside__add--list {
@@ -7196,7 +7201,8 @@ body.is-popup-active {
     }
 
     .aside__user {
-        padding-right: 2px
+        padding-right: 2px;
+        margin-right: 0
     }
 
     .aside__user-nav {
@@ -7244,12 +7250,7 @@ body.is-popup-active {
     }
 
     .section-table__search {
-        display: grid;
-        grid-template-columns: auto 121px
-    }
-
-    .section-table__search.is-alternative {
-        grid-template-columns: auto 121px
+        display: grid
     }
 
     .section-table__head-row,.section-table__row {
