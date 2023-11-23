@@ -17,7 +17,7 @@
 			<div class="section-table__header--block block-for-is-active">
 				<div class="section-table__header--block-item">
 					<div>
-						<div class="section-table__header--row">
+						<div class="section-table__header--row row-2">
 							<div class="section-table__header--col">
 								<button type="button" class="section-table__add btn add-is-active" data-add-active-change-title="main-title">
 									Add expence
@@ -204,7 +204,8 @@
 								</span>
 							</button>
 							<div class="section-table__add-costs--set-date">
-								<input type="text" name="date" placeholder="Set date" class="input date-input" required>
+								<input type="text" name="date" placeholder="Set date" autocomplete="off" readonly class="input date-input none-disabled-style" required
+								data-prev-arrow-path="img/sprites.svg#arrow-prev" data-next-arrow-path="img/sprites.svg#arrow-next">
 								<svg width="10" height="7" viewBox="0 0 10 7">
 									<use xlink:href="img/sprites.svg#drop-down-arrow"></use>
 								</svg>

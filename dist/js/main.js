@@ -1176,6 +1176,10 @@ dateInputs.forEach(input => {
 		},300)
 	})
 
+	input.addEventListener('hide', function (event) {
+		input.classList.remove('is-show');
+	})
+
 	input.addEventListener('click', function () {
 		if(input.classList.contains('is-show')) {
 			input.classList.remove('is-show');

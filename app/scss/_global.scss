@@ -845,8 +845,9 @@ section {
 }
 
 .back-btn {
-	height: 45px;
+	height: 40px;
 	@include _992 {
+		height: 45px;
 		flex: 0 0 56px; width: 56px;
 	}
 	border: 1px solid var(--accent);
@@ -855,10 +856,7 @@ section {
 	span {
 		padding-left: 5px;
 
-		font-size: 0.75rem;
-		@include _992 {
-			font-size: 0.875rem;
-		}
+		font-size: 0.875rem;
 	}
 
 	background: transparent;
