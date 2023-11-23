@@ -306,11 +306,12 @@
 			}
 	
 			&__add {
-				padding: 30px 10px 0 9px;
+				padding: 30px 10px 10px 9px;
 			}
 
 			&__add--list {
 				padding-left: 0; padding-right: 0;
+				width: 50px;
 			}
 
 			&__add--item {
@@ -324,7 +325,7 @@
 			&__user--avatar {
 				//margin-right: 0;
 				width: 45px; height: 45px; flex: 0 0 45px;
-				margin-left: 2px; margin-right: 0;
+				margin-left: 3px; margin-right: 0;
 			}
 
 			&__user--name {
@@ -336,9 +337,14 @@
 			}
 
 			&__language--target {
+				padding: 20px 0;
 				/* height: 40px;
 				padding:  0; */
 			}
+
+			/* &__min-drop-down--target {
+				padding: 10px 0;
+			} */
 		}
 
 		&__change-on-min {
@@ -861,10 +867,15 @@
 			border-top: 1px solid rgba(94, 100, 115, 0.3);
 			
 			display: flex;
-			flex-wrap: wrap;
 			justify-content: center;
 
-			transition: padding-left .3s ease, padding-right .3s ease;
+			&.to-min {
+				flex-direction: column;
+			}
+
+			transition: padding-left .3s ease, padding-right .3s ease, width .4s ease;
+
+			width: 100%;
 
 			gap: 10px 30px;
 
@@ -877,6 +888,8 @@
 				justify-content: space-between;
 			}
 		}
+
+
 
 		&--row {
 			display: flex;
@@ -898,6 +911,10 @@
 		
 	}
 
+	&__add--list.to-min .aside__min-drop-down--target {
+		padding: 0px 0;
+	}
+
 	&__min-drop-down {
 		&--target {
 			background: transparent;
@@ -905,7 +922,7 @@
 			display: inline-flex;
 			align-items: center;
 
-			padding: 10px 0;
+			padding: 15px 0;
 
 			i {
 				flex: 0 0 15px; margin-right: 5px;
@@ -1107,7 +1124,7 @@
 			background: transparent;
 			width: 100%;
 
-			padding: 30px 0;
+			padding: 20px 0;
 			
 			display: flex;
 			align-items: center;
@@ -1121,7 +1138,7 @@
 			
 
 			@include _992 {
-				//height: auto;
+				padding: 30px 0;
 				word-break: break-all;
 			}
 
