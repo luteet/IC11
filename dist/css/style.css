@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */.aside .simplebar-wrapper,button,hr,input {
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */button,hr,input {
     overflow: visible
 }
 
@@ -658,6 +658,11 @@ summary {
     width: fit-content
 }
 
+.datepicker span,.ss-content .ss-list .ss-option,.ss-main .ss-values .ss-value {
+    -webkit-user-select: none;
+    -ms-user-select: none
+}
+
 .ss-main .ss-values .ss-single {
     display: flex;
     margin: auto 0 auto var(--ss-spacing-s)
@@ -665,8 +670,6 @@ summary {
 
 .ss-main .ss-values .ss-value {
     display: flex;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     align-items: center;
     width: -webkit-fit-content;
@@ -1000,8 +1003,6 @@ summary {
     padding: var(--ss-spacing-m) var(--ss-spacing-l);
     color: var(--ss-font-color);
     cursor: pointer;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none
 }
 
@@ -1069,6 +1070,11 @@ summary {
     display: flex
 }
 
+.btn,.datepicker-controls .button {
+    display: inline-flex;
+    text-align: center
+}
+
 .datepicker-header .datepicker-controls {
     padding: 2px 2px 0
 }
@@ -1081,7 +1087,6 @@ summary {
     box-shadow: none;
     color: #363636;
     cursor: pointer;
-    display: inline-flex;
     font-size: 1rem;
     height: 2.25em;
     justify-content: center;
@@ -1089,7 +1094,6 @@ summary {
     margin: 0;
     padding: calc(.375em - 1px) .75em;
     position: relative;
-    text-align: center;
     vertical-align: top;
     white-space: nowrap
 }
@@ -1191,8 +1195,6 @@ summary {
     cursor: default;
     display: flex;
     justify-content: center;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none
 }
 
@@ -1620,16 +1622,18 @@ html {
     background: #f3f4f8
 }
 
-body {
-    font-family: var(--main-font);
-    font-weight: 400;
-    line-height: 150%;
+.btn,.message__text,body {
     font-size: .875rem
 }
 
-.btn,.message__text {
-    font-size: .875rem;
-    font-weight: 500
+body {
+    font-family: var(--main-font);
+    font-weight: 400;
+    line-height: 150%
+}
+
+.checkbox__input,.visually-hidden,body.is-mobile-menu-active,body.is-popup-active {
+    overflow: hidden
 }
 
 body .simplebar-scrollbar.simplebar-visible::before {
@@ -1644,10 +1648,6 @@ body .simplebar-track.simplebar-horizontal {
 
 body .simplebar-track.simplebar-vertical {
     width: 9px
-}
-
-body.is-mobile-menu-active {
-    overflow: hidden
 }
 
 body:not(.is-init) .drop-down-2__block,body:not(.is-init) .ss-content {
@@ -1830,11 +1830,10 @@ section {
 }
 
 .btn {
-    display: inline-flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     line-height: 100%;
+    font-weight: 500;
     text-decoration: none;
     padding: 14px 5px;
     background: var(--accent);
@@ -1854,6 +1853,11 @@ section {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none
+}
+
+.drop-down__list a,.drop-down__target {
+    -webkit-user-select: none;
+    -ms-user-select: none
 }
 
 .btn.is-transparent {
@@ -1918,8 +1922,7 @@ section {
     white-space: nowrap;
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden
+    clip: rect(0 0 0 0)
 }
 
 .drop-down {
@@ -1978,8 +1981,6 @@ section {
 }
 
 .drop-down__target {
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none
 }
 
@@ -1989,14 +1990,17 @@ section {
     transition: transform .2s ease,color .2s ease,-webkit-transform .2s ease
 }
 
+.drop-down-absolute__block,.drop-down__block {
+    transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
+    position: absolute
+}
+
 .drop-down__block {
-    position: absolute;
     left: 0;
     top: 100%;
     min-width: 100%;
     background: var(--white);
     box-shadow: 0 0 30px 0 rgba(65,79,124,.08),0 4px 5px 0 rgba(65,79,124,.1);
-    transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
     transition: opacity .3s ease,visibility .3s ease,transform .3s ease;
     transition: opacity .3s ease,visibility .3s ease,transform .3s ease,-webkit-transform .3s ease;
     opacity: 0;
@@ -2013,8 +2017,6 @@ section {
 .drop-down__list a {
     display: block;
     padding: 15px;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     color: #5f6472;
     text-decoration: none;
@@ -2030,8 +2032,7 @@ section {
     top: var(--y);
     opacity: 0;
     background: var(--white);
-    box-shadow: 0 0 30px 0 rgba(65,79,124,.08),0 4px 5px 0 rgba(65,79,124,.1);
-    position: absolute
+    box-shadow: 0 0 30px 0 rgba(65,79,124,.08),0 4px 5px 0 rgba(65,79,124,.1)
 }
 
 .drop-down-2.is-dark .drop-down-2__list a {
@@ -2039,6 +2040,7 @@ section {
 }
 
 .drop-down-2__block {
+    position: absolute;
     -webkit-transform: translate(-50%,0);
     transform: translate(-50%,0);
     width: auto;
@@ -2093,7 +2095,6 @@ section {
 }
 
 .drop-down-absolute__block {
-    transition: opacity .3s ease,visibility .3s ease,-webkit-transform .3s ease;
     transition: opacity .3s ease,visibility .3s ease,transform .3s ease;
     transition: opacity .3s ease,visibility .3s ease,transform .3s ease,-webkit-transform .3s ease;
     visibility: hidden
@@ -2102,10 +2103,6 @@ section {
 .drop-down-absolute__block.is-right,.drop-down-absolute__block.is-right-default {
     left: auto;
     right: var(--x)
-}
-
-.aside__block,.change-title>* {
-    transition: opacity .3s ease,visibility .3s ease
 }
 
 .drop-down-absolute__block.is-active {
@@ -2133,7 +2130,8 @@ section {
 }
 
 .change-title>* {
-    grid-area: 1/1
+    grid-area: 1/1;
+    transition: opacity .3s ease,visibility .3s ease
 }
 
 .change-title>:nth-child(1) {
@@ -2165,6 +2163,7 @@ section {
 
 .message__text {
     line-height: 120%;
+    font-weight: 500;
     grid-column: 1/3;
     grid-row: 1;
     text-align: center;
@@ -2331,8 +2330,7 @@ input:not([readonly]):focus::placeholder,textarea:not([readonly]):focus::placeho
     white-space: nowrap;
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden
+    clip: rect(0 0 0 0)
 }
 
 .checkbox__input:checked+.checkbox__element {
@@ -2527,10 +2525,6 @@ body {
     padding-right: var(--popup-padding)
 }
 
-body.is-popup-active {
-    overflow: hidden
-}
-
 .popup {
     position: fixed;
     left: 0;
@@ -2666,7 +2660,7 @@ body.is-popup-active {
     margin-top: 10px
 }
 
-.popup-text+.popup-form,.popup-title+.popup-form {
+.popup-text+.popup-form,.popup-title+.popup-form,.profile__footer,.profile__info {
     margin-top: 30px
 }
 
@@ -2873,15 +2867,15 @@ body.is-popup-active {
     display: block
 }
 
+.aside__change-on-min>:nth-child(2),.aside__slide-toggle,.sub-popup-employee__body--wrapper .popup-close-btn {
+    display: none
+}
+
 .sub-popup-employee__body--wrapper {
     position: relative;
     padding: 15px 0 0;
     max-height: calc(var(--vh,1vh) *100 + 20px);
     background: var(--white)
-}
-
-.sub-popup-employee__body--wrapper .popup-close-btn {
-    display: none
 }
 
 .sub-popup-employee__container {
@@ -2979,7 +2973,6 @@ body.is-popup-active {
 }
 
 .profile__info {
-    margin-top: 30px;
     flex: 1 1 auto
 }
 
@@ -3066,7 +3059,6 @@ body.is-popup-active {
 .profile__footer {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
     gap: 10px;
     padding-bottom: 2px;
     width: 100%
@@ -3087,10 +3079,6 @@ body.is-popup-active {
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px
-}
-
-.aside,.aside__add--list.to-min,.aside__block--body,.aside__body {
-    flex-direction: column
 }
 
 .approve-timesheet__buttons>* {
@@ -3127,7 +3115,16 @@ body.is-popup-active {
     left: 0;
     top: 0;
     z-index: 4;
-    display: flex
+    display: flex;
+    flex-direction: column
+}
+
+.aside__add--list.to-min,.aside__block--body,.aside__body {
+    flex-direction: column
+}
+
+.aside .simplebar-wrapper {
+    overflow: visible
 }
 
 .aside .simplebar-mask {
@@ -3184,7 +3181,6 @@ body.is-popup-active {
 }
 
 .aside__slide-toggle {
-    display: none;
     position: absolute;
     right: 0;
     top: 30px;
@@ -3195,10 +3191,6 @@ body.is-popup-active {
     transform: translate(100%,0);
     background: rgba(46,49,51,.1);
     color: var(--text-color)
-}
-
-.aside__body .simplebar-scrollbar::before,.aside__burger span {
-    background: var(--white)
 }
 
 .aside__slide-toggle svg {
@@ -3212,10 +3204,6 @@ body.is-popup-active {
 .aside.is-min-2 .aside__slide-toggle svg {
     -webkit-transform: translate(0,-1px) rotate(-90deg);
     transform: translate(0,-1px) rotate(-90deg)
-}
-
-.aside__change-on-min>:nth-child(2) {
-    display: none
 }
 
 .aside.is-mobile-menu-active .aside__body::before {
@@ -3247,6 +3235,10 @@ body.is-popup-active {
     display: flex;
     flex-direction: column;
     justify-content: space-between
+}
+
+.aside__body .simplebar-scrollbar::before {
+    background: var(--white)
 }
 
 .aside.is-mobile-menu-active .aside__block {
@@ -3302,6 +3294,7 @@ body.is-popup-active {
     left: 0;
     width: 100%;
     height: 2px;
+    background: var(--white);
     transition-duration: .3s;
     transition-timing-function: ease;
     transition-property: top,opacity,visibility,-webkit-transform;
@@ -3358,7 +3351,8 @@ body.is-popup-active {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    overflow-x: visible
+    overflow-x: visible;
+    transition: opacity .3s ease,visibility .3s ease
 }
 
 .aside__block--background {
@@ -3381,6 +3375,13 @@ body.is-popup-active {
     height: 497px;
     z-index: -1;
     opacity: .02
+}
+
+.aside__nav button~div a,.aside__nav>ul>li>a,.aside__nav>ul>li>button {
+    position: relative;
+    line-height: 140%;
+    font-weight: 500;
+    text-decoration: none
 }
 
 .aside__block--background::before {
@@ -3409,12 +3410,8 @@ body.is-popup-active {
     display: flex;
     align-items: center;
     width: 100%;
-    position: relative;
     border-left: 3px solid transparent;
     color: var(--text-color);
-    text-decoration: none;
-    line-height: 140%;
-    font-weight: 500;
     background: rgba(0,0,0,0);
     transition: padding .2s ease,-webkit-transform .2s ease;
     transition: padding .2s ease,transform .2s ease;
@@ -3482,11 +3479,7 @@ body.is-popup-active {
 .aside__nav button~div a {
     padding: 10px 20px 10px 52.5px;
     display: block;
-    position: relative;
-    color: var(--text-color);
-    text-decoration: none;
-    line-height: 140%;
-    font-weight: 500
+    color: var(--text-color)
 }
 
 .aside__nav button~div a::before {
@@ -3638,19 +3631,16 @@ body.is-popup-active {
     transition: opacity .2s ease
 }
 
-.aside__language--target,.aside__log-out {
-    display: flex;
-    font-weight: 500;
-    font-size: .875rem
-}
-
 .aside__log-out {
     flex: 1 1 auto;
     border: 1px solid var(--accent);
     color: var(--white);
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-size: .875rem;
     line-height: 120%;
+    font-weight: 500;
     text-decoration: none;
     padding: 14px;
     transition: background .2s ease,color .2s ease,border-color .2s ease,padding .2s ease
@@ -3679,9 +3669,12 @@ body.is-popup-active {
     background: rgba(0,0,0,0);
     width: 100%;
     padding: 20px 0;
+    display: flex;
     align-items: center;
     justify-content: center;
+    font-size: .875rem;
     line-height: 140%;
+    font-weight: 500;
     color: var(--white);
     transition: color .2s ease,padding .3s ease,height .3s ease
 }
@@ -3896,10 +3889,6 @@ body.is-popup-active {
 .section-table__search--submit {
     position: relative;
     z-index: 2
-}
-
-.section-table__change-date {
-    justify-self: start
 }
 
 .section-table__change-date--target {
