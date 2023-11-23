@@ -7051,7 +7051,9 @@ body.is-popup-active {
     .aside.is-min .aside__user--avatar {
         width: 45px;
         height: 45px;
-        flex: 0 0 45px
+        flex: 0 0 45px;
+        margin-left: 2px;
+        margin-right: 0
     }
 
     .aside__block,.aside__body {
