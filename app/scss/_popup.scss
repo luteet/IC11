@@ -650,7 +650,10 @@ body {
 	}
 
 	.popup-container {
-		padding-right: 15px;
+		@include _550 {
+			padding-right: 30px;
+		}
+		
 		@include _768 {
 			padding-right: 30px;
 		}
@@ -887,6 +890,20 @@ body {
 
 			a {
 				color: #5F6472;
+			}
+		}
+
+		&--button {
+			background: rgba(174, 182, 206, 0.20);
+			color: var(--text-color);
+			font-size: 0.875rem;
+			line-height: 140%;
+			text-decoration: none;
+
+			display: block;
+			padding: 13px 20px;
+			@include _550 {
+				padding: 13px 20px;
 			}
 		}
 	}
